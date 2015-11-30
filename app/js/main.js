@@ -32,13 +32,18 @@ exports['default'] = config;
 module.exports = exports['default'];
 
 },{}],2:[function(require,module,exports){
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
-exports["default"] = {};
-module.exports = exports["default"];
+exports['default'] = {
+  URL: 'https://fierce-temple-2624.herokuapp.com/',
+  CONFIG: {
+    headers: {}
+  }
+};
+module.exports = exports['default'];
 
 },{}],3:[function(require,module,exports){
 'use strict';
@@ -61,28 +66,37 @@ var _constantsServerConstant2 = _interopRequireDefault(_constantsServerConstant)
 
 _angular2['default'].module('app.core', ['ui.router']).config(_config2['default']).constant('SERVER', _constantsServerConstant2['default']);
 
-},{"./config":1,"./constants/server.constant":2,"angular":12,"angular-ui-router":10}],4:[function(require,module,exports){
-"use strict";
+},{"./config":1,"./constants/server.constant":2,"angular":13,"angular-ui-router":11}],4:[function(require,module,exports){
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var HomeController = function HomeController() {
+var HomeController = function HomeController(HomeService) {
 
   var vm = this;
 
   vm.register = register;
+  vm.login = login;
 
   function register(user) {
     // console.log(user);
+    HomeService.register(user).then(function (res) {
+      console.log(res);
+    });
+  }
 
+  function login(user) {
+    HomeService.login(user).then(function (res) {
+      console.log(res);
+    });
   }
 };
 
-HomeController.$inject = [];
+HomeController.$inject = ['HomeService'];
 
-exports["default"] = HomeController;
-module.exports = exports["default"];
+exports['default'] = HomeController;
+module.exports = exports['default'];
 
 },{}],5:[function(require,module,exports){
 'use strict';
@@ -97,9 +111,59 @@ var _controllersHomeController = require('./controllers/home.controller');
 
 var _controllersHomeController2 = _interopRequireDefault(_controllersHomeController);
 
-_angular2['default'].module('app.layout', []).controller('HomeController', _controllersHomeController2['default']);
+var _servicesHomeService = require('./services/home.service');
 
-},{"./controllers/home.controller":4,"angular":12}],6:[function(require,module,exports){
+var _servicesHomeService2 = _interopRequireDefault(_servicesHomeService);
+
+_angular2['default'].module('app.layout', []).controller('HomeController', _controllersHomeController2['default']).service('HomeService', _servicesHomeService2['default']);
+
+},{"./controllers/home.controller":4,"./services/home.service":6,"angular":13}],6:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+var HomeService = function HomeService($http, SERVER) {
+
+  this.register = register;
+  this.login = login;
+
+  var User = function User(obj) {
+    this.email = obj.email;
+    this.password = obj.password;
+    this.username = obj.username;
+  };
+
+  function register(user) {
+
+    var u = new User(user);
+    console.log(u);
+
+    return $http.post(SERVER.URL + 'signup', u);
+
+    // return $http({
+    //   url: url + 'signup',
+    //   method: 'POST',
+
+    //   data:{
+    //     email: user.email,
+    //     username: user.username,
+    //     password: user.password
+    //   }
+    // })
+  }
+
+  function login(user) {
+    console.log(user);
+  }
+};
+
+HomeService.$inject = ['$http', 'SERVER'];
+
+exports['default'] = HomeService;
+module.exports = exports['default'];
+
+},{}],7:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -112,7 +176,7 @@ DashController.$inject = [];
 exports["default"] = DashController;
 module.exports = exports["default"];
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -125,7 +189,7 @@ RegisterController.$inject = [];
 exports["default"] = RegisterController;
 module.exports = exports["default"];
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -146,7 +210,7 @@ var _controllersRegisterController2 = _interopRequireDefault(_controllersRegiste
 
 angular.module('app.words', ['app.core']).controller('DashController', _controllersDashController2['default']).controller('RegisterController', _controllersRegisterController2['default']);
 
-},{"../app-core/index":3,"./controllers/dash.controller":6,"./controllers/register.controller":7,"angular":12}],9:[function(require,module,exports){
+},{"../app-core/index":3,"./controllers/dash.controller":7,"./controllers/register.controller":8,"angular":13}],10:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -163,7 +227,7 @@ require('./app-words/index');
 
 _angular2['default'].module('app', ['app.core', 'app.layout', 'app.words']);
 
-},{"./app-core/index":3,"./app-layout/index":5,"./app-words/index":8,"angular":12}],10:[function(require,module,exports){
+},{"./app-core/index":3,"./app-layout/index":5,"./app-words/index":9,"angular":13}],11:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -4534,7 +4598,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -33553,11 +33617,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":11}]},{},[9])
+},{"./angular":12}]},{},[10])
 
 
 //# sourceMappingURL=main.js.map
