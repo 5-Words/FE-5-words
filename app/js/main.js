@@ -87,6 +87,7 @@ var HomeController = function HomeController(HomeService) {
   }
 
   function login(user) {
+    // console.log(user);
     HomeService.login(user).then(function (res) {
       console.log(res);
     });
@@ -137,24 +138,13 @@ var HomeService = function HomeService($http, SERVER) {
   function register(user) {
 
     var u = new User(user);
-    console.log(u);
 
     return $http.post(SERVER.URL + 'signup', u);
-
-    // return $http({
-    //   url: url + 'signup',
-    //   method: 'POST',
-
-    //   data:{
-    //     email: user.email,
-    //     username: user.username,
-    //     password: user.password
-    //   }
-    // })
   }
 
   function login(user) {
     console.log(user);
+    return $http.post(SERVER.URL + 'login', user);
   }
 };
 

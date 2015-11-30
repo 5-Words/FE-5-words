@@ -13,6 +13,7 @@ let HomeController = function(HomeService) {
   }
 
   function login (user) {
+    // console.log(user);
     HomeService.login(user).then( (res) => {
       console.log(res);
     })
