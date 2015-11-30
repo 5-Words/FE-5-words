@@ -15,6 +15,14 @@ var config = function config($urlRouterProvider, $stateProvider) {
     url: '/',
     controller: 'HomeController as vm',
     templateUrl: 'templates/app-layout/home.tpl.html'
+  }).state('root.dashboard', {
+    url: '/dash',
+    controller: 'DashController as vm',
+    templateUrl: 'templates/app-words/dash.tpl.html'
+  }).state('root.register', {
+    url: '/register',
+    controller: 'RegisterController as vm',
+    templateUrl: 'templates/app-words/register.tpl.html'
   });
 };
 
@@ -53,13 +61,23 @@ var _constantsServerConstant2 = _interopRequireDefault(_constantsServerConstant)
 
 _angular2['default'].module('app.core', ['ui.router']).config(_config2['default']).constant('SERVER', _constantsServerConstant2['default']);
 
-},{"./config":1,"./constants/server.constant":2,"angular":9,"angular-ui-router":7}],4:[function(require,module,exports){
+},{"./config":1,"./constants/server.constant":2,"angular":12,"angular-ui-router":10}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var HomeController = function HomeController() {};
+var HomeController = function HomeController() {
+
+  var vm = this;
+
+  vm.register = register;
+
+  function register(user) {
+    // console.log(user);
+
+  }
+};
 
 HomeController.$inject = [];
 
@@ -81,7 +99,54 @@ var _controllersHomeController2 = _interopRequireDefault(_controllersHomeControl
 
 _angular2['default'].module('app.layout', []).controller('HomeController', _controllersHomeController2['default']);
 
-},{"./controllers/home.controller":4,"angular":9}],6:[function(require,module,exports){
+},{"./controllers/home.controller":4,"angular":12}],6:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var DashController = function DashController() {};
+
+DashController.$inject = [];
+
+exports["default"] = DashController;
+module.exports = exports["default"];
+
+},{}],7:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var RegisterController = function RegisterController() {};
+
+RegisterController.$inject = [];
+
+exports["default"] = RegisterController;
+module.exports = exports["default"];
+
+},{}],8:[function(require,module,exports){
+'use strict';
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _angular = require('angular');
+
+var _angular2 = _interopRequireDefault(_angular);
+
+require('../app-core/index');
+
+var _controllersDashController = require('./controllers/dash.controller');
+
+var _controllersDashController2 = _interopRequireDefault(_controllersDashController);
+
+var _controllersRegisterController = require('./controllers/register.controller');
+
+var _controllersRegisterController2 = _interopRequireDefault(_controllersRegisterController);
+
+angular.module('app.words', ['app.core']).controller('DashController', _controllersDashController2['default']).controller('RegisterController', _controllersRegisterController2['default']);
+
+},{"../app-core/index":3,"./controllers/dash.controller":6,"./controllers/register.controller":7,"angular":12}],9:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -94,9 +159,11 @@ require('./app-core/index');
 
 require('./app-layout/index');
 
-_angular2['default'].module('app', ['app.core', 'app.layout']);
+require('./app-words/index');
 
-},{"./app-core/index":3,"./app-layout/index":5,"angular":9}],7:[function(require,module,exports){
+_angular2['default'].module('app', ['app.core', 'app.layout', 'app.words']);
+
+},{"./app-core/index":3,"./app-layout/index":5,"./app-words/index":8,"angular":12}],10:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -4467,7 +4534,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],8:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -33486,11 +33553,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],9:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":8}]},{},[6])
+},{"./angular":11}]},{},[9])
 
 
 //# sourceMappingURL=main.js.map
