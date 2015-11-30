@@ -1,14 +1,14 @@
-let HomeController = function(HomeService) {
+let HomeController = function(HomeService, $cookies, $state) {
   
   let vm = this;
 
   vm.register      = register;
-  vm.login        = login;
+  vm.login         = login;
 
   function register (user) {
     // console.log(user);
     HomeService.register(user).then( (res) => {
-      console.log(res);
+      $state.go('root.register');
     })
   }
 
@@ -16,11 +16,13 @@ let HomeController = function(HomeService) {
     // console.log(user);
     HomeService.login(user).then( (res) => {
       console.log(res);
+      $cookies.put('authToken', res.data.access_token);
+      $state.go('root.dashboard')
     })
   }
 
 };
 
-HomeController.$inject = ['HomeService'];
+HomeController.$inject = ['HomeService', '$cookies', '$state'];
 
 export default HomeController;  
