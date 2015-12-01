@@ -17,7 +17,7 @@ let config = function($urlRouterProvider, $stateProvider) {
       views: {
         sidebar: {
           controller: 'DashSideController as vm',
-          templateUrl: 'templates/app-words/dash.tpl.html'
+          templateUrl: 'templates/app-words/dash.side.tpl.html'
         },
         content: {
           controller: 'GoldenController as vm',
@@ -27,7 +27,38 @@ let config = function($urlRouterProvider, $stateProvider) {
           template: '<small>I am a footer</small>'
         }
       }
-      
+    }) 
+    .state('root.travel', {
+      url: '/travel',
+      views: {
+        sidebar: {
+          controller: 'DashSideController as vm',
+          templateUrl: 'templates/app-words/dash.side.tpl.html'
+        },
+        content: {
+          controller: 'GoldenController as vm',
+          templateUrl: 'templates/app-words/travel.tpl.html'
+        },
+        footer: {
+          template: '<small>I am a footer</small>'
+        }
+      }
+    })
+    .state('root.tech', {
+      url: '/tech',
+      views: {
+        sidebar: {
+          controller: 'DashSideController as vm',
+          templateUrl: 'templates/app-words/dash.side.tpl.html'
+        },
+        content: {
+          controller: 'TechController as vm',
+          templateUrl: 'templates/app-words/tech.tpl.html'
+        },
+        footer: {
+          template: '<small>I am a footer</small>'
+        }
+      }  
     })
     .state('root.register', {
       url: '/register',

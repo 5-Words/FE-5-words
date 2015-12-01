@@ -20,7 +20,7 @@ var config = function config($urlRouterProvider, $stateProvider) {
     views: {
       sidebar: {
         controller: 'DashSideController as vm',
-        templateUrl: 'templates/app-words/dash.tpl.html'
+        templateUrl: 'templates/app-words/dash.side.tpl.html'
       },
       content: {
         controller: 'GoldenController as vm',
@@ -30,7 +30,36 @@ var config = function config($urlRouterProvider, $stateProvider) {
         template: '<small>I am a footer</small>'
       }
     }
-
+  }).state('root.travel', {
+    url: '/travel',
+    views: {
+      sidebar: {
+        controller: 'DashSideController as vm',
+        templateUrl: 'templates/app-words/dash.side.tpl.html'
+      },
+      content: {
+        controller: 'GoldenController as vm',
+        templateUrl: 'templates/app-words/travel.tpl.html'
+      },
+      footer: {
+        template: '<small>I am a footer</small>'
+      }
+    }
+  }).state('root.tech', {
+    url: '/tech',
+    views: {
+      sidebar: {
+        controller: 'DashSideController as vm',
+        templateUrl: 'templates/app-words/dash.side.tpl.html'
+      },
+      content: {
+        controller: 'TechController as vm',
+        templateUrl: 'templates/app-words/tech.tpl.html'
+      },
+      footer: {
+        template: '<small>I am a footer</small>'
+      }
+    }
   }).state('root.register', {
     url: '/register',
     controller: 'RegisterController as vm',
@@ -78,7 +107,7 @@ var _constantsServerConstant2 = _interopRequireDefault(_constantsServerConstant)
 
 _angular2['default'].module('app.core', ['ui.router']).config(_config2['default']).constant('SERVER', _constantsServerConstant2['default']);
 
-},{"./config":1,"./constants/server.constant":2,"angular":17,"angular-ui-router":15}],4:[function(require,module,exports){
+},{"./config":1,"./constants/server.constant":2,"angular":19,"angular-ui-router":17}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -138,7 +167,7 @@ var _servicesHomeService2 = _interopRequireDefault(_servicesHomeService);
 
 _angular2['default'].module('app.layout', ['ngCookies']).controller('HomeController', _controllersHomeController2['default']).service('HomeService', _servicesHomeService2['default']);
 
-},{"./controllers/home.controller":4,"./services/home.service":6,"angular":17,"angular-cookies":14}],6:[function(require,module,exports){
+},{"./controllers/home.controller":4,"./services/home.service":6,"angular":19,"angular-cookies":16}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -266,6 +295,32 @@ exports['default'] = RegisterController;
 module.exports = exports['default'];
 
 },{}],10:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var TechController = function TechController() {};
+
+TechController.$inject = [];
+
+exports["default"] = TechController;
+module.exports = exports["default"];
+
+},{}],11:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var TravelController = function TravelController() {};
+
+TravelController.$inject = [];
+
+exports["default"] = TravelController;
+module.exports = exports["default"];
+
+},{}],12:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -278,13 +333,25 @@ require('../app-core/index');
 
 require('angular-cookies');
 
+//Controllers
+
 var _controllersDashSideController = require('./controllers/dash.side.controller');
 
 var _controllersDashSideController2 = _interopRequireDefault(_controllersDashSideController);
 
+//View Controllers
+
 var _controllersGoldenController = require('./controllers/golden.controller');
 
 var _controllersGoldenController2 = _interopRequireDefault(_controllersGoldenController);
+
+var _controllersTravelController = require('./controllers/travel.controller');
+
+var _controllersTravelController2 = _interopRequireDefault(_controllersTravelController);
+
+var _controllersTechController = require('./controllers/tech.controller');
+
+var _controllersTechController2 = _interopRequireDefault(_controllersTechController);
 
 var _controllersRegisterController = require('./controllers/register.controller');
 
@@ -294,9 +361,9 @@ var _servicesWordService = require('./services/word.service');
 
 var _servicesWordService2 = _interopRequireDefault(_servicesWordService);
 
-angular.module('app.words', ['app.core', 'ngCookies']).controller('GoldenController', _controllersGoldenController2['default']).controller('RegisterController', _controllersRegisterController2['default']).controller('DashSideController', _controllersDashSideController2['default']).service('WordService', _servicesWordService2['default']);
+angular.module('app.words', ['app.core', 'ngCookies']).controller('GoldenController', _controllersGoldenController2['default']).controller('TravelController', _controllersTravelController2['default']).controller('TechController', _controllersTechController2['default']).controller('RegisterController', _controllersRegisterController2['default']).controller('DashSideController', _controllersDashSideController2['default']).service('WordService', _servicesWordService2['default']);
 
-},{"../app-core/index":3,"./controllers/dash.side.controller":7,"./controllers/golden.controller":8,"./controllers/register.controller":9,"./services/word.service":11,"angular":17,"angular-cookies":14}],11:[function(require,module,exports){
+},{"../app-core/index":3,"./controllers/dash.side.controller":7,"./controllers/golden.controller":8,"./controllers/register.controller":9,"./controllers/tech.controller":10,"./controllers/travel.controller":11,"./services/word.service":13,"angular":19,"angular-cookies":16}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -325,7 +392,7 @@ WordService.$inject = ['$http', 'SERVER', '$cookies'];
 exports['default'] = WordService;
 module.exports = exports['default'];
 
-},{}],12:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -342,7 +409,7 @@ require('./app-words/index');
 
 _angular2['default'].module('app', ['app.core', 'app.layout', 'app.words']);
 
-},{"./app-core/index":3,"./app-layout/index":5,"./app-words/index":10,"angular":17}],13:[function(require,module,exports){
+},{"./app-core/index":3,"./app-layout/index":5,"./app-words/index":12,"angular":19}],15:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -665,11 +732,11 @@ angular.module('ngCookies').provider('$$cookieWriter', function $$CookieWriterPr
 
 })(window, window.angular);
 
-},{}],14:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 require('./angular-cookies');
 module.exports = 'ngCookies';
 
-},{"./angular-cookies":13}],15:[function(require,module,exports){
+},{"./angular-cookies":15}],17:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -5040,7 +5107,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],16:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -34059,11 +34126,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],17:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":16}]},{},[12])
+},{"./angular":18}]},{},[14])
 
 
 //# sourceMappingURL=main.js.map
