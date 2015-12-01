@@ -6,7 +6,7 @@ let RegisterController = function($http, SERVER, $state, HomeService, $cookies) 
 
   function addWords (words) {
     HomeService.addWords(words).then( (res) => {
-      // console.log(res);
+      console.log(res);
     })
   }
   

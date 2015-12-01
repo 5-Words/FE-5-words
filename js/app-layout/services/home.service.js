@@ -4,6 +4,8 @@ let HomeService = function($http, SERVER, $cookies) {
   this.register    = register;
   this.login       = login;
   this.addWords    = addWords;
+  
+
 
   //REGISTER
   let User = function (obj) {
@@ -32,23 +34,21 @@ let HomeService = function($http, SERVER, $cookies) {
     let auth = $cookies.get('authToken');
     // console.log(auth);
     let g = new Golden(user);
-    // console.log(user);
-
-    console.log(g);
-    // return $http.post(SERVER.URL + 'create', user);
-    $http({
+  
+    return $http({
       url: SERVER.URL + 'create',
       method: 'POST',
       headers:{
-        auth_token: auth
-      }, //headers
+        access_token: auth
+      }, 
+      data: g
 
-     })//$http
+     })
   }
 
   //LOGIN
   function login (user) {
-    console.log(user);
+    
     return $http.post(SERVER.URL + 'login', user);
   }
 

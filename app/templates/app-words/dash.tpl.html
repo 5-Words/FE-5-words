@@ -1,8 +1,16 @@
-<nav>
-  <select>
-    <option value="travel">Travel</option>
-    <option value="lived">Places lived</option>
-    <option value="events">Events</option>
-    <option value="Technology">Technology</option>
-  </select>
-</nav>
+<aside class="dashSide">
+  <ul>
+    <li><a href="" ng-click="">Travel</a></li>
+    <li><a href="">Places Lived</a></li>
+    <li><a href="">Events</a></li>
+    <li><a href="">Technology</a></li>
+  </ul>
+</aside>
+
+<div>
+  <ul ng-repeat="g in golden">
+    <li>{{g.id}}</li>
+  </ul>
+</div>
+
+

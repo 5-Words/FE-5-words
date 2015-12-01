@@ -66,7 +66,7 @@ var _constantsServerConstant2 = _interopRequireDefault(_constantsServerConstant)
 
 _angular2['default'].module('app.core', ['ui.router']).config(_config2['default']).constant('SERVER', _constantsServerConstant2['default']);
 
-},{"./config":1,"./constants/server.constant":2,"angular":15,"angular-ui-router":13}],4:[function(require,module,exports){
+},{"./config":1,"./constants/server.constant":2,"angular":16,"angular-ui-router":14}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -122,7 +122,7 @@ var _servicesHomeService2 = _interopRequireDefault(_servicesHomeService);
 
 _angular2['default'].module('app.layout', ['ngCookies']).controller('HomeController', _controllersHomeController2['default']).service('HomeService', _servicesHomeService2['default']);
 
-},{"./controllers/home.controller":4,"./services/home.service":6,"angular":15,"angular-cookies":12}],6:[function(require,module,exports){
+},{"./controllers/home.controller":4,"./services/home.service":6,"angular":16,"angular-cookies":13}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -159,23 +159,21 @@ var HomeService = function HomeService($http, SERVER, $cookies) {
     var auth = $cookies.get('authToken');
     // console.log(auth);
     var g = new Golden(user);
-    // console.log(user);
 
-    console.log(g);
-    // return $http.post(SERVER.URL + 'create', user);
-    $http({
+    return $http({
       url: SERVER.URL + 'create',
       method: 'POST',
       headers: {
-        auth_token: auth
-      } }); //$http
+        access_token: auth
+      },
+      data: g
+
+    });
   }
 
   //LOGIN
-  //headers
-
   function login(user) {
-    console.log(user);
+
     return $http.post(SERVER.URL + 'login', user);
   }
 };
@@ -186,17 +184,30 @@ exports['default'] = HomeService;
 module.exports = exports['default'];
 
 },{}],7:[function(require,module,exports){
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var DashController = function DashController() {};
+var DashController = function DashController(HomeService) {
 
-DashController.$inject = [];
+  var vm = this;
 
-exports["default"] = DashController;
-module.exports = exports["default"];
+  // this.getGolden = getGolden;
+
+  // getGolden();
+
+  // function getGolden () {
+  //   WordService.getGolden().then( (res) => {
+
+  //   })
+  // }
+};
+
+DashController.$inject = ['HomeService'];
+
+exports['default'] = DashController;
+module.exports = exports['default'];
 
 },{}],8:[function(require,module,exports){
 'use strict';
@@ -212,7 +223,7 @@ var RegisterController = function RegisterController($http, SERVER, $state, Home
 
   function addWords(words) {
     HomeService.addWords(words).then(function (res) {
-      // console.log(res);
+      console.log(res);
     });
   }
 };
@@ -241,9 +252,41 @@ var _controllersRegisterController = require('./controllers/register.controller'
 
 var _controllersRegisterController2 = _interopRequireDefault(_controllersRegisterController);
 
-angular.module('app.words', ['app.core']).controller('DashController', _controllersDashController2['default']).controller('RegisterController', _controllersRegisterController2['default']);
+var _servicesWordService = require('./services/word.service');
 
-},{"../app-core/index":3,"./controllers/dash.controller":7,"./controllers/register.controller":8,"angular":15}],10:[function(require,module,exports){
+var _servicesWordService2 = _interopRequireDefault(_servicesWordService);
+
+angular.module('app.words', ['app.core']).controller('DashController', _controllersDashController2['default']).controller('RegisterController', _controllersRegisterController2['default']).service('WordService', _servicesWordService2['default']);
+
+},{"../app-core/index":3,"./controllers/dash.controller":7,"./controllers/register.controller":8,"./services/word.service":10,"angular":16}],10:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+var WordService = function WordService($http, SERVER, $cookies) {
+
+  this.getGolden = getGolden;
+
+  //GET GOLDEN WORDS
+  // function getGolden () {
+  //  let auth = $cookies.get('authToken');
+  //  return $http({
+  //     url: SERVER.URL,
+  //     method: 'GET',
+  //     headers:{
+  //       access_token: auth
+  //     }
+  //   })
+  // }
+};
+
+WordService.$inject = ['$http'];
+
+exports['default'] = WordService;
+module.exports = exports['default'];
+
+},{}],11:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -260,7 +303,7 @@ require('./app-words/index');
 
 _angular2['default'].module('app', ['app.core', 'app.layout', 'app.words']);
 
-},{"./app-core/index":3,"./app-layout/index":5,"./app-words/index":9,"angular":15}],11:[function(require,module,exports){
+},{"./app-core/index":3,"./app-layout/index":5,"./app-words/index":9,"angular":16}],12:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -583,11 +626,11 @@ angular.module('ngCookies').provider('$$cookieWriter', function $$CookieWriterPr
 
 })(window, window.angular);
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 require('./angular-cookies');
 module.exports = 'ngCookies';
 
-},{"./angular-cookies":11}],13:[function(require,module,exports){
+},{"./angular-cookies":12}],14:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -4958,7 +5001,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -33977,11 +34020,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":14}]},{},[10])
+},{"./angular":15}]},{},[11])
 
 
 //# sourceMappingURL=main.js.map
