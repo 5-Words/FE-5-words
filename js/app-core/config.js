@@ -16,10 +16,12 @@ let config = function($urlRouterProvider, $stateProvider) {
       url: '/golden',
       views: {
         sidebar: {
-          template: '<p>I am a sidebar</p>'
+          controller: 'DashSideController as vm',
+          templateUrl: 'templates/app-words/dash.tpl.html'
         },
         content: {
-          template: '<p>I am a content</p>'
+          controller: 'GoldenController as vm',
+          templateUrl: 'templates/app-words/golden.tpl.html'
         },
         footer: {
           template: '<small>I am a footer</small>'
