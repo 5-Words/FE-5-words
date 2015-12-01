@@ -12,10 +12,20 @@ let config = function($urlRouterProvider, $stateProvider) {
       controller: 'HomeController as vm',
       templateUrl: 'templates/app-layout/home.tpl.html'
     })
-    .state('root.dashboard', {
-      url: '/dash',
-      controller: 'DashController as vm',
-      templateUrl: 'templates/app-words/dash.tpl.html'
+    .state('root.golden', {
+      url: '/golden',
+      views: {
+        sidebar: {
+          template: '<p>I am a sidebar</p>'
+        },
+        content: {
+          template: '<p>I am a content</p>'
+        },
+        footer: {
+          template: '<small>I am a footer</small>'
+        }
+      }
+      
     })
     .state('root.register', {
       url: '/register',

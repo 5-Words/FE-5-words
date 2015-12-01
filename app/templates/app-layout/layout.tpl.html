@@ -1,7 +1,12 @@
 <a href="#/">Home</a>
-<a href="#/dash">Dashboard</a>
+<a href="#/golden">Dashboard</a>
 <a href="#/register">Register</a>
 <hr>
 
-
 <div ui-view></div>
+<aside ui-view="sidebar"></aside>
+
+<section class="container" ui-view="content"></section>
+
+<footer ui-view="footer"></footer>
+

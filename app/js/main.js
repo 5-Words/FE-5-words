@@ -15,10 +15,20 @@ var config = function config($urlRouterProvider, $stateProvider) {
     url: '/',
     controller: 'HomeController as vm',
     templateUrl: 'templates/app-layout/home.tpl.html'
-  }).state('root.dashboard', {
-    url: '/dash',
-    controller: 'DashController as vm',
-    templateUrl: 'templates/app-words/dash.tpl.html'
+  }).state('root.golden', {
+    url: '/golden',
+    views: {
+      sidebar: {
+        template: '<p>I am a sidebar</p>'
+      },
+      content: {
+        template: '<p>I am a content</p>'
+      },
+      footer: {
+        template: '<small>I am a footer</small>'
+      }
+    }
+
   }).state('root.register', {
     url: '/register',
     controller: 'RegisterController as vm',
@@ -66,7 +76,7 @@ var _constantsServerConstant2 = _interopRequireDefault(_constantsServerConstant)
 
 _angular2['default'].module('app.core', ['ui.router']).config(_config2['default']).constant('SERVER', _constantsServerConstant2['default']);
 
-},{"./config":1,"./constants/server.constant":2,"angular":16,"angular-ui-router":14}],4:[function(require,module,exports){
+},{"./config":1,"./constants/server.constant":2,"angular":17,"angular-ui-router":15}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -82,15 +92,19 @@ var HomeController = function HomeController(HomeService, $cookies, $state) {
   function register(user) {
     // console.log(user);
     HomeService.register(user).then(function (res) {
+      console.log(res);
+
+      $cookies.put('authToken', res.data.access_token);
+
       $state.go('root.register');
     });
   }
 
   function login(user) {
-    // console.log(user);
     HomeService.login(user).then(function (res) {
-      console.log(res);
-      $cookies.put('authToken', res.data.access_token);
+      // console.log(res);
+      var auth = $cookies.put('authToken', res.data.access_token);
+      // console.log(auth);
       $state.go('root.dashboard');
     });
   }
@@ -122,7 +136,7 @@ var _servicesHomeService2 = _interopRequireDefault(_servicesHomeService);
 
 _angular2['default'].module('app.layout', ['ngCookies']).controller('HomeController', _controllersHomeController2['default']).service('HomeService', _servicesHomeService2['default']);
 
-},{"./controllers/home.controller":4,"./services/home.service":6,"angular":16,"angular-cookies":13}],6:[function(require,module,exports){
+},{"./controllers/home.controller":4,"./services/home.service":6,"angular":17,"angular-cookies":14}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -184,32 +198,48 @@ exports['default'] = HomeService;
 module.exports = exports['default'];
 
 },{}],7:[function(require,module,exports){
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var DashController = function DashController(HomeService) {
+var DashSideController = function DashSideController() {};
+
+DashSideController.$inject = [];
+
+exports["default"] = DashSideController;
+module.exports = exports["default"];
+
+},{}],8:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var GoldenController = function GoldenController(WordService) {
 
   var vm = this;
 
-  // this.getGolden = getGolden;
+  this.getGolden = getGolden;
 
   // getGolden();
 
-  // function getGolden () {
-  //   WordService.getGolden().then( (res) => {
-
-  //   })
-  // }
+  function getGolden() {
+    var golden = "golden";
+    WordService.getGolden(golden).then(function (res) {
+      // console.log(res);
+      vm.golden = res.data;
+    });
+    // WordService.getGolden();
+  }
 };
 
-DashController.$inject = ['HomeService'];
+GoldenController.$inject = ['WordService'];
 
-exports['default'] = DashController;
-module.exports = exports['default'];
+exports["default"] = GoldenController;
+module.exports = exports["default"];
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -233,7 +263,7 @@ RegisterController.$inject = ['$http', 'SERVER', '$state', 'HomeService', '$cook
 exports['default'] = RegisterController;
 module.exports = exports['default'];
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -244,9 +274,15 @@ var _angular2 = _interopRequireDefault(_angular);
 
 require('../app-core/index');
 
-var _controllersDashController = require('./controllers/dash.controller');
+require('angular-cookies');
 
-var _controllersDashController2 = _interopRequireDefault(_controllersDashController);
+var _controllersDashSideController = require('./controllers/dash.side.controller');
+
+var _controllersDashSideController2 = _interopRequireDefault(_controllersDashSideController);
+
+var _controllersGoldenController = require('./controllers/golden.controller');
+
+var _controllersGoldenController2 = _interopRequireDefault(_controllersGoldenController);
 
 var _controllersRegisterController = require('./controllers/register.controller');
 
@@ -256,9 +292,9 @@ var _servicesWordService = require('./services/word.service');
 
 var _servicesWordService2 = _interopRequireDefault(_servicesWordService);
 
-angular.module('app.words', ['app.core']).controller('DashController', _controllersDashController2['default']).controller('RegisterController', _controllersRegisterController2['default']).service('WordService', _servicesWordService2['default']);
+angular.module('app.words', ['app.core', 'ngCookies']).controller('GoldenController', _controllersGoldenController2['default']).controller('RegisterController', _controllersRegisterController2['default']).controller('DashSideController', _controllersDashSideController2['default']).service('WordService', _servicesWordService2['default']);
 
-},{"../app-core/index":3,"./controllers/dash.controller":7,"./controllers/register.controller":8,"./services/word.service":10,"angular":16}],10:[function(require,module,exports){
+},{"../app-core/index":3,"./controllers/dash.side.controller":7,"./controllers/golden.controller":8,"./controllers/register.controller":9,"./services/word.service":11,"angular":17,"angular-cookies":14}],11:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -269,24 +305,25 @@ var WordService = function WordService($http, SERVER, $cookies) {
   this.getGolden = getGolden;
 
   //GET GOLDEN WORDS
-  // function getGolden () {
-  //  let auth = $cookies.get('authToken');
-  //  return $http({
-  //     url: SERVER.URL,
-  //     method: 'GET',
-  //     headers:{
-  //       access_token: auth
-  //     }
-  //   })
-  // }
+  function getGolden(golden) {
+    var auth = $cookies.get('authToken');
+    console.log(auth);
+    return $http({
+      url: SERVER.URL + 'category/' + golden,
+      method: 'GET',
+      headers: {
+        access_token: auth
+      }
+    });
+  }
 };
 
-WordService.$inject = ['$http'];
+WordService.$inject = ['$http', 'SERVER', '$cookies'];
 
 exports['default'] = WordService;
 module.exports = exports['default'];
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -303,7 +340,7 @@ require('./app-words/index');
 
 _angular2['default'].module('app', ['app.core', 'app.layout', 'app.words']);
 
-},{"./app-core/index":3,"./app-layout/index":5,"./app-words/index":9,"angular":16}],12:[function(require,module,exports){
+},{"./app-core/index":3,"./app-layout/index":5,"./app-words/index":10,"angular":17}],13:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -626,11 +663,11 @@ angular.module('ngCookies').provider('$$cookieWriter', function $$CookieWriterPr
 
 })(window, window.angular);
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 require('./angular-cookies');
 module.exports = 'ngCookies';
 
-},{"./angular-cookies":12}],14:[function(require,module,exports){
+},{"./angular-cookies":13}],15:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -5001,7 +5038,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -34020,11 +34057,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":15}]},{},[11])
+},{"./angular":16}]},{},[12])
 
 
 //# sourceMappingURL=main.js.map
