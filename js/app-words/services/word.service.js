@@ -5,7 +5,7 @@ let WordService = function($http, SERVER, $cookies) {
   //GET GOLDEN WORDS
   function getGolden (golden) {
    let auth = $cookies.get('authToken');
-   console.log(auth);
+   // console.log(auth);
    return $http({
       url: SERVER.URL + 'category/' + golden ,
       method: 'GET',

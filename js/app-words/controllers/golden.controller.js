@@ -3,16 +3,30 @@ let GoldenController = function(WordService) {
   let vm = this;
 
   this.getGolden = getGolden;
+  this.editWords = editWords;
+  this.deleteWords = deleteWords;
 
-  // getGolden();
+  
+
+  getGolden();
 
   function getGolden () {
     let golden = "golden";
     WordService.getGolden(golden).then( (res) => {
-      // console.log(res);
+      // console.log(res); 
       vm.golden = res.data;
     })
     // WordService.getGolden();
+  }
+
+  //Edit Words
+  function editWords (words) {
+    console.log(words);
+  }
+
+  //Delete Category 
+  function deleteWords () {
+    console.log('Deleted');
   }
   
 

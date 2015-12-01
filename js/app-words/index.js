@@ -10,6 +10,9 @@ import DashSideController from './controllers/dash.side.controller';
 import GoldenController from './controllers/golden.controller';
 import TravelController from './controllers/travel.controller';
 import TechController from './controllers/tech.controller';
+import SportsController from './controllers/sports.controller';
+import FoodieController from './controllers/foodie.controller';
+import BooksController from './controllers/books.controller';
 
 
 
@@ -25,6 +28,9 @@ angular
   .controller('GoldenController', GoldenController)
   .controller('TravelController', TravelController)
   .controller('TechController', TechController)
+  .controller('SportsController', SportsController)
+  .controller('FoodieController', FoodieController)
+  .controller('BooksController', BooksController)
 
 
 

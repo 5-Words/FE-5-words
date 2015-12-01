@@ -1,4 +1,4 @@
-let TechController = function(WordService) {
+let SportsController = function(WordService) {
   
   let vm = this;
 
@@ -15,10 +15,9 @@ let TechController = function(WordService) {
   function deleteWords () {
     console.log('Deleted');
   }
-  
 
 };
 
-TechController.$inject = ['WordService'];
+SportsController.$inject = ['WordService'];
 
-export default TechController;
+export default SportsController;

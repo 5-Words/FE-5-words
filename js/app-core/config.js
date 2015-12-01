@@ -60,6 +60,54 @@ let config = function($urlRouterProvider, $stateProvider) {
         }
       }  
     })
+    .state('root.sports', {
+      url: '/sports',
+      views: {
+        sidebar: {
+          controller: 'DashSideController as vm',
+          templateUrl: 'templates/app-words/dash.side.tpl.html'
+        },
+        content: {
+          controller: 'SportsController as vm',
+          templateUrl: 'templates/app-words/sports.tpl.html'
+        },
+        footer: {
+          template: '<small>I am a footer</small>'
+        }
+      }  
+    })
+    .state('root.foodie', {
+      url: '/foodie',
+      views: {
+        sidebar: {
+          controller: 'DashSideController as vm',
+          templateUrl: 'templates/app-words/dash.side.tpl.html'
+        },
+        content: {
+          controller: 'FoodieController as vm',
+          templateUrl: 'templates/app-words/foodie.tpl.html'
+        },
+        footer: {
+          template: '<small>I am a footer</small>'
+        }
+      }  
+    })
+      .state('root.books', {
+      url: '/books',
+      views: {
+        sidebar: {
+          controller: 'DashSideController as vm',
+          templateUrl: 'templates/app-words/dash.side.tpl.html'
+        },
+        content: {
+          controller: 'BooksController as vm',
+          templateUrl: 'templates/app-words/books.tpl.html'
+        },
+        footer: {
+          template: '<small>I am a footer</small>'
+        }
+      }  
+    })
     .state('root.register', {
       url: '/register',
       controller: 'RegisterController as vm',

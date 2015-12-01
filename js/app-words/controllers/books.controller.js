@@ -1,4 +1,4 @@
-let TechController = function(WordService) {
+let BooksController = function(WordService) {
   
   let vm = this;
 
@@ -19,6 +19,6 @@ let TechController = function(WordService) {
 
 };
 
-TechController.$inject = ['WordService'];
+BooksController.$inject = ['WordService'];
 
-export default TechController;
+export default BooksController;
