@@ -15,6 +15,10 @@ import FoodieController from './controllers/foodie.controller';
 import BooksController from './controllers/books.controller';
 import AddController from './controllers/add.controller';
 import EditController from './controllers/edit.controller';
+import MusicController from './controllers/music.controller';
+import FilmController from './controllers/film.controller';
+import PetsController from './controllers/pets.controller';
+import CarsController from './controllers/cars.controller';
 
 
 
@@ -34,6 +38,13 @@ angular
   .controller('SportsController', SportsController)
   .controller('FoodieController', FoodieController)
   .controller('BooksController', BooksController)
+  .controller('MusicController', MusicController)
+  .controller('FilmController', FilmController)
+  .controller('PetsController', PetsController)
+  .controller('CarsController', CarsController)
+
+
+
   .controller('AddController', AddController)
   .controller('EditController', EditController)
 

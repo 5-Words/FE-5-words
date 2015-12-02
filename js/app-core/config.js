@@ -108,6 +108,78 @@ let config = function($urlRouterProvider, $stateProvider) {
         }
       }  
     })
+    .state('root.music', {
+      url: '/music',
+      views: {
+        sidebar: {
+          controller: 'DashSideController as vm',
+          templateUrl: 'templates/app-words/dash.side.tpl.html'
+        },
+        content: {
+          controller: 'MusicController as vm',
+          templateUrl: 'templates/app-words/music.tpl.html'
+        },
+        footer: {
+          template: '<small>I am a footer</small>'
+        }
+      }  
+    })  
+    .state('root.film', {
+      url: '/film',
+      views: {
+        sidebar: {
+          controller: 'DashSideController as vm',
+          templateUrl: 'templates/app-words/dash.side.tpl.html'
+        },
+        content: {
+          controller: 'FilmController as vm',
+          templateUrl: 'templates/app-words/film.tpl.html'
+        },
+        footer: {
+          template: '<small>I am a footer</small>'
+        }
+      }  
+    }) 
+    .state('root.pets', {
+      url: '/pets',
+      views: {
+        sidebar: {
+          controller: 'DashSideController as vm',
+          templateUrl: 'templates/app-words/dash.side.tpl.html'
+        },
+        content: {
+          controller: 'PetsController as vm',
+          templateUrl: 'templates/app-words/pets.tpl.html'
+        },
+        footer: {
+          template: '<small>I am a footer</small>'
+        }
+      }  
+    }) 
+    .state('root.cars', {
+      url: '/cars',
+      views: {
+        sidebar: {
+          controller: 'DashSideController as vm',
+          templateUrl: 'templates/app-words/dash.side.tpl.html'
+        },
+        content: {
+          controller: 'CarsController as vm',
+          templateUrl: 'templates/app-words/pets.tpl.html'
+        },
+        footer: {
+          template: '<small>I am a footer</small>'
+        }
+      }  
+    }) 
+
+
+
+
+
+
+
+
     .state('root.register', {
       url: '/register',
       controller: 'RegisterController as vm',
