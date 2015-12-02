@@ -44,7 +44,7 @@ let HomeService = function($http, SERVER, $cookies) {
       data: g
 
      })
-  }
+  } 
 
   //LOGIN
   function login (user) {

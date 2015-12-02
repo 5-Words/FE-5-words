@@ -2,9 +2,9 @@ let GoldenController = function(WordService) {
   
   let vm = this;
 
-  this.getGolden = getGolden;
-  this.editWords = editWords;
-  this.deleteWords = deleteWords;
+  this.getGolden      = getGolden;
+  this.editWords      = editWords;
+  this.deleteWords    = deleteWords;
 
   
 
@@ -18,6 +18,7 @@ let GoldenController = function(WordService) {
     })
     // WordService.getGolden();
   }
+
 
   //Edit Words
   function editWords (words) {

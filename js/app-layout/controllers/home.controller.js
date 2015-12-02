@@ -18,10 +18,10 @@ let HomeController = function(HomeService, $cookies, $state) {
 
   function login (user) {
     HomeService.login(user).then( (res) => {
-      // console.log(res);
+      console.log(res);
       let auth = $cookies.put('authToken', res.data.access_token);
-      // console.log(auth);
-      $state.go('root.dashboard')
+      let userId = $cookies.put('userId', res.data.id);
+      $state.go('root.golden');
     })
   }
 

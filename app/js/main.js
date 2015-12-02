@@ -38,7 +38,7 @@ var config = function config($urlRouterProvider, $stateProvider) {
         templateUrl: 'templates/app-words/dash.side.tpl.html'
       },
       content: {
-        controller: 'GoldenController as vm',
+        controller: 'TravelController as vm',
         templateUrl: 'templates/app-words/travel.tpl.html'
       },
       footer: {
@@ -178,10 +178,10 @@ var HomeController = function HomeController(HomeService, $cookies, $state) {
 
   function login(user) {
     HomeService.login(user).then(function (res) {
-      // console.log(res);
+      console.log(res);
       var auth = $cookies.put('authToken', res.data.access_token);
-      // console.log(auth);
-      $state.go('root.dashboard');
+      var userId = $cookies.put('userId', res.data.id);
+      $state.go('root.golden');
     });
   }
 };
@@ -283,8 +283,17 @@ var BooksController = function BooksController(WordService) {
 
   var vm = this;
 
+  this.addWords = addWords;
   this.editWords = editWords;
   this.deleteWords = deleteWords;
+
+  //Add Words
+  function addWords(words, category) {
+    console.log(category);
+    WordService.addWords(words, category).then(function (res) {
+      console.log(res);
+    });
+  }
 
   //Edit Words
   function editWords(words) {
@@ -325,8 +334,17 @@ var FoodieController = function FoodieController(WordService) {
 
   var vm = this;
 
+  this.addWords = addWords;
   this.editWords = editWords;
   this.deleteWords = deleteWords;
+
+  //Add Words
+  function addWords(words, category) {
+    console.log(category);
+    WordService.addWords(words, category).then(function (res) {
+      console.log(res);
+    });
+  }
 
   //Edit Words
   function editWords(words) {
@@ -419,8 +437,16 @@ var SportsController = function SportsController(WordService) {
 
   var vm = this;
 
+  this.addWords = addWords;
   this.editWords = editWords;
   this.deleteWords = deleteWords;
+
+  //Add Words
+  function addWords(words, category) {
+    WordService.addWords(words, category).then(function (res) {
+      console.log(res);
+    });
+  }
 
   //Edit Words
   function editWords(words) {
@@ -448,8 +474,16 @@ var TechController = function TechController(WordService) {
 
   var vm = this;
 
+  this.addWords = addWords;
   this.editWords = editWords;
   this.deleteWords = deleteWords;
+
+  //Add Words
+  function addWords(words, category) {
+    WordService.addWords(words, category).then(function (res) {
+      console.log(res);
+    });
+  }
 
   //Edit Words
   function editWords(words) {
@@ -477,8 +511,17 @@ var TravelController = function TravelController(WordService) {
 
   var vm = this;
 
+  this.addWords = addWords;
   this.editWords = editWords;
   this.deleteWords = deleteWords;
+
+  //Add Words
+  function addWords(words, category) {
+    console.log(category);
+    WordService.addWords(words, category).then(function (res) {
+      console.log(res);
+    });
+  }
 
   //Edit Words
   function editWords(words) {
@@ -560,6 +603,7 @@ Object.defineProperty(exports, '__esModule', {
 var WordService = function WordService($http, SERVER, $cookies) {
 
   this.getGolden = getGolden;
+  this.addWords = addWords;
 
   //GET GOLDEN WORDS
   function getGolden(golden) {
@@ -571,6 +615,34 @@ var WordService = function WordService($http, SERVER, $cookies) {
       headers: {
         access_token: auth
       }
+    });
+  }
+
+  //ADD WORDS
+  //Constructor for creating new categories
+  var Category = function Category(obj, category) {
+    this.one = obj.one;
+    this.two = obj.two;
+    this.three = obj.three;
+    this.four = obj.four;
+    this.five = obj.five;
+    this.category = category;
+  };
+
+  function addWords(user, category) {
+    var auth = $cookies.get('authToken');
+    //Create an instance of the category object
+    var words = new Category(user, category);
+    console.log(words);
+
+    return $http({
+      url: SERVER.URL + 'create',
+      method: 'POST',
+      headers: {
+        access_token: auth
+      },
+      data: words
+
     });
   }
 };

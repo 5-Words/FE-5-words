@@ -36,7 +36,7 @@ let config = function($urlRouterProvider, $stateProvider) {
           templateUrl: 'templates/app-words/dash.side.tpl.html'
         },
         content: {
-          controller: 'GoldenController as vm',
+          controller: 'TravelController as vm',
           templateUrl: 'templates/app-words/travel.tpl.html'
         },
         footer: {
