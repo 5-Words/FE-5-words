@@ -288,7 +288,7 @@ Object.defineProperty(exports, '__esModule', {
   value: true
 });
 var addController = function addController(WordService, $stateParams) {
-  // console.log(category);
+
   var vm = this;
 
   this.addWords = addWords;
@@ -297,14 +297,10 @@ var addController = function addController(WordService, $stateParams) {
 
   vm.category = category;
 
-  console.log(category);
-
   //Add Words
   function addWords(words, category) {
-    console.log(category);
-    WordService.addWords(words, category).then(function (res) {
-      console.log(res);
-    });
+
+    WordService.addWords(words, category).then(function (res) {});
   }
 };
 
@@ -319,18 +315,27 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var BooksController = function BooksController(WordService) {
+var BooksController = function BooksController(WordService, $state) {
 
   var vm = this;
 
-  this.addWords = addWords;
   this.editWords = editWords;
 
-  //Add Words
-  function addWords(words, category) {
-    console.log(category);
-    WordService.addWords(words, category).then(function (res) {
-      console.log(res);
+  getWords();
+  //Get Words
+  function getWords() {
+
+    var category = "books";
+    WordService.getWords(category).then(function (res) {
+      vm.words = res.data;
+      var data = res.data.length;
+      if (data) {
+
+        $state.go('root.books');
+      } else {
+
+        $state.go('root.add', { category: category });
+      }
     });
   }
 
@@ -340,7 +345,7 @@ var BooksController = function BooksController(WordService) {
   }
 };
 
-BooksController.$inject = ['WordService'];
+BooksController.$inject = ['WordService', '$state'];
 
 exports['default'] = BooksController;
 module.exports = exports['default'];
@@ -391,18 +396,27 @@ module.exports = exports["default"];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var FoodieController = function FoodieController(WordService) {
+var FoodieController = function FoodieController(WordService, $state) {
 
   var vm = this;
 
-  this.addWords = addWords;
   this.editWords = editWords;
 
-  //Add Words
-  function addWords(words, category) {
-    console.log(category);
-    WordService.addWords(words, category).then(function (res) {
-      console.log(res);
+  getWords();
+  //Get Words
+  function getWords() {
+
+    var category = "foodie";
+    WordService.getWords(category).then(function (res) {
+      vm.words = res.data;
+      var data = res.data.length;
+      if (data) {
+
+        $state.go('root.foodie');
+      } else {
+
+        $state.go('root.add', { category: category });
+      }
     });
   }
 
@@ -412,7 +426,7 @@ var FoodieController = function FoodieController(WordService) {
   }
 };
 
-FoodieController.$inject = ['WordService'];
+FoodieController.$inject = ['WordService', '$state'];
 
 exports['default'] = FoodieController;
 module.exports = exports['default'];
@@ -427,7 +441,6 @@ var GoldenController = function GoldenController(WordService) {
 
   var vm = this;
 
-  this.getGolden = getGolden;
   this.editWords = editWords;
 
   getGolden();
@@ -482,17 +495,27 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var SportsController = function SportsController(WordService) {
+var SportsController = function SportsController(WordService, $state) {
 
   var vm = this;
 
-  this.addWords = addWords;
   this.editWords = editWords;
 
-  //Add Words
-  function addWords(words, category) {
-    WordService.addWords(words, category).then(function (res) {
-      console.log(res);
+  getWords();
+  //Get Words
+  function getWords() {
+
+    var category = "sports";
+    WordService.getWords(category).then(function (res) {
+      vm.words = res.data;
+      var data = res.data.length;
+      if (data) {
+
+        $state.go('root.sports');
+      } else {
+
+        $state.go('root.add', { category: category });
+      }
     });
   }
 
@@ -502,42 +525,38 @@ var SportsController = function SportsController(WordService) {
   }
 };
 
-SportsController.$inject = ['WordService'];
+SportsController.$inject = ['WordService', '$state'];
 
 exports['default'] = SportsController;
 module.exports = exports['default'];
 
 },{}],15:[function(require,module,exports){
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var TechController = function TechController(WordService) {
-
-  // console.log('TechController');
+var TechController = function TechController(WordService, $state) {
 
   var vm = this;
 
-  this.getWords = getWords;
-  this.addWords = addWords;
   this.editWords = editWords;
 
   getWords();
-
   //Get Words
   function getWords() {
-    var category = "tech";
 
+    var category = "tech";
     WordService.getWords(category).then(function (res) {
       vm.words = res.data;
-    });
-  }
+      var data = res.data.length;
+      if (data) {
 
-  //Add Words
-  function addWords(words, category) {
-    WordService.addWords(words, category).then(function (res) {
-      // console.log(res);
+        $state.go('root.tech');
+      } else {
+
+        $state.go('root.add', { category: category });
+      }
     });
   }
 
@@ -547,10 +566,10 @@ var TechController = function TechController(WordService) {
   }
 };
 
-TechController.$inject = ['WordService'];
+TechController.$inject = ['WordService', '$state'];
 
-exports["default"] = TechController;
-module.exports = exports["default"];
+exports['default'] = TechController;
+module.exports = exports['default'];
 
 },{}],16:[function(require,module,exports){
 'use strict';
@@ -562,7 +581,6 @@ var TravelController = function TravelController(WordService, $state) {
 
   var vm = this;
 
-  this.addWords = addWords;
   this.editWords = editWords;
 
   getWords();
@@ -572,26 +590,16 @@ var TravelController = function TravelController(WordService, $state) {
 
     var category = "travel";
     WordService.getWords(category).then(function (res) {
-      console.log(res);
       vm.words = res.data;
       var data = res.data.length;
-      console.log(data);
-      if (data) {
-        $state.go('root.add', { category: category });
 
-        // $state.go('root.travel')
+      if (data) {
+
+        $state.go('root.travel');
       } else {
 
-          $state.go('root.add');
-        }
-    });
-  }
-
-  //Add Words
-  function addWords(words, category) {
-    console.log(category);
-    WordService.addWords(words, category).then(function (res) {
-      // console.log(res);
+        $state.go('root.add', { category: category });
+      }
     });
   }
 

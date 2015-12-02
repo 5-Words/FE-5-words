@@ -1,42 +1,34 @@
-let TechController = function(WordService) {
-  
-  // console.log('TechController');
+let TechController = function(WordService, $state) {
 
   let vm = this;
 
-  this.getWords       = getWords;
-  this.addWords       = addWords;
   this.editWords      = editWords;
 
-  getWords();
-
+   getWords();
   //Get Words
   function getWords () {
+
     let category = "tech";
-   
     WordService.getWords(category).then( (res) => {
       vm.words = res.data;
+      let data = res.data.length;
+      if(data) {
+       
+        $state.go('root.tech') 
+      } else {
       
-    })
-  }
-
-  //Add Words 
-  function addWords (words, category) {
-     WordService.addWords(words, category).then( (res) => {
-      // console.log(res);
-    })
-  }
+        $state.go('root.add', {category})
+      }    
+   })
+  }  
   
   //Edit Words
   function editWords (words) {
     console.log(words);
   }
 
-
-  
-
 };
 
-TechController.$inject = ['WordService'];
+TechController.$inject = ['WordService', '$state'];
 
 export default TechController;

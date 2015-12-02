@@ -1,26 +1,34 @@
-let SportsController = function(WordService) {
+let SportsController = function(WordService, $state) {
   
   let vm = this;
 
-  this.addWords       = addWords;
   this.editWords      = editWords;
 
-    //Add Words 
-  function addWords (words, category) {
-     WordService.addWords(words, category).then( (res) => {
-      console.log(res);
-    })
-  }
+  getWords();
+  //Get Words
+  function getWords () {
+
+    let category = "sports";
+    WordService.getWords(category).then( (res) => {
+      vm.words = res.data;
+      let data = res.data.length;
+      if(data) {
+       
+        $state.go('root.sports') 
+      } else {
+      
+        $state.go('root.add', {category})
+      }    
+   })
+  }  
   
   //Edit Words
   function editWords (words) {
     console.log(words);
   }
 
-
-
 };
 
-SportsController.$inject = ['WordService'];
+SportsController.$inject = ['WordService', '$state'];
 
 export default SportsController;

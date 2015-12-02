@@ -1,17 +1,27 @@
-let FoodieController = function(WordService) {
+let FoodieController = function(WordService, $state) {
   
   let vm = this;
 
-  this.addWords       = addWords;
+ 
   this.editWords      = editWords;
 
-  //Add Words 
-  function addWords (words, category) {
-    console.log(category);
-     WordService.addWords(words, category).then( (res) => {
-      console.log(res);
-    })
-  }
+  getWords();
+  //Get Words
+  function getWords () {
+
+    let category = "foodie";
+    WordService.getWords(category).then( (res) => {
+      vm.words = res.data;
+      let data = res.data.length;
+      if(data) {
+       
+        $state.go('root.foodie') 
+      } else {
+      
+        $state.go('root.add', {category})
+      }    
+   })
+  }  
 
   //Edit Words
   function editWords (words) {
@@ -23,6 +33,6 @@ let FoodieController = function(WordService) {
 
 };
 
-FoodieController.$inject = ['WordService'];
+FoodieController.$inject = ['WordService', '$state'];
 
 export default FoodieController;

@@ -2,7 +2,6 @@ let TravelController = function(WordService, $state) {
   
   let vm = this;
 
-  this.addWords       = addWords;
   this.editWords      = editWords;
 
   getWords();
@@ -12,29 +11,17 @@ let TravelController = function(WordService, $state) {
 
     let category = "travel";
     WordService.getWords(category).then( (res) => {
-      console.log(res);
       vm.words = res.data;
       let data = res.data.length;
-      console.log(data);
+      
       if(data) {
-        $state.go('root.add', {category})
-
-        // $state.go('root.travel') 
+       
+        $state.go('root.travel') 
       } else {
       
-        $state.go('root.add')
-      }
-
+        $state.go('root.add', {category})
+      }  
       
-      
-    })
-  }
-
-  //Add Words 
-  function addWords (words, category) {
-    console.log(category);
-     WordService.addWords(words, category).then( (res) => {
-      // console.log(res);
     })
   }
   
@@ -42,7 +29,6 @@ let TravelController = function(WordService, $state) {
   function editWords (words) {
     console.log(words);
   }
-
 
 };
 
