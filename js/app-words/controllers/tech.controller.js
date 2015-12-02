@@ -1,15 +1,29 @@
 let TechController = function(WordService) {
   
+  // console.log('TechController');
+
   let vm = this;
 
+  this.getWords       = getWords;
   this.addWords       = addWords;
   this.editWords      = editWords;
-  this.deleteWords    = deleteWords;
+
+  getWords();
+
+  //Get Words
+  function getWords () {
+    let category = "tech";
+   
+    WordService.getWords(category).then( (res) => {
+      vm.words = res.data;
+      
+    })
+  }
 
   //Add Words 
   function addWords (words, category) {
      WordService.addWords(words, category).then( (res) => {
-      console.log(res);
+      // console.log(res);
     })
   }
   
@@ -18,10 +32,7 @@ let TechController = function(WordService) {
     console.log(words);
   }
 
-  //Delete Category 
-  function deleteWords () {
-    console.log('Deleted');
-  }
+
   
 
 };

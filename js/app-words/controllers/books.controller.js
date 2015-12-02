@@ -4,7 +4,6 @@ let BooksController = function(WordService) {
 
   this.addWords       = addWords;
   this.editWords      = editWords;
-  this.deleteWords    = deleteWords;
 
 
   //Add Words 
@@ -20,10 +19,7 @@ let BooksController = function(WordService) {
     console.log(words);
   }
 
-  //Delete Category 
-  function deleteWords () {
-    console.log('Deleted');
-  }
+ 
 
 
   

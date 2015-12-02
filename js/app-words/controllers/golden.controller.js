@@ -4,7 +4,6 @@ let GoldenController = function(WordService) {
 
   this.getGolden      = getGolden;
   this.editWords      = editWords;
-  this.deleteWords    = deleteWords;
 
   
 
@@ -14,7 +13,7 @@ let GoldenController = function(WordService) {
     let golden = "golden";
     WordService.getGolden(golden).then( (res) => {
       // console.log(res); 
-      vm.golden = res.data;
+      vm.words = res.data;
     })
     // WordService.getGolden();
   }
@@ -25,10 +24,7 @@ let GoldenController = function(WordService) {
     console.log(words);
   }
 
-  //Delete Category 
-  function deleteWords () {
-    console.log('Deleted');
-  }
+ 
   
 
 };

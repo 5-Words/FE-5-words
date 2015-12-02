@@ -13,6 +13,9 @@ import TechController from './controllers/tech.controller';
 import SportsController from './controllers/sports.controller';
 import FoodieController from './controllers/foodie.controller';
 import BooksController from './controllers/books.controller';
+import AddController from './controllers/add.controller';
+import EditController from './controllers/edit.controller';
+
 
 
 
@@ -31,6 +34,8 @@ angular
   .controller('SportsController', SportsController)
   .controller('FoodieController', FoodieController)
   .controller('BooksController', BooksController)
+  .controller('AddController', AddController)
+  .controller('EditController', EditController)
 
 
 

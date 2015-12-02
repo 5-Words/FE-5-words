@@ -113,6 +113,16 @@ let config = function($urlRouterProvider, $stateProvider) {
       controller: 'RegisterController as vm',
       templateUrl: 'templates/app-words/register.tpl.html'
     })
+    .state('root.edit', {
+      url: '/edit/:category',
+      controller: 'EditController as vm',
+      templateUrl: 'templates/app-words/edit.tpl.html'
+    })
+    .state('root.add', {
+      url: '/add/:category',
+      controller: 'AddController as vm',
+      templateUrl: 'templates/app-words/add.tpl.html'
+    })
   
 
 };

@@ -4,7 +4,6 @@ let FoodieController = function(WordService) {
 
   this.addWords       = addWords;
   this.editWords      = editWords;
-  this.deleteWords    = deleteWords;
 
   //Add Words 
   function addWords (words, category) {
@@ -19,10 +18,7 @@ let FoodieController = function(WordService) {
     console.log(words);
   }
 
-  //Delete Category 
-  function deleteWords () {
-    console.log('Deleted');
-  }
+ 
   
 
 };

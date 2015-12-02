@@ -1,5 +1,9 @@
 <div>
   <h3>Sports</h3>
+   <div ng-repeat="word in vm.words">
+  <h4 class="wordList">{{word.word}}</h4>
+  </div>
+  
   <form>
     <input type="text" placeholder="Word 1" ng-model="words.one">
     <input type="text" placeholder="Word 2" ng-model="words.two">
@@ -8,5 +12,4 @@
     <input type="text" placeholder="Word 5" ng-model="words.five">
     <button ng-click="vm.addWords(words, 'sports')">Add</button>
     <button ng-click="vm.editWords(words)">Edit</button>
-    <button ng-click="vm.deleteWords()">Delete</button>
 </div>

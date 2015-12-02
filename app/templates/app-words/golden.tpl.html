@@ -1,13 +1,9 @@
 <div>
   <h3>Golden</h3>
-  <form>
-    <input type="text" placeholder="Word 1" ng-model="words.one">
-    <input type="text" placeholder="Word 2" ng-model="words.two">
-    <input type="text" placeholder="Word 3" ng-model="words.three">
-    <input type="text" placeholder="Word 4" ng-model="words.four">
-    <input type="text" placeholder="Word 5" ng-model="words.five">
-    <button ng-click="vm.editWords(words)">Edit</button>
-    <button ng-click="vm.deleteWords()">Delete</button>
+  <form ng-repeat="word in vm.words">
+    <input type="text" placeholder="Word" ng-model="word.word">
+   </form> 
+   <button ng-click="vm.editWords(words)">Edit</button>
 </div>
 
 

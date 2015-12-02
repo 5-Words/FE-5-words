@@ -4,7 +4,6 @@ let SportsController = function(WordService) {
 
   this.addWords       = addWords;
   this.editWords      = editWords;
-  this.deleteWords    = deleteWords;
 
     //Add Words 
   function addWords (words, category) {
@@ -18,10 +17,7 @@ let SportsController = function(WordService) {
     console.log(words);
   }
 
-  //Delete Category 
-  function deleteWords () {
-    console.log('Deleted');
-  }
+
 
 };
 
