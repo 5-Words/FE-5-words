@@ -1,10 +1,13 @@
-let addController = function(WordService, $stateParams) {
+let addController = function(WordService, $stateParams, $state) {
   
   let vm = this;
 
   this.addWords = addWords;
 
   let category = $stateParams;
+  
+
+  
 
   vm.category = category;
 
@@ -13,13 +16,13 @@ let addController = function(WordService, $stateParams) {
   function addWords (words, category) {
     
      WordService.addWords(words, category).then( (res) => {
-     
+        $state.go('root.golden');
     })
   }
   
 
 };
 
-addController.$inject = ['WordService', '$stateParams'];
+addController.$inject = ['WordService', '$stateParams', '$state'];
 
 export default addController;

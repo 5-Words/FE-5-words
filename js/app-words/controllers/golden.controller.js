@@ -18,8 +18,8 @@ let GoldenController = function(WordService) {
 
 
   //Edit Words
-  function editWords (words) {
-    console.log(words);
+  function editWords (words, category) {
+    console.log(words, category);
   }
 
  

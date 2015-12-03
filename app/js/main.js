@@ -347,7 +347,7 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var addController = function addController(WordService, $stateParams) {
+var addController = function addController(WordService, $stateParams, $state) {
 
   var vm = this;
 
@@ -360,11 +360,13 @@ var addController = function addController(WordService, $stateParams) {
   //Add Words
   function addWords(words, category) {
 
-    WordService.addWords(words, category).then(function (res) {});
+    WordService.addWords(words, category).then(function (res) {
+      $state.go('root.golden');
+    });
   }
 };
 
-addController.$inject = ['WordService', '$stateParams'];
+addController.$inject = ['WordService', '$stateParams', '$state'];
 
 exports['default'] = addController;
 module.exports = exports['default'];
@@ -400,8 +402,8 @@ var BooksController = function BooksController(WordService, $state) {
   }
 
   //Edit Words
-  function editWords(words) {
-    console.log(words);
+  function editWords(words, category) {
+    console.log(words, category);
   }
 };
 
@@ -465,31 +467,41 @@ exports["default"] = DashSideController;
 module.exports = exports["default"];
 
 },{}],11:[function(require,module,exports){
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var EditController = function EditController(WordService) {
+var EditController = function EditController(WordService, $stateParams) {
 
   var vm = this;
 
   vm.getWords = getWords;
+  vm.editWords = editWords;
   //Get Words
+
+  getWords();
+
   function getWords() {
 
-    var category = "travel";
-    WordService.getWords(category).then(function (res) {
-      console.log(res);
+    var category = $stateParams;
+
+    WordService.getWords(category.category).then(function (res) {
       vm.words = res.data;
+    });
+  }
+
+  function editWords(words) {
+    WordService.editWords(words).then(function (res) {
+      console.log(res);
     });
   }
 };
 
-EditController.$inject = ['WordService'];
+EditController.$inject = ['WordService', '$stateParams'];
 
-exports["default"] = EditController;
-module.exports = exports["default"];
+exports['default'] = EditController;
+module.exports = exports['default'];
 
 },{}],12:[function(require,module,exports){
 'use strict';
@@ -597,8 +609,8 @@ var GoldenController = function GoldenController(WordService) {
   }
 
   //Edit Words
-  function editWords(words) {
-    console.log(words);
+  function editWords(words, category) {
+    console.log(words, category);
   }
 };
 
@@ -785,8 +797,8 @@ var TechController = function TechController(WordService, $state) {
   }
 
   //Edit Words
-  function editWords(words) {
-    console.log(words);
+  function editWords(words, category) {
+    $state.go('root.edit', { category: category });
   }
 };
 
@@ -828,8 +840,10 @@ var TravelController = function TravelController(WordService, $state) {
   }
 
   //Edit Words
-  function editWords(words) {
-    console.log(words);
+  function editWords(words, category) {
+    // let category1 = "travel";
+    console.log(words, category);
+    $state.go('root.edit', { category: category });
   }
 };
 
@@ -928,6 +942,7 @@ var WordService = function WordService($http, SERVER, $cookies) {
   this.getGolden = getGolden;
   this.getWords = getWords;
   this.addWords = addWords;
+  this.editWords = editWords;
 
   //GET WORDS
   function getWords(category) {
@@ -945,9 +960,10 @@ var WordService = function WordService($http, SERVER, $cookies) {
   //GET GOLDEN WORDS
   function getGolden(golden) {
     var auth = $cookies.get('authToken');
-    // console.log(auth);
+    var id = $cookies.get('userId');
+
     return $http({
-      url: SERVER.URL + 'category/' + golden,
+      url: SERVER.URL + 'words/' + id + '/' + golden,
       method: 'GET',
       headers: {
         access_token: auth
@@ -970,7 +986,6 @@ var WordService = function WordService($http, SERVER, $cookies) {
     var auth = $cookies.get('authToken');
     //Create an instance of the category object
     var words = new Category(user, category);
-    console.log(words);
 
     return $http({
       url: SERVER.URL + 'create',
@@ -979,6 +994,24 @@ var WordService = function WordService($http, SERVER, $cookies) {
         access_token: auth
       },
       data: words
+
+    });
+  }
+
+  function editWords(words) {
+    var auth = $cookies.get('authToken');
+
+    var obj = { word: 'test123', id: 299 };
+
+    var id = words[0].id;
+
+    return $http({
+      url: SERVER.URL + 'word/edit',
+      method: 'PUT',
+      headers: {
+        access_token: auth
+      },
+      data: obj
 
     });
   }

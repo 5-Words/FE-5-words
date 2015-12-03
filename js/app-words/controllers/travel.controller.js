@@ -26,8 +26,11 @@ let TravelController = function(WordService, $state) {
   }
   
   //Edit Words
-  function editWords (words) {
-    console.log(words);
+  function editWords (words, category) {
+    // let category1 = "travel";
+    console.log(words, category);
+    $state.go('root.edit', {category});
+    
   }
 
 };

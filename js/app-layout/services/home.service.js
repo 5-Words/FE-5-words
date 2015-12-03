@@ -28,7 +28,7 @@ let HomeService = function($http, SERVER, $cookies) {
     this.five = obj.five;
     this.category = 'golden';
 
-  };
+  }; 
 
   function addWords (user) {
     let auth = $cookies.get('authToken');

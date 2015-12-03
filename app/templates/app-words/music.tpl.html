@@ -1,1 +1,7 @@
-<h3>Music</h3>
+<div>
+  <h3>Music</h3>
+  <form ng-repeat="word in vm.words">
+    <input type="text" placeholder="Word" ng-model="word.word">
+   </form> 
+   <button ng-click="vm.editWords(words, 'music')">Edit</button>
+</div>

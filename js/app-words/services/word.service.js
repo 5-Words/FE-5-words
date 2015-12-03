@@ -3,11 +3,14 @@ let WordService = function($http, SERVER, $cookies) {
   this.getGolden   = getGolden;
   this.getWords    = getWords;
   this.addWords    = addWords;
+  this.editWords   = editWords;
 
   //GET WORDS
   function getWords (category) {
    let auth = $cookies.get('authToken');
    let id   = $cookies.get('userId');
+
+   
 
    return $http({
       url: SERVER.URL + 'words/' + id + '/' + category,
@@ -21,9 +24,11 @@ let WordService = function($http, SERVER, $cookies) {
   //GET GOLDEN WORDS
   function getGolden (golden) {
    let auth = $cookies.get('authToken');
-   // console.log(auth);
+   let id   = $cookies.get('userId');
+
+
    return $http({
-      url: SERVER.URL + 'category/' + golden ,
+      url: SERVER.URL + 'words/' + id + '/' + golden,
       method: 'GET',
       headers:{
         access_token: auth
@@ -47,7 +52,7 @@ let WordService = function($http, SERVER, $cookies) {
     let auth = $cookies.get('authToken');
     //Create an instance of the category object
     let words = new Category(user, category);
-    console.log(words);
+    
   
     return $http({
       url: SERVER.URL + 'create',
@@ -58,6 +63,29 @@ let WordService = function($http, SERVER, $cookies) {
       data: words
       
     })
+  }
+
+  function editWords(words) {
+    let auth = $cookies.get('authToken');
+    
+
+    let obj = 
+      {word: 'test123', id: 299}
+      
+
+    let id = words[0].id;
+  
+
+    return $http({
+      url: SERVER.URL + 'word/edit' ,
+      method: 'PUT',
+      headers:{
+        access_token: auth
+      }, 
+      data: obj
+      
+    })
+
   }
 
 };
