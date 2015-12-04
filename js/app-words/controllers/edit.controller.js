@@ -24,7 +24,7 @@ let EditController = function(WordService, $stateParams, $state) {
     if(!words) {
       return console.log('Empty');
     }
-    console.log(words);
+    
     if(!validateEmpty(words[0].word)) {
       return console.log('The first input is blank');
     }
@@ -54,20 +54,18 @@ let EditController = function(WordService, $stateParams, $state) {
     // four = four.split(' ').join('');
     // five = five.split(' ').join('');
   // //Create an object to pass to the back end
-    var lower = [
+    var words = {
+      words: [
           { new: one, id: words[0].id},
           { new: two, id: words[1].id},
           { new: three, id: words[2].id},
           { new: four, id: words[3].id},
           { new: five, id: words[4].id},
-
           ]
+        }
     ;
 
-
-    console.log(lower);
-
-    WordService.editWords(lower).then( (res) => {
+    WordService.editWords(words).then( (res) => {
       console.log(res);
       $state.go('root.golden');
     })
