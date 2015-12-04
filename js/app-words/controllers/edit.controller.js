@@ -1,4 +1,4 @@
-let EditController = function(WordService, $stateParams) {
+let EditController = function(WordService, $stateParams, $state) {
   
   let vm = this;
 
@@ -21,14 +21,15 @@ let EditController = function(WordService, $stateParams) {
   function editWords (words) {
     WordService.editWords(words).then( (res) => {
       console.log(res);
+      $state.go('root.golden');
     })
-  }
+  } 
 
 
   
 
 }; 
 
-EditController.$inject = ['WordService', '$stateParams'];
+EditController.$inject = ['WordService', '$stateParams', '$state'];
 
 export default EditController;

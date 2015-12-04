@@ -21,6 +21,10 @@ import PetsController from './controllers/pets.controller';
 import CarsController from './controllers/cars.controller';
 
 
+//Directive
+import lowercaseWord from './directives/lowercase.directive';
+
+
 
 
 import RegisterController from './controllers/register.controller';
@@ -42,6 +46,8 @@ angular
   .controller('FilmController', FilmController)
   .controller('PetsController', PetsController)
   .controller('CarsController', CarsController)
+
+  .directive('lowercaseWord', lowercaseWord)
 
 
 

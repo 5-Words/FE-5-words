@@ -24,7 +24,8 @@ let BooksController = function(WordService, $state) {
   
   //Edit Words
   function editWords (words, category) {
-    console.log(words, category);
+    $state.go('root.edit', {category});
+    
   }
 
 

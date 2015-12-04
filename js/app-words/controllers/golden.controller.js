@@ -1,4 +1,4 @@
-let GoldenController = function(WordService) {
+let GoldenController = function(WordService, $state) {
   
   let vm = this;
 
@@ -10,16 +10,16 @@ let GoldenController = function(WordService) {
   function getGolden () {
     let golden = "golden";
     WordService.getGolden(golden).then( (res) => {
-      // console.log(res); 
       vm.words = res.data;
     })
-    // WordService.getGolden();
+   
   }
 
 
   //Edit Words
   function editWords (words, category) {
-    console.log(words, category);
+    $state.go('root.edit', {category});
+
   }
 
  
@@ -27,6 +27,6 @@ let GoldenController = function(WordService) {
 
 };
 
-GoldenController.$inject = ['WordService'];
+GoldenController.$inject = ['WordService', '$state'];
 
 export default GoldenController; 

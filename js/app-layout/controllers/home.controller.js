@@ -6,9 +6,9 @@ let HomeController = function(HomeService, $cookies, $state) {
   vm.login         = login;
 
   function register (user) {
-    // console.log(user);
+   
     HomeService.register(user).then( (res) => {
-      console.log(res);
+  
       
       $cookies.put('authToken', res.data.access_token);
       

@@ -24,8 +24,9 @@ let FoodieController = function(WordService, $state) {
   }  
 
   //Edit Words
-  function editWords (words) {
-    console.log(words);
+  function editWords (words, category) {
+    $state.go('root.edit', {category});
+    
   }
 
  
