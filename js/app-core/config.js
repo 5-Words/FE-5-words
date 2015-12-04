@@ -230,6 +230,23 @@ let config = function($urlRouterProvider, $stateProvider) {
       } 
     }) 
 
+    .state('root.photosAdd', {
+      url: '/photos/add',
+      views: {
+        sidebar: {
+          controller: 'ProfileSideController as vm',
+          templateUrl: 'templates/app-profile/profile.side.tpl.html'
+        },
+        content: {
+          controller: 'PhotosAddController as vm',
+          templateUrl: 'templates/app-profile/photos.add.tpl.html'
+        },
+        footer: {
+          template: '<small>I am a footer</small>'
+        }
+      } 
+    })  
+
       .state('root.friends', {
       url: '/friends',
       views: {

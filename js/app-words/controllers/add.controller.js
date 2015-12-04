@@ -41,11 +41,11 @@ let addController = function(WordService, $stateParams, $state) {
     let four = words.four.toLowerCase();
     let five = words.five.toLowerCase();
   //Remove all the white spaces
-    one = one.split(' ').join('');
-    two = two.split(' ').join('');
-    three = three.split(' ').join('');
-    four = four.split(' ').join('');
-    five = five.split(' ').join('');
+    // one = one.split(' ').join('');
+    // two = two.split(' ').join('');
+    // three = three.split(' ').join('');
+    // four = four.split(' ').join('');
+    // five = five.split(' ').join('');
   //Create an object to pass to the back end
     // var lower = {
     //   one : one,

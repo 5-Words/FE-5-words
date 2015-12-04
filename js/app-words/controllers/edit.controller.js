@@ -48,27 +48,29 @@ let EditController = function(WordService, $stateParams, $state) {
     let four = words[3].word.toLowerCase();
     let five = words[4].word.toLowerCase();
   // //Remove all the white spaces
-    one = one.split(' ').join('');
-    two = two.split(' ').join('');
-    three = three.split(' ').join('');
-    four = four.split(' ').join('');
-    five = five.split(' ').join('');
+    // one = one.split(' ').join('');
+    // two = two.split(' ').join('');
+    // three = three.split(' ').join('');
+    // four = four.split(' ').join('');
+    // five = five.split(' ').join('');
   // //Create an object to pass to the back end
-    var lower = {
-      one : one,
-      two : two,
-      three: three,
-      four: four,
-      five: five
-    };
+    var lower = [
+          { new: one, id: words[0].id},
+          { new: two, id: words[1].id},
+          { new: three, id: words[2].id},
+          { new: four, id: words[3].id},
+          { new: five, id: words[4].id},
+
+          ]
+    ;
 
 
     console.log(lower);
 
-    // WordService.editWords(words).then( (res) => {
-    //   console.log(res);
-    //   $state.go('root.golden');
-    // })
+    WordService.editWords(lower).then( (res) => {
+      console.log(res);
+      $state.go('root.golden');
+    })
   } 
 
    function validateEmpty(field) {

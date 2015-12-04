@@ -67,23 +67,17 @@ let WordService = function($http, SERVER, $cookies) {
   }
 
   function editWords(words) {
+    console.log(words);
     let auth = $cookies.get('authToken');
     
-
-    let obj = 
-      {word: 'test123', id: 299}
-      
-
-    let id = words[0].id;
   
-
     return $http({
-      url: SERVER.URL + 'word/edit' ,
+      url: SERVER.URL + 'words/edit' ,
       method: 'PUT',
       headers:{
         access_token: auth
       }, 
-      data: obj
+      data: words
       
     })
 
