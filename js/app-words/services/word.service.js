@@ -48,14 +48,15 @@ let WordService = function($http, SERVER, $cookies) {
 
   };
 
-  function addWords (user, category) {
+  function addWords (words) {
+    console.log(words);
     let auth = $cookies.get('authToken');
     //Create an instance of the category object
-    let words = new Category(user, category);
+    // let words = new Category(user, category);
     
   
     return $http({
-      url: SERVER.URL + 'create',
+      url: SERVER.URL + 'words/create',
       method: 'POST',
       headers:{
         access_token: auth

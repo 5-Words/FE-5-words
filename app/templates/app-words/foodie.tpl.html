@@ -1,7 +1,8 @@
-<div>
+<div class="wordListWrapper">
   <h3>Foodie</h3>
-  <form ng-repeat="word in vm.words">
-    <input type="text" placeholder="Word" ng-model="word.word">
-   </form> 
-   <button ng-click="vm.editWords(words, 'foodie')">Edit</button>
+  <div ng-repeat="word in vm.words" class="wordList">
+    <h3>{{word.word}}</h3>
+  </div> 
+   <br>
+   <button ng-click="vm.editWords(vm.words, 'foodie')">Edit</button>
 </div>

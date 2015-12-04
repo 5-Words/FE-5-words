@@ -195,6 +195,58 @@ let config = function($urlRouterProvider, $stateProvider) {
       controller: 'AddController as vm',
       templateUrl: 'templates/app-words/add.tpl.html'
     })
+
+     .state('root.profile', {
+      url: '/profile',
+      views: {
+        sidebar: {
+          controller: 'ProfileSideController as vm',
+          templateUrl: 'templates/app-profile/profile.side.tpl.html'
+        },
+        content: {
+          controller: 'ProfileController as vm',
+          templateUrl: 'templates/app-profile/profile.main.tpl.html'
+        },
+        footer: {
+          template: '<small>I am a footer</small>'
+        }
+      }  
+    })
+
+     .state('root.photos', {
+      url: '/photos',
+      views: {
+        sidebar: {
+          controller: 'ProfileSideController as vm',
+          templateUrl: 'templates/app-profile/profile.side.tpl.html'
+        },
+        content: {
+          controller: 'PhotosController as vm',
+          templateUrl: 'templates/app-profile/photos.tpl.html'
+        },
+        footer: {
+          template: '<small>I am a footer</small>'
+        }
+      } 
+    }) 
+
+      .state('root.friends', {
+      url: '/friends',
+      views: {
+        sidebar: {
+          controller: 'ProfileSideController as vm',
+          templateUrl: 'templates/app-profile/profile.side.tpl.html'
+        },
+        content: {
+          controller: 'FriendsController as vm',
+          templateUrl: 'templates/app-profile/friends.tpl.html'
+        },
+        footer: {
+          template: '<small>I am a footer</small>'
+        }
+      } 
+    })
+    
   
 
 };

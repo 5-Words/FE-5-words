@@ -32,6 +32,8 @@ let addController = function(WordService, $stateParams, $state) {
       return console.log('The fifth word is empty');
     }
   //------------------------------------------------- 
+  
+
   //Change all the words to lowercase 
     let one = words.one.toLowerCase();
     let two = words.two.toLowerCase();
@@ -45,17 +47,25 @@ let addController = function(WordService, $stateParams, $state) {
     four = four.split(' ').join('');
     five = five.split(' ').join('');
   //Create an object to pass to the back end
-    var lower = {
-      one : one,
-      two : two,
-      three: three,
-      four: four,
-      five: five
-    };
+    // var lower = {
+    //   one : one,
+    //   two : two,
+    //   three: three,
+    //   four: four,
+    //   five: five
+    // };
+    let wordsArray = [one, two, three, four, five];
+
+    let lower = {
+      words: wordsArray,
+      category: category
+    }
+
+    console.log(lower);
 
     // console.log(lower);
 
-     WordService.addWords(lower, category).then( (res) => {
+     WordService.addWords(lower).then( (res) => {
         $state.go('root.golden');
     })
   }
