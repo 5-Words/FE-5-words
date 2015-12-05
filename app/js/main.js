@@ -1117,6 +1117,7 @@ var TravelController = function TravelController(WordService, $state) {
 
   var vm = this;
 
+  this.searchWords = searchWords;
   this.editWords = editWords;
 
   getWords();
@@ -1136,6 +1137,13 @@ var TravelController = function TravelController(WordService, $state) {
 
         $state.go('root.add', { category: category });
       }
+    });
+  }
+
+  //Search Words
+  function searchWords(words, category) {
+    WordService.searchWords(words, category).then(function (res) {
+      console.log(res);
     });
   }
 
@@ -1264,6 +1272,7 @@ var WordService = function WordService($http, SERVER, $cookies) {
   this.getWords = getWords;
   this.addWords = addWords;
   this.editWords = editWords;
+  this.searchWords = searchWords;
 
   //GET WORDS
   function getWords(category) {
@@ -1285,6 +1294,31 @@ var WordService = function WordService($http, SERVER, $cookies) {
 
     return $http({
       url: SERVER.URL + 'words/' + id + '/' + golden,
+      method: 'GET',
+      headers: {
+        access_token: auth
+      }
+    });
+  }
+
+  //Serach Words
+  function searchWords(words, category) {
+    // console.log(words[0].word);
+    var auth = $cookies.get('authToken');
+    var id = $cookies.get('userId');
+    // console.log(words);
+
+    // var one = words[0].word;
+    // var two = words[1].word;
+    // var three = words[2].word;
+    // var four = words[3].word;
+    // var five = words[4].word;
+
+    // let array = [one, two, three, four, five];
+    // console.log(array);
+
+    return $http({
+      url: SERVER.URL + 'match/' + words[0].word + '/' + category,
       method: 'GET',
       headers: {
         access_token: auth

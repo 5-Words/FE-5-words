@@ -4,6 +4,7 @@ let WordService = function($http, SERVER, $cookies) {
   this.getWords    = getWords;
   this.addWords    = addWords;
   this.editWords   = editWords;
+  this.searchWords = searchWords;
 
   //GET WORDS
   function getWords (category) {
@@ -35,6 +36,33 @@ let WordService = function($http, SERVER, $cookies) {
       }
     })
   } 
+
+  //Serach Words
+  function searchWords(words, category) {
+    // console.log(words[0].word);
+    let auth = $cookies.get('authToken');
+    let id   = $cookies.get('userId');
+    // console.log(words); 
+
+    // var one = words[0].word;
+    // var two = words[1].word;
+    // var three = words[2].word;
+    // var four = words[3].word;
+    // var five = words[4].word;
+
+    // let array = [one, two, three, four, five];
+    // console.log(array);
+
+
+
+  return $http({
+    url: SERVER.URL + 'match/' + words[0].word + '/' + category,
+    method: 'GET',
+    headers: {
+      access_token: auth
+    }
+  })
+  }
 
   //ADD WORDS
   //Constructor for creating new categories
