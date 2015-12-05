@@ -1,10 +1,20 @@
-let CarController = function(WordService, $state) {
+let CarController = function(WordService, $state, $cookies) {
   
   let vm = this;
 
   this.editWords      = editWords;
 
+  checkAuth();
   getWords();
+
+  function checkAuth() {
+    let auth = $cookies.get('authToken');
+   if (auth){
+    // console.log('auth');
+   } else {
+    $state.go('root.home');
+   }
+  }
   //Get Words
   function getWords () {
 
@@ -34,6 +44,6 @@ let CarController = function(WordService, $state) {
 
 };
 
-CarController.$inject = ['WordService', '$state'];
+CarController.$inject = ['WordService', '$state', '$cookies'];
 
 export default CarController;

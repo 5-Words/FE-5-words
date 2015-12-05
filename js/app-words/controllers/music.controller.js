@@ -1,10 +1,20 @@
-let MusicController = function(WordService, $state) {
+let MusicController = function(WordService, $state, $cookies) {
   
   let vm = this;
 
   this.editWords      = editWords;
 
+  checkAuth();
   getWords();
+
+  function checkAuth() {
+    let auth = $cookies.get('authToken');
+   if (auth){
+    // console.log('auth');
+   } else {
+    $state.go('root.home');
+   }
+  }
   //Get Words
   function getWords () {
 
@@ -33,6 +43,6 @@ let MusicController = function(WordService, $state) {
 
 };
 
-MusicController.$inject = ['WordService', '$state'];
+MusicController.$inject = ['WordService', '$state', '$cookies'];
 
 export default MusicController;

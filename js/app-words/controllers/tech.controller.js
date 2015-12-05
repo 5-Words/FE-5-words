@@ -1,10 +1,20 @@
-let TechController = function(WordService, $state) {
+let TechController = function(WordService, $state, $cookies) {
 
   let vm = this;
 
   this.editWords      = editWords;
 
-   getWords();
+  checkAuth();
+  getWords();
+
+  function checkAuth() {
+    let auth = $cookies.get('authToken');
+   if (auth){
+    // console.log('auth');
+   } else {
+    $state.go('root.home');
+   }
+  }
   //Get Words
   function getWords () {
 
@@ -29,6 +39,6 @@ let TechController = function(WordService, $state) {
 
 };
 
-TechController.$inject = ['WordService', '$state'];
+TechController.$inject = ['WordService', '$state', '$cookies'];
 
 export default TechController;

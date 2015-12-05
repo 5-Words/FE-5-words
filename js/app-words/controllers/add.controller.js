@@ -1,4 +1,4 @@
-let addController = function(WordService, $stateParams, $state) {
+let addController = function(WordService, $stateParams, $state, $cookies) {
   
   let vm = this;
 
@@ -7,6 +7,18 @@ let addController = function(WordService, $stateParams, $state) {
   let category = $stateParams;
   
   vm.category = category;
+
+  checkAuth();
+ 
+
+  function checkAuth() {
+    let auth = $cookies.get('authToken');
+   if (auth){
+    // console.log('auth');
+   } else {
+    $state.go('root.home');
+   }
+  }
 
   
   //Add Words 
@@ -77,6 +89,6 @@ let addController = function(WordService, $stateParams, $state) {
 
 };
 
-addController.$inject = ['WordService', '$stateParams', '$state'];
+addController.$inject = ['WordService', '$stateParams', '$state', '$cookies'];
 
 export default addController;

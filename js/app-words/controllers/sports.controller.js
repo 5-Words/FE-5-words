@@ -1,10 +1,20 @@
-let SportsController = function(WordService, $state) {
+let SportsController = function(WordService, $state, $cookies) {
   
   let vm = this;
 
   this.editWords      = editWords;
 
+  checkAuth();
   getWords();
+
+  function checkAuth() {
+    let auth = $cookies.get('authToken');
+   if (auth){
+    // console.log('auth');
+   } else {
+    $state.go('root.home');
+   }
+  }
   //Get Words
   function getWords () {
 
@@ -30,6 +40,6 @@ let SportsController = function(WordService, $state) {
 
 };
 
-SportsController.$inject = ['WordService', '$state'];
+SportsController.$inject = ['WordService', '$state', '$cookies'];
 
 export default SportsController;

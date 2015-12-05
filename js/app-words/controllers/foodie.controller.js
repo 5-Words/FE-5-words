@@ -1,11 +1,21 @@
-let FoodieController = function(WordService, $state) {
+let FoodieController = function(WordService, $state, $cookies) {
   
   let vm = this;
 
  
   this.editWords      = editWords;
 
+  checkAuth();
   getWords();
+
+  function checkAuth() {
+    let auth = $cookies.get('authToken');
+   if (auth){
+    // console.log('auth');
+   } else {
+    $state.go('root.home');
+   }
+  }
   //Get Words
   function getWords () {
 
@@ -34,6 +44,6 @@ let FoodieController = function(WordService, $state) {
 
 };
 
-FoodieController.$inject = ['WordService', '$state'];
+FoodieController.$inject = ['WordService', '$state', '$cookies'];
 
 export default FoodieController;

@@ -1,7 +1,19 @@
-let PhotosAddController = function(ProfileService) {
+let PhotosAddController = function(ProfileService, $state, $cookies) {
   
   let vm = this;
   this.addPhoto = addPhoto;
+
+  checkAuth();
+ 
+
+  function checkAuth() {
+    let auth = $cookies.get('authToken');
+   if (auth){
+    // console.log('auth');
+   } else {
+    $state.go('root.home');
+   }
+  }
 
   function addPhoto (photo) {
     console.log(photo);
@@ -12,6 +24,6 @@ let PhotosAddController = function(ProfileService) {
 
 };
 
-PhotosAddController.$inject = ['ProfileService'];
+PhotosAddController.$inject = ['ProfileService', '$state', '$cookies'];
 
 export default PhotosAddController;

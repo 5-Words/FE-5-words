@@ -4,6 +4,18 @@ let RegisterController = function($http, SERVER, $state, HomeService, $cookies) 
 
   this.addWords = addWords;
 
+  checkAuth();
+  getWords();
+
+  function checkAuth() {
+    let auth = $cookies.get('authToken');
+   if (auth){
+    // console.log('auth');
+   } else {
+    $state.go('root.home');
+   }
+  }
+
   function addWords (words) {
     HomeService.addWords(words).then( (res) => {
       console.log(res);

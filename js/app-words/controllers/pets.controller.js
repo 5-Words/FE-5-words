@@ -1,10 +1,20 @@
-let PetsController = function(WordService, $state) {
+let PetsController = function(WordService, $state, $cookies) {
   
   let vm = this;
 
   this.editWords      = editWords;
 
+  checkAuth();
   getWords();
+
+  function checkAuth() {
+    let auth = $cookies.get('authToken');
+   if (auth){
+    // console.log('auth');
+   } else {
+    $state.go('root.home');
+   }
+  }
   //Get Words
   function getWords () {
 
@@ -32,6 +42,6 @@ let PetsController = function(WordService, $state) {
 
 };
 
-PetsController.$inject = ['WordService', '$state'];
+PetsController.$inject = ['WordService', '$state', '$cookies'];
 
 export default PetsController;

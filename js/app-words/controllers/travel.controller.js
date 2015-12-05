@@ -1,4 +1,4 @@
-let TravelController = function(WordService, $state) {
+let TravelController = function(WordService, $state, $cookies) {
   
   let vm = this;
 
@@ -6,7 +6,17 @@ let TravelController = function(WordService, $state) {
   this.editWords      = editWords;
 
 
+  checkAuth();
   getWords();
+
+  function checkAuth() {
+    let auth = $cookies.get('authToken');
+   if (auth){
+    // console.log('auth');
+   } else {
+    $state.go('root.home');
+   }
+  }
 
   //Get Words
   function getWords () {
@@ -43,6 +53,6 @@ let TravelController = function(WordService, $state) {
 
 };
 
-TravelController.$inject = ['WordService', '$state'];
+TravelController.$inject = ['WordService', '$state', '$cookies'];
 
 export default TravelController;
