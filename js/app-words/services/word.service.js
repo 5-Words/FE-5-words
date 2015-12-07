@@ -14,7 +14,7 @@ let WordService = function($http, SERVER, $cookies) {
    
 
    return $http({
-      url: SERVER.URL + 'words/' + id + '/' + category,
+      url: SERVER.URL + 'words/user/' + category,
       method: 'GET',
       headers:{
         access_token: auth
@@ -29,7 +29,7 @@ let WordService = function($http, SERVER, $cookies) {
 
 
    return $http({
-      url: SERVER.URL + 'words/' + id + '/' + golden,
+      url: SERVER.URL + 'words/user/' + golden,
       method: 'GET',
       headers:{
         access_token: auth

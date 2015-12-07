@@ -1,8 +1,10 @@
-<div class="wordListWrapper">
-  <h3>Foodie</h3>
-  <div ng-repeat="word in vm.words" class="wordList">
-    <h3>{{word.word}}</h3>
-  </div> 
-   <br>
-   <button ng-click="vm.editWords(vm.words, 'foodie')">Edit</button>
+<div class="foodieWrapper">
+  <div class="wordListWrapper chalkBoard">
+    <h3>Foodie</h3>
+    <div ng-repeat="word in vm.words" class="wordList">
+      <h3>{{word.word}}</h3>
+    </div> 
+     <br>
+     <button ng-click="vm.editWords(vm.words, 'foodie')">Edit</button>
+  </div>
 </div>

@@ -1,10 +1,10 @@
 let MusicController = function(WordService, $state, $cookies) {
   
   let vm = this;
-
   this.editWords      = editWords;
 
   checkAuth();
+  changeStyle();
   getWords();
 
   function checkAuth() {
@@ -14,6 +14,12 @@ let MusicController = function(WordService, $state, $cookies) {
    } else {
     $state.go('root.home');
    }
+  }
+  //Change Style
+  function changeStyle () {
+    let anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", "music");
   }
   //Get Words
   function getWords () {

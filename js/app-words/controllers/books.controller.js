@@ -6,6 +6,7 @@ let BooksController = function(WordService, $state, $cookies) {
 
 
   checkAuth();
+  changeStyle();
   getWords();
 
   function checkAuth() {
@@ -16,7 +17,12 @@ let BooksController = function(WordService, $state, $cookies) {
     $state.go('root.home');
    }
   }
-
+  //Change Style
+  function changeStyle () {
+    let anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", "books");
+  }
   
   //Get Words
   function getWords () {

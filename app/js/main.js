@@ -10,6 +10,7 @@ var config = function config($urlRouterProvider, $stateProvider) {
 
   $stateProvider.state('root', {
     abstract: true,
+    controller: 'HomeController as vm',
     templateUrl: 'templates/app-layout/layout.tpl.html'
   }).state('root.home', {
     url: '/',
@@ -159,7 +160,7 @@ var config = function config($urlRouterProvider, $stateProvider) {
       },
       content: {
         controller: 'CarsController as vm',
-        templateUrl: 'templates/app-words/pets.tpl.html'
+        templateUrl: 'templates/app-words/cars.tpl.html'
       },
       footer: {
         template: '<small>I am a footer</small>'
@@ -292,6 +293,7 @@ var HomeController = function HomeController(HomeService, $cookies, $state) {
 
   vm.register = register;
   vm.login = login;
+  vm.logout = logout;
 
   function register(user) {
 
@@ -310,6 +312,13 @@ var HomeController = function HomeController(HomeService, $cookies, $state) {
       var userId = $cookies.put('userId', res.data.id);
       $state.go('root.golden');
     });
+  }
+
+  function logout() {
+    $cookies.remove('authToken');
+    $cookies.remove('userId');
+
+    $state.go('root.home');
   }
 };
 
@@ -699,6 +708,7 @@ var BooksController = function BooksController(WordService, $state, $cookies) {
   this.editWords = editWords;
 
   checkAuth();
+  changeStyle();
   getWords();
 
   function checkAuth() {
@@ -708,6 +718,12 @@ var BooksController = function BooksController(WordService, $state, $cookies) {
     } else {
         $state.go('root.home');
       }
+  }
+  //Change Style
+  function changeStyle() {
+    var anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", "books");
   }
 
   //Get Words
@@ -808,7 +824,7 @@ module.exports = exports["default"];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var EditController = function EditController(WordService, $stateParams, $state) {
+var EditController = function EditController(WordService, $stateParams, $state, $cookies) {
 
   var vm = this;
 
@@ -816,7 +832,17 @@ var EditController = function EditController(WordService, $stateParams, $state) 
   vm.editWords = editWords;
   //Get Words
 
+  checkAuth();
   getWords();
+
+  function checkAuth() {
+    var auth = $cookies.get('authToken');
+    if (auth) {
+      // console.log('auth');
+    } else {
+        $state.go('root.home');
+      }
+  }
 
   function getWords() {
 
@@ -878,7 +904,7 @@ var EditController = function EditController(WordService, $stateParams, $state) 
   }
 };
 
-EditController.$inject = ['WordService', '$stateParams', '$state'];
+EditController.$inject = ['WordService', '$stateParams', '$state', '$cookies'];
 
 exports['default'] = EditController;
 module.exports = exports['default'];
@@ -896,6 +922,7 @@ var FilmController = function FilmController(WordService, $state, $cookies) {
   this.editWords = editWords;
 
   checkAuth();
+  changeStyle();
   getWords();
 
   function checkAuth() {
@@ -905,6 +932,12 @@ var FilmController = function FilmController(WordService, $state, $cookies) {
     } else {
         $state.go('root.home');
       }
+  }
+  //Change Style
+  function changeStyle() {
+    var anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", "film");
   }
   //Get Words
   function getWords() {
@@ -1036,10 +1069,10 @@ Object.defineProperty(exports, '__esModule', {
 var MusicController = function MusicController(WordService, $state, $cookies) {
 
   var vm = this;
-
   this.editWords = editWords;
 
   checkAuth();
+  changeStyle();
   getWords();
 
   function checkAuth() {
@@ -1049,6 +1082,12 @@ var MusicController = function MusicController(WordService, $state, $cookies) {
     } else {
         $state.go('root.home');
       }
+  }
+  //Change Style
+  function changeStyle() {
+    var anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", "music");
   }
   //Get Words
   function getWords() {
@@ -1142,7 +1181,6 @@ var RegisterController = function RegisterController($http, SERVER, $state, Home
   this.addWords = addWords;
 
   checkAuth();
-  getWords();
 
   function checkAuth() {
     var auth = $cookies.get('authToken');
@@ -1450,7 +1488,7 @@ var WordService = function WordService($http, SERVER, $cookies) {
     var id = $cookies.get('userId');
 
     return $http({
-      url: SERVER.URL + 'words/' + id + '/' + category,
+      url: SERVER.URL + 'words/user/' + category,
       method: 'GET',
       headers: {
         access_token: auth
@@ -1463,7 +1501,7 @@ var WordService = function WordService($http, SERVER, $cookies) {
     var id = $cookies.get('userId');
 
     return $http({
-      url: SERVER.URL + 'words/' + id + '/' + golden,
+      url: SERVER.URL + 'words/user/' + golden,
       method: 'GET',
       headers: {
         access_token: auth

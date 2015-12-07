@@ -4,6 +4,7 @@ let HomeController = function(HomeService, $cookies, $state) {
 
   vm.register      = register;
   vm.login         = login;
+  vm.logout        = logout;
 
   function register (user) {
    
@@ -23,6 +24,13 @@ let HomeController = function(HomeService, $cookies, $state) {
       let userId = $cookies.put('userId', res.data.id);
       $state.go('root.golden');
     })
+  }
+
+  function logout () {
+    $cookies.remove('authToken');
+    $cookies.remove('userId');
+
+    $state.go('root.home');
   }
 
 };

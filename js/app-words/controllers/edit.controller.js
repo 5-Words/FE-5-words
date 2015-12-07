@@ -1,4 +1,4 @@
-let EditController = function(WordService, $stateParams, $state) {
+let EditController = function(WordService, $stateParams, $state, $cookies) {
   
   let vm = this;
 
@@ -6,7 +6,17 @@ let EditController = function(WordService, $stateParams, $state) {
   vm.editWords = editWords;
   //Get Words
 
+  checkAuth();
   getWords();
+
+  function checkAuth() {
+    let auth = $cookies.get('authToken');
+   if (auth){
+    // console.log('auth');
+   } else {
+    $state.go('root.home');
+   }
+  }
 
   function getWords () {
 
@@ -78,6 +88,6 @@ let EditController = function(WordService, $stateParams, $state) {
 
 }; 
 
-EditController.$inject = ['WordService', '$stateParams', '$state'];
+EditController.$inject = ['WordService', '$stateParams', '$state', '$cookies'];
 
 export default EditController;

@@ -1,13 +1,28 @@
 // Put any @imports here
 // See Readme for a list of supported ones
 //Color Variables
-$primary-color: #333;
+$primary-color: #BEE7FF;
+$secondary-color: #3362D4;
+$primary-text: #FFFFFF;
+
+
+
+//#002EA0 dark blue
+//#3362D4 middle blue
+//#6796FF lightest blue
+//#FFFFFF white
+
 
 body {
-  background: #e2ebf3;
-  // background: $primary-color;
+  background: $primary-color;
 }
+input {
 
+}
+a {
+  
+  text-decoration: none;
+}
 
 //Site
 .siteButton {
@@ -17,25 +32,182 @@ body {
 
 }
 .siteNav {
+  padding: 3%;
+  background: $secondary-color;
 
+  a {
+    color: white;
+  }
+ 
+
+}
+
+//Forms
+.ng-invalid.ng-dirty {
+  border-color: red;
+
+}
+.ng-valid.ng-dirty {
+  border-color: green;
+}
+//Home
+.loginFormWrap {
+  
 }
 
 //Dashboard
 .dashSide {
-  float: left;
-  width: 20%;
+ 
 }
 .dashMain {
   float: right;
   width: 60%;
 }
+//Dash-Categories
+.wordListWrapper {
+  width: 80%;
+}
+.chalkBoard {
+  background-image: url("../img/chalkboard.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  position: relative;
+  top: 10%;
+  width: 60%;
+  height: 500px;
+  border: 5px solid #370800;
+
+}
+//Golden
+.goldenWrapper {
+  background-image: url("../img/golden.jpg");
+  width: 100%;
+  height: 650px;
+}
+.goldPlate {
+  background-image: url("../img/goldPlate.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  position: relative;
+  top: 10%;
+  width: 70%;
+  height: 470px;
+  border: 5px solid #370800;
+
+}
+//Travel
+.travelWrapper {
+  background-image: url("../img/travel.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 650px;
+  
+}
+//Tech
+.techWrapper {
+  background-image: url("../img/tech.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 650px;
+  
+}
+//Sport
+.sportsWrapper {
+  background-image: url("../img/sports.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 650px;
+  
+}
+//Foodie
+.foodieWrapper {
+  background-image: url("../img/foodie.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 650px;
+  border: 1px solid black;
+  
+}
+//Foodie
+.booksWrapper {
+  background-image: url("../img/books.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 650px;
+  border: 1px solid black;
+  
+}
+//Music
+.musicWrapper {
+  background-image: url("../img/music.jpg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 650px;
+  
+}
+//Film
+.filmWrapper {
+  background-image: url("../img/film.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 650px;
+  
+}
+//Pets
+.petsWrapper {
+  background-image: url("../img/pets.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 650px;
+  
+}
+//Cars
+.carsWrapper {
+  background-image: url("../img/cars.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 650px;
+  
+}
+
 
 .wordList {
-  width: 11%;
-  float: left;
+  color: white;
 }
 .clearBoth {
   clear: both;
 }
 
 //Profile
+
+
+
+//Footer
+.footer {
+  padding: 1.5%;
+  background: $secondary-color;
+  margin-bottom: 0;
+}
+
+//Music Add Class Dynamic
+.music {
+  .siteNav{background-color: pink;}
+  .dashSide{background-color: grey;}
+  .footer {background-color: yellow;}
+}
+//Film Add Class Dynamic
+.film {
+  .siteNav{background-color: blue;}
+  .dashSide{background-color: yellow;}
+  .footer {background-color: red;}
+}

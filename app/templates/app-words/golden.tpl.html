@@ -1,12 +1,12 @@
-<div class="wordListWrapper">
-  <h3>Golden</h3>
-  
-  <div ng-repeat="word in vm.words" class="wordList">
-    <h3>{{word.word}}</h3>
-  </div> 
-
-   <br>
-   <button class="siteButton" ng-click="vm.editWords(vm.words, 'golden')">Edit</button>
+<div class="goldenWrapper">
+  <div class="wordListWrapper goldPlate">
+    <h3>Golden</h3>
+    <div ng-repeat="word in vm.words | limitTo: 5" class="wordList">
+      <h3>{{word.word}}</h3>
+    </div> 
+     <br>
+     <button class="siteButton" ng-click="vm.editWords(vm.words, 'golden')">Edit</button>
+  </div>
 </div>
 
 

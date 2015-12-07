@@ -5,7 +5,7 @@ let RegisterController = function($http, SERVER, $state, HomeService, $cookies) 
   this.addWords = addWords;
 
   checkAuth();
-  getWords();
+ 
 
   function checkAuth() {
     let auth = $cookies.get('authToken');

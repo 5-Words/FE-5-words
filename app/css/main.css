@@ -1,19 +1,146 @@
 body {
-  background: #e2ebf3; }
+  background: #BEE7FF; }
 
-.dashSide {
-  float: left;
-  width: 20%; }
+a {
+  text-decoration: none; }
+
+.siteNav {
+  padding: 3%;
+  background: #3362D4; }
+  .siteNav a {
+    color: white; }
+
+.ng-invalid.ng-dirty {
+  border-color: red; }
+
+.ng-valid.ng-dirty {
+  border-color: green; }
 
 .dashMain {
   float: right;
   width: 60%; }
 
+.wordListWrapper {
+  width: 80%; }
+
+.chalkBoard {
+  background-image: url("../img/chalkboard.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  position: relative;
+  top: 10%;
+  width: 60%;
+  height: 500px;
+  border: 5px solid #370800; }
+
+.goldenWrapper {
+  background-image: url("../img/golden.jpg");
+  width: 100%;
+  height: 650px; }
+
+.goldPlate {
+  background-image: url("../img/goldPlate.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  position: relative;
+  top: 10%;
+  width: 70%;
+  height: 470px;
+  border: 5px solid #370800; }
+
+.travelWrapper {
+  background-image: url("../img/travel.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 650px; }
+
+.techWrapper {
+  background-image: url("../img/tech.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 650px; }
+
+.sportsWrapper {
+  background-image: url("../img/sports.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 650px; }
+
+.foodieWrapper {
+  background-image: url("../img/foodie.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 650px;
+  border: 1px solid black; }
+
+.booksWrapper {
+  background-image: url("../img/books.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 650px;
+  border: 1px solid black; }
+
+.musicWrapper {
+  background-image: url("../img/music.jpg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 650px; }
+
+.filmWrapper {
+  background-image: url("../img/film.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 650px; }
+
+.petsWrapper {
+  background-image: url("../img/pets.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 650px; }
+
+.carsWrapper {
+  background-image: url("../img/cars.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 650px; }
+
 .wordList {
-  width: 11%;
-  float: left; }
+  color: white; }
 
 .clearBoth {
   clear: both; }
+
+.footer {
+  padding: 1.5%;
+  background: #3362D4;
+  margin-bottom: 0; }
+
+.music .siteNav {
+  background-color: pink; }
+
+.music .dashSide {
+  background-color: grey; }
+
+.music .footer {
+  background-color: yellow; }
+
+.film .siteNav {
+  background-color: blue; }
+
+.film .dashSide {
+  background-color: yellow; }
+
+.film .footer {
+  background-color: red; }
 
 /*# sourceMappingURL=main.css.map */

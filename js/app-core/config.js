@@ -5,6 +5,7 @@ let config = function($urlRouterProvider, $stateProvider) {
   $stateProvider
     .state('root', {
       abstract: true,
+      controller: 'HomeController as vm',
       templateUrl: 'templates/app-layout/layout.tpl.html'
     })
     .state('root.home', {
@@ -165,19 +166,13 @@ let config = function($urlRouterProvider, $stateProvider) {
         },
         content: {
           controller: 'CarsController as vm',
-          templateUrl: 'templates/app-words/pets.tpl.html'
+          templateUrl: 'templates/app-words/cars.tpl.html'
         },
         footer: {
           template: '<small>I am a footer</small>'
         }
       }  
     }) 
-
-
-
-
-
-
 
 
     .state('root.register', {

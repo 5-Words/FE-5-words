@@ -1,20 +1,23 @@
 <h3>Home</h3>
 
-<div>
+<div class="loginFormWrap">
   <h3>Login</h3>
-  <form ng-submit="vm.login(user1)">
-    <input type="text" placeholder="User Name" ng-model="user1.username">
-    <input type="text" placeholder="Password" ng-model="user1.password">
+  <form name="loginForm" ng-submit="loginForm.$valid && vm.login(user1)" novalidate >
+    <input type="text" placeholder="User Name" ng-model="user1.username" required >
+    <input type="text" placeholder="Password" ng-model="user1.password" required>
     <button>Login</button>
   </form>
+  <div>Login Form is: {{loginForm.$valid}}</div>
 </div>
 
 <div>
   <h3>Register</h3>
-  <form ng-submit="vm.register(user)">
-    <input type="text" placeholder="Email" ng-model="user.email">
-    <input type="text" placeholder="User Name" ng-model="user.username">
-    <input type="text" placeholder="Password" ng-model="user.password">
+  <form name="registerForm" ng-submit="registerForm.$valid && vm.register(user)" novalidate>
+    <input type="email" placeholder="Email" ng-model="user.email" required>
+    <input type="text" placeholder="User Name" ng-model="user.username" required>
+    <input type="text" placeholder="Password" ng-model="user.password" required>
     <button>Register</button>
+     <div>Register Form is: {{registerForm.$valid}}</div>
+
   </form>
 </div>
