@@ -1,7 +1,7 @@
 <div class="travelWrapper">
   <div class="wordListWrapper chalkBoard">
     <h3>Travel</h3>
-    <div ng-repeat="word in vm.words" class="wordList">
+    <div ng-repeat="word in vm.words | limitTo:5" class="wordList">
       <h3>{{word.word}}</h3>
     </div> 
      <br>

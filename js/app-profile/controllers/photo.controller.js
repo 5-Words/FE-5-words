@@ -4,6 +4,14 @@ let PhotosController = function($state, $cookies) {
   this.goTo = goTo;
 
   checkAuth();
+  changeStyle();
+  
+  //Change Style
+  function changeStyle () {
+    let anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", "photos");
+  }
  
 
   function checkAuth() {

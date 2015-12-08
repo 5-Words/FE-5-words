@@ -3,6 +3,7 @@ let MusicController = function(WordService, $state, $cookies) {
   
   let vm = this;
   this.editWords      = editWords;
+  this.searchWords    = searchWords;
 
   checkAuth();
   changeStyle();
@@ -21,7 +22,7 @@ let MusicController = function(WordService, $state, $cookies) {
     let anchor = document.querySelector('#anchor');
     anchor.className = "";
     anchor.setAttribute("class", "music");
-    console.log(anchor.getAttribute());
+    
   }
   //Get Words
   function getWords () {
@@ -46,7 +47,12 @@ let MusicController = function(WordService, $state, $cookies) {
     
   }
 
-
+  //Search Words
+  function searchWords (words, category) {
+    WordService.searchWords(words, category).then( (res) => {
+      console.log(res);
+    })
+  }
   
 
 };

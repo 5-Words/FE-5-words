@@ -22,6 +22,15 @@ input {
 a {
   
   text-decoration: none;
+  color: white;
+}
+section {
+  margin: 0;
+  padding: 0;
+}
+aside {
+  margin: 0;
+  padding: 0;
 }
 
 //Site
@@ -34,9 +43,12 @@ a {
 .siteNav {
   padding: 3%;
   background: $secondary-color;
+  border-bottom: 1px solid black;
+
 
   a {
     color: white;
+    margin-right: 3%;
   }
  
 
@@ -59,6 +71,10 @@ a {
 .dashSide {
  margin: 0;
  padding: 1%;
+ a {
+    color: white;
+    margin-right: 3%;
+  }
 }
 .dashMain {
   float: right;
@@ -76,8 +92,7 @@ a {
   position: relative;
   top: 10%;
   width: 60%;
-  height: 500px;
-  border: 5px solid #370800;
+  height: 600px;
 
 }
 //Golden
@@ -85,6 +100,12 @@ a {
   background-image: url("../img/golden.jpg");
   width: 100%;
   height: 650px;
+  margin: 0;
+  border: 1px solid black;
+
+  // background-size: cover;
+
+
 }
 .goldPlate {
   background-image: url("../img/goldPlate.png");
@@ -95,7 +116,6 @@ a {
   top: 10%;
   width: 70%;
   height: 470px;
-  border: 5px solid #370800;
 
 }
 //Travel
@@ -105,6 +125,8 @@ a {
   background-repeat: no-repeat;
   width: 100%;
   height: 650px;
+  border: 1px solid black;
+
   
 }
 //Tech
@@ -114,6 +136,8 @@ a {
   background-repeat: no-repeat;
   width: 100%;
   height: 650px;
+  border: 1px solid black;
+
   
 }
 //Sport
@@ -123,6 +147,8 @@ a {
   background-repeat: no-repeat;
   width: 100%;
   height: 650px;
+  border: 1px solid black;
+
   
 }
 //Foodie
@@ -152,6 +178,8 @@ a {
   background-repeat: no-repeat;
   width: 100%;
   height: 650px;
+  border: 1px solid black;
+
   
 }
 //Film
@@ -161,15 +189,18 @@ a {
   background-repeat: no-repeat;
   width: 100%;
   height: 650px;
+  border: 1px solid black;
+
   
 }
 //Pets
 .petsWrapper {
   background-image: url("../img/pets.jpg");
   background-repeat: no-repeat;
-  
   width: 100%;
   height: 650px;
+  border: 1px solid black;
+
   
 }
 //Cars
@@ -179,84 +210,144 @@ a {
   background-size: cover;
   width: 100%;
   height: 650px;
+  border: 1px solid black;
+  
   
 }
 
 
 .wordList {
+  display: inline;
+  p { 
+  display: inline;
   color: white;
+  margin-left: 2%;
+  font-size: 1.4em;
+  }
 }
 .clearBoth {
   clear: both;
 }
 
 //Profile
-
+.profileSide {
+  padding: 1%;
+  margin: 0;
+}
 
 
 //Footer
 .footer {
   padding: 1.5%;
-  background: $secondary-color;
+  color: white;
   margin-bottom: 0;
+
 }
-//Golden Add Class Dynamic
+//Home Add Class 
+.home {
+  .siteNav{background-color: #1B237C;}
+  .footer {background-color: #1B237C;}
+}
+//Golden Add Class 
 .golden {
-  .siteNav{background-color: #935302;}
-  .dashSide{background-color: #DFE400;}
+    body {
+    background-color: red;
+    }
+  .siteNav {
+    background-color: #935302;
+      a {
+        color: black;
+        font-weight: bold;
+        font-family: 'Metal Mania', cursive;
+        font-size: 1.7em;
+        
+      }
+  }
+  .dashSide{
+    background-color: #DFE400;
+    a {
+        color: black;
+        font-weight: bold;
+
+      }
+  }
   .footer {background-color: #E48F03;}
 }
-//Travel Add Class Dynamic
+//Travel Add Class 
 .travel {
   .siteNav{background-color: #854E24;}
   .dashSide{background-color: #F3A130;}
   .footer {background-color: #854E24;}
 }
-//Tech Add Class Dynamic
+//Tech Add Class 
 .tech {
   .siteNav{background-color: #062549;}
   .dashSide{background-color: #124279;}
   .footer {background-color: #062549;}
 }
-//Sports Add Class Dynamic
+//Sports Add Class 
 .sports {
   .siteNav{background-color: #36651B;}
   .dashSide{background-color: #588B25;}
   .footer {background-color: #36651B;}
 }
-//Foodie Add Class Dynamic
+//Foodie Add Class 
 .foodie {
   .siteNav{background-color: #F59000;}
-  .dashSide{background-color: #F79000;}
+  .dashSide{background-color: #F7B700;}
   .footer {background-color: #CA3200;}
 }
-//Books Add Class Dynamic
+//Books Add Class 
 .books {
   .siteNav{background-color: #A94C00;}
   .dashSide{background-color: #CD760B;}
   .footer {background-color: #A94C00;}
 }
-//Music Add Class Dynamic
+//Music Add Class 
 .music {
   .siteNav{background-color: #D6BA59;}
   .dashSide{background-color: #D5C46C;}
   .footer {background-color: #D6BA59;}
 }
-//Film Add Class Dynamic
+//Film Add Class 
 .film {
   .siteNav{background-color: #6E0301;}
   .dashSide{background-color: #C91E16;}
   .footer {background-color: #6E0301;}
 }
-//Pets Add Class Dynamic
+//Pets Add Class 
 .pets {
   .siteNav{background-color: #D5C46C;}
   .dashSide{background-color: #D6BA59;}
   .footer {background-color: #D5C46C;}
 }
-//Cars Add Class Dynamic
+//Cars Add Class 
 .cars {
   .siteNav{background-color: #6E5500;}
   .dashSide{background-color: #EBD29A;}
   .footer {background-color: #6E5500;}
+}
+//Profile Add Class 
+.profile {
+  .siteNav{background-color: #1B237C;}
+  .profileSide{background-color: #7785F6;}
+  .footer {background-color: #1B237C;}
+}
+//Photos Add Class 
+.photos {
+  .siteNav{background-color: #199300;}
+  .profileSide{background-color: #80F56C;}
+  .footer {background-color: #199300;}
+}
+//Photos Add Page Add Class 
+.photosAdd {
+  .siteNav{background-color: #EE9D00;}
+  .profileSide{background-color: #E9D900;}
+  .footer {background-color: #EE9D00;}
+}
+//Profile Add Class 
+.friends {
+  .siteNav{background-color: #B2308E;}
+  .profileSide{background-color: #F9E3E6;}
+  .footer {background-color: #B2308E;}
 }

@@ -282,9 +282,9 @@ var _constantsServerConstant2 = _interopRequireDefault(_constantsServerConstant)
 _angular2['default'].module('app.core', ['ui.router']).config(_config2['default']).constant('SERVER', _constantsServerConstant2['default']);
 
 },{"./config":1,"./constants/server.constant":2,"angular":36,"angular-ui-router":34}],4:[function(require,module,exports){
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var HomeController = function HomeController(HomeService, $cookies, $state) {
@@ -294,6 +294,15 @@ var HomeController = function HomeController(HomeService, $cookies, $state) {
   vm.register = register;
   vm.login = login;
   vm.logout = logout;
+
+  changeStyle();
+
+  //Change Style
+  function changeStyle() {
+    var anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", "home");
+  }
 
   function register(user) {
 
@@ -324,8 +333,8 @@ var HomeController = function HomeController(HomeService, $cookies, $state) {
 
 HomeController.$inject = ['HomeService', '$cookies', '$state'];
 
-exports['default'] = HomeController;
-module.exports = exports['default'];
+exports["default"] = HomeController;
+module.exports = exports["default"];
 
 },{}],5:[function(require,module,exports){
 'use strict';
@@ -410,14 +419,22 @@ exports['default'] = HomeService;
 module.exports = exports['default'];
 
 },{}],7:[function(require,module,exports){
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var FriendsController = function FriendsController($state, $cookies) {
 
   checkAuth();
+  changeStyle();
+
+  //Change Style
+  function changeStyle() {
+    var anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", "friends");
+  }
 
   function checkAuth() {
     var auth = $cookies.get('authToken');
@@ -431,13 +448,13 @@ var FriendsController = function FriendsController($state, $cookies) {
 
 FriendsController.$inject = ['$state', '$cookies'];
 
-exports['default'] = FriendsController;
-module.exports = exports['default'];
+exports["default"] = FriendsController;
+module.exports = exports["default"];
 
 },{}],8:[function(require,module,exports){
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var PhotosController = function PhotosController($state, $cookies) {
@@ -446,6 +463,14 @@ var PhotosController = function PhotosController($state, $cookies) {
   this.goTo = goTo;
 
   checkAuth();
+  changeStyle();
+
+  //Change Style
+  function changeStyle() {
+    var anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", "photos");
+  }
 
   function checkAuth() {
     var auth = $cookies.get('authToken');
@@ -463,13 +488,13 @@ var PhotosController = function PhotosController($state, $cookies) {
 
 PhotosController.$inject = ['$state', '$cookies'];
 
-exports['default'] = PhotosController;
-module.exports = exports['default'];
+exports["default"] = PhotosController;
+module.exports = exports["default"];
 
 },{}],9:[function(require,module,exports){
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var PhotosAddController = function PhotosAddController(ProfileService, $state, $cookies) {
@@ -478,6 +503,15 @@ var PhotosAddController = function PhotosAddController(ProfileService, $state, $
   this.addPhoto = addPhoto;
 
   checkAuth();
+
+  changeStyle();
+
+  //Change Style
+  function changeStyle() {
+    var anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", "photosAdd");
+  }
 
   function checkAuth() {
     var auth = $cookies.get('authToken');
@@ -498,18 +532,26 @@ var PhotosAddController = function PhotosAddController(ProfileService, $state, $
 
 PhotosAddController.$inject = ['ProfileService', '$state', '$cookies'];
 
-exports['default'] = PhotosAddController;
-module.exports = exports['default'];
+exports["default"] = PhotosAddController;
+module.exports = exports["default"];
 
 },{}],10:[function(require,module,exports){
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var ProfileController = function ProfileController($state, $cookies) {
 
   checkAuth();
+  changeStyle();
+
+  //Change Style
+  function changeStyle() {
+    var anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", "profile");
+  }
 
   function checkAuth() {
     var auth = $cookies.get('authToken');
@@ -523,8 +565,8 @@ var ProfileController = function ProfileController($state, $cookies) {
 
 ProfileController.$inject = ['$state', '$cookies'];
 
-exports['default'] = ProfileController;
-module.exports = exports['default'];
+exports["default"] = ProfileController;
+module.exports = exports["default"];
 
 },{}],11:[function(require,module,exports){
 "use strict";
@@ -706,6 +748,7 @@ var BooksController = function BooksController(WordService, $state, $cookies) {
   var vm = this;
 
   this.editWords = editWords;
+  this.searchWords = searchWords;
 
   checkAuth();
   changeStyle();
@@ -732,6 +775,7 @@ var BooksController = function BooksController(WordService, $state, $cookies) {
     var category = "books";
     WordService.getWords(category).then(function (res) {
       vm.words = res.data;
+      console.log(vm.words);
       var data = res.data.length;
       if (data) {
 
@@ -746,6 +790,13 @@ var BooksController = function BooksController(WordService, $state, $cookies) {
   //Edit Words
   function editWords(words, category) {
     $state.go('root.edit', { category: category });
+  }
+
+  //Search Words
+  function searchWords(words, category) {
+    WordService.searchWords(words, category).then(function (res) {
+      console.log(res);
+    });
   }
 };
 
@@ -765,6 +816,7 @@ var CarController = function CarController(WordService, $state, $cookies) {
   var vm = this;
 
   this.editWords = editWords;
+  this.searchWords = searchWords;
 
   checkAuth();
   changeStyle();
@@ -804,6 +856,13 @@ var CarController = function CarController(WordService, $state, $cookies) {
   //Edit Words
   function editWords(words, category) {
     $state.go('root.edit', { category: category });
+  }
+
+  //Search Words
+  function searchWords(words, category) {
+    WordService.searchWords(words, category).then(function (res) {
+      console.log(res);
+    });
   }
 };
 
@@ -927,6 +986,7 @@ var FilmController = function FilmController(WordService, $state, $cookies) {
   var vm = this;
 
   this.editWords = editWords;
+  this.searchWords = searchWords;
 
   checkAuth();
   changeStyle();
@@ -967,6 +1027,13 @@ var FilmController = function FilmController(WordService, $state, $cookies) {
   function editWords(words, category) {
     $state.go('root.edit', { category: category });
   }
+
+  //Search Words
+  function searchWords(words, category) {
+    WordService.searchWords(words, category).then(function (res) {
+      console.log(res);
+    });
+  }
 };
 
 FilmController.$inject = ['WordService', '$state', '$cookies'];
@@ -985,6 +1052,7 @@ var FoodieController = function FoodieController(WordService, $state, $cookies) 
   var vm = this;
 
   this.editWords = editWords;
+  this.searchWords = searchWords;
 
   checkAuth();
   changeStyle();
@@ -1025,6 +1093,13 @@ var FoodieController = function FoodieController(WordService, $state, $cookies) 
   function editWords(words, category) {
     $state.go('root.edit', { category: category });
   }
+
+  //Search Words
+  function searchWords(words, category) {
+    WordService.searchWords(words, category).then(function (res) {
+      console.log(res);
+    });
+  }
 };
 
 FoodieController.$inject = ['WordService', '$state', '$cookies'];
@@ -1043,6 +1118,7 @@ var GoldenController = function GoldenController(WordService, $state, $cookies) 
   var vm = this;
 
   this.editWords = editWords;
+  this.searchWords = searchWords;
 
   checkAuth();
   changeStyle();
@@ -1074,6 +1150,12 @@ var GoldenController = function GoldenController(WordService, $state, $cookies) 
   function editWords(words, category) {
     $state.go('root.edit', { category: category });
   }
+  //Search Words
+  function searchWords(words, category) {
+    WordService.searchWords(words, category).then(function (res) {
+      console.log(res);
+    });
+  }
 };
 
 GoldenController.$inject = ['WordService', '$state', '$cookies'];
@@ -1092,6 +1174,7 @@ var MusicController = function MusicController(WordService, $state, $cookies) {
 
   var vm = this;
   this.editWords = editWords;
+  this.searchWords = searchWords;
 
   checkAuth();
   changeStyle();
@@ -1110,7 +1193,6 @@ var MusicController = function MusicController(WordService, $state, $cookies) {
     var anchor = document.querySelector('#anchor');
     anchor.className = "";
     anchor.setAttribute("class", "music");
-    console.log(anchor.getAttribute());
   }
   //Get Words
   function getWords() {
@@ -1133,6 +1215,13 @@ var MusicController = function MusicController(WordService, $state, $cookies) {
   function editWords(words, category) {
     $state.go('root.edit', { category: category });
   }
+
+  //Search Words
+  function searchWords(words, category) {
+    WordService.searchWords(words, category).then(function (res) {
+      console.log(res);
+    });
+  }
 };
 
 MusicController.$inject = ['WordService', '$state', '$cookies'];
@@ -1151,6 +1240,7 @@ var PetsController = function PetsController(WordService, $state, $cookies) {
   var vm = this;
 
   this.editWords = editWords;
+  this.searchWords = searchWords;
 
   checkAuth();
   changeStyle();
@@ -1190,6 +1280,13 @@ var PetsController = function PetsController(WordService, $state, $cookies) {
   //Edit Words
   function editWords(words, category) {
     $state.go('root.edit', { category: category });
+  }
+
+  //Search Words
+  function searchWords(words, category) {
+    WordService.searchWords(words, category).then(function (res) {
+      console.log(res);
+    });
   }
 };
 
@@ -1244,6 +1341,7 @@ var SportsController = function SportsController(WordService, $state, $cookies) 
   var vm = this;
 
   this.editWords = editWords;
+  this.searchWords = searchWords;
 
   checkAuth();
   changeStyle();
@@ -1284,6 +1382,13 @@ var SportsController = function SportsController(WordService, $state, $cookies) 
   function editWords(words, category) {
     $state.go('root.edit', { category: category });
   }
+
+  //Search Words
+  function searchWords(words, category) {
+    WordService.searchWords(words, category).then(function (res) {
+      console.log(res);
+    });
+  }
 };
 
 SportsController.$inject = ['WordService', '$state', '$cookies'];
@@ -1302,6 +1407,7 @@ var TechController = function TechController(WordService, $state, $cookies) {
   var vm = this;
 
   this.editWords = editWords;
+  this.searchWords = searchWords;
 
   checkAuth();
   changeStyle();
@@ -1341,6 +1447,13 @@ var TechController = function TechController(WordService, $state, $cookies) {
   //Edit Words
   function editWords(words, category) {
     $state.go('root.edit', { category: category });
+  }
+
+  //Search Words
+  function searchWords(words, category) {
+    WordService.searchWords(words, category).then(function (res) {
+      console.log(res);
+    });
   }
 };
 
@@ -1565,19 +1678,9 @@ var WordService = function WordService($http, SERVER, $cookies) {
     // console.log(words[0].word);
     var auth = $cookies.get('authToken');
     var id = $cookies.get('userId');
-    // console.log(words);
-
-    // var one = words[0].word;
-    // var two = words[1].word;
-    // var three = words[2].word;
-    // var four = words[3].word;
-    // var five = words[4].word;
-
-    // let array = [one, two, three, four, five];
-    // console.log(array);
 
     return $http({
-      url: SERVER.URL + 'match/' + words[0].word + '/' + category,
+      url: SERVER.URL + 'words/matches/' + category,
       method: 'GET',
       headers: {
         access_token: auth
@@ -1597,10 +1700,7 @@ var WordService = function WordService($http, SERVER, $cookies) {
   };
 
   function addWords(words) {
-    console.log(words);
     var auth = $cookies.get('authToken');
-    //Create an instance of the category object
-    // let words = new Category(user, category);
 
     return $http({
       url: SERVER.URL + 'words/create',

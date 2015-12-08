@@ -6,6 +6,15 @@ let HomeController = function(HomeService, $cookies, $state) {
   vm.login         = login;
   vm.logout        = logout;
 
+  changeStyle();
+
+  //Change Style
+  function changeStyle () {
+    let anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", "home");
+  }
+
   function register (user) {
    
     HomeService.register(user).then( (res) => {

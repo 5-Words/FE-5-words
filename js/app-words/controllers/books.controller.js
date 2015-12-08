@@ -3,6 +3,7 @@ let BooksController = function(WordService, $state, $cookies) {
   let vm = this;
 
   this.editWords      = editWords;
+  this.searchWords    = searchWords;
 
 
   checkAuth();
@@ -30,6 +31,7 @@ let BooksController = function(WordService, $state, $cookies) {
     let category = "books";
     WordService.getWords(category).then( (res) => {
       vm.words = res.data;
+      console.log(vm.words);
       let data = res.data.length;
       if(data) {
        
@@ -45,6 +47,13 @@ let BooksController = function(WordService, $state, $cookies) {
   function editWords (words, category) {
     $state.go('root.edit', {category});
     
+  }
+
+  //Search Words
+  function searchWords (words, category) {
+    WordService.searchWords(words, category).then( (res) => {
+      console.log(res);
+    })
   }
 
 

@@ -2,13 +2,24 @@ body {
   background: #BEE7FF; }
 
 a {
-  text-decoration: none; }
+  text-decoration: none;
+  color: white; }
+
+section {
+  margin: 0;
+  padding: 0; }
+
+aside {
+  margin: 0;
+  padding: 0; }
 
 .siteNav {
   padding: 3%;
-  background: #3362D4; }
+  background: #3362D4;
+  border-bottom: 1px solid black; }
   .siteNav a {
-    color: white; }
+    color: white;
+    margin-right: 3%; }
 
 .ng-invalid.ng-dirty {
   border-color: red; }
@@ -19,6 +30,9 @@ a {
 .dashSide {
   margin: 0;
   padding: 1%; }
+  .dashSide a {
+    color: white;
+    margin-right: 3%; }
 
 .dashMain {
   float: right;
@@ -35,13 +49,14 @@ a {
   position: relative;
   top: 10%;
   width: 60%;
-  height: 500px;
-  border: 5px solid #370800; }
+  height: 600px; }
 
 .goldenWrapper {
   background-image: url("../img/golden.jpg");
   width: 100%;
-  height: 650px; }
+  height: 650px;
+  margin: 0;
+  border: 1px solid black; }
 
 .goldPlate {
   background-image: url("../img/goldPlate.png");
@@ -51,29 +66,31 @@ a {
   position: relative;
   top: 10%;
   width: 70%;
-  height: 470px;
-  border: 5px solid #370800; }
+  height: 470px; }
 
 .travelWrapper {
   background-image: url("../img/travel.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  height: 650px; }
+  height: 650px;
+  border: 1px solid black; }
 
 .techWrapper {
   background-image: url("../img/tech.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  height: 650px; }
+  height: 650px;
+  border: 1px solid black; }
 
 .sportsWrapper {
   background-image: url("../img/sports.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  height: 650px; }
+  height: 650px;
+  border: 1px solid black; }
 
 .foodieWrapper {
   background-image: url("../img/foodie.jpg");
@@ -96,44 +113,74 @@ a {
   background-image: url("../img/music.jpg");
   background-repeat: no-repeat;
   width: 100%;
-  height: 650px; }
+  height: 650px;
+  border: 1px solid black; }
 
 .filmWrapper {
   background-image: url("../img/film.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  height: 650px; }
+  height: 650px;
+  border: 1px solid black; }
 
 .petsWrapper {
   background-image: url("../img/pets.jpg");
   background-repeat: no-repeat;
   width: 100%;
-  height: 650px; }
+  height: 650px;
+  border: 1px solid black; }
 
 .carsWrapper {
   background-image: url("../img/cars.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  height: 650px; }
+  height: 650px;
+  border: 1px solid black; }
 
 .wordList {
-  color: white; }
+  display: inline; }
+  .wordList p {
+    display: inline;
+    color: white;
+    margin-left: 2%;
+    font-size: 1.4em; }
 
 .clearBoth {
   clear: both; }
 
+.profileSide {
+  padding: 1%;
+  margin: 0; }
+
 .footer {
   padding: 1.5%;
-  background: #3362D4;
+  color: white;
   margin-bottom: 0; }
+
+.home .siteNav {
+  background-color: #1B237C; }
+
+.home .footer {
+  background-color: #1B237C; }
+
+.golden body {
+  background-color: red; }
 
 .golden .siteNav {
   background-color: #935302; }
+  .golden .siteNav a {
+    color: black;
+    font-weight: bold;
+    font-family: 'Metal Mania', cursive;
+    font-size: 1.7em; }
 
 .golden .dashSide {
   background-color: #DFE400; }
+  .golden .dashSide a {
+    color: black;
+    font-weight: bold; }
 
 .golden .footer {
   background-color: #E48F03; }
@@ -169,7 +216,7 @@ a {
   background-color: #F59000; }
 
 .foodie .dashSide {
-  background-color: #F79000; }
+  background-color: #F7B700; }
 
 .foodie .footer {
   background-color: #CA3200; }
@@ -218,5 +265,41 @@ a {
 
 .cars .footer {
   background-color: #6E5500; }
+
+.profile .siteNav {
+  background-color: #1B237C; }
+
+.profile .profileSide {
+  background-color: #7785F6; }
+
+.profile .footer {
+  background-color: #1B237C; }
+
+.photos .siteNav {
+  background-color: #199300; }
+
+.photos .profileSide {
+  background-color: #80F56C; }
+
+.photos .footer {
+  background-color: #199300; }
+
+.photosAdd .siteNav {
+  background-color: #EE9D00; }
+
+.photosAdd .profileSide {
+  background-color: #E9D900; }
+
+.photosAdd .footer {
+  background-color: #EE9D00; }
+
+.friends .siteNav {
+  background-color: #B2308E; }
+
+.friends .profileSide {
+  background-color: #F9E3E6; }
+
+.friends .footer {
+  background-color: #B2308E; }
 
 /*# sourceMappingURL=main.css.map */

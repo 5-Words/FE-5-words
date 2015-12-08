@@ -2,9 +2,10 @@
   <div class="wordListWrapper chalkBoard">
     <h3>Books</h3>
     <div ng-repeat="word in vm.words | limitTo:5" class="wordList">
-      <h3>{{word.word}}</h3>
+      <p>{{word.word}}</p>
     </div> 
      <br>
+     <button ng-click="vm.searchWords(vm.words, 'books')">Search</button>
      <button ng-click="vm.editWords(vm.words, 'books')">Edit</button>
   </div>
 </div>

@@ -4,6 +4,7 @@ let FoodieController = function(WordService, $state, $cookies) {
 
  
   this.editWords      = editWords;
+  this.searchWords    = searchWords;
 
   checkAuth();
   changeStyle();
@@ -46,7 +47,12 @@ let FoodieController = function(WordService, $state, $cookies) {
     
   }
 
- 
+  //Search Words
+  function searchWords (words, category) {
+    WordService.searchWords(words, category).then( (res) => {
+      console.log(res);
+    })
+  }
   
 
 };

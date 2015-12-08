@@ -4,6 +4,15 @@ let PhotosAddController = function(ProfileService, $state, $cookies) {
   this.addPhoto = addPhoto;
 
   checkAuth();
+
+  changeStyle();
+  
+  //Change Style
+  function changeStyle () {
+    let anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", "photosAdd");
+  }
  
 
   function checkAuth() {

@@ -42,21 +42,10 @@ let WordService = function($http, SERVER, $cookies) {
     // console.log(words[0].word);
     let auth = $cookies.get('authToken');
     let id   = $cookies.get('userId');
-    // console.log(words); 
-
-    // var one = words[0].word;
-    // var two = words[1].word;
-    // var three = words[2].word;
-    // var four = words[3].word;
-    // var five = words[4].word;
-
-    // let array = [one, two, three, four, five];
-    // console.log(array);
-
-
+  
 
   return $http({
-    url: SERVER.URL + 'match/' + words[0].word + '/' + category,
+    url: SERVER.URL + 'words/matches/' + category,
     method: 'GET',
     headers: {
       access_token: auth
@@ -77,10 +66,7 @@ let WordService = function($http, SERVER, $cookies) {
   };
 
   function addWords (words) {
-    console.log(words);
     let auth = $cookies.get('authToken');
-    //Create an instance of the category object
-    // let words = new Category(user, category);
     
   
     return $http({
