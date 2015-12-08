@@ -1,5 +1,6 @@
 body {
-  background: #BEE7FF; }
+  background: #BEE7FF;
+  max-height: 100%; }
 
 a {
   text-decoration: none;
@@ -40,6 +41,12 @@ aside {
 
 .wordListWrapper {
   width: 80%; }
+  .wordListWrapper h3 {
+    margin: 0 auto;
+    width: 50%;
+    color: white;
+    font-size: 2em;
+    text-shadow: 1px 1px 1px black; }
 
 .chalkBoard {
   background-image: url("../img/chalkboard.jpg");
@@ -47,8 +54,8 @@ aside {
   background-repeat: no-repeat;
   margin: 0 auto;
   position: relative;
-  top: 10%;
-  width: 60%;
+  top: 4%;
+  width: 78%;
   height: 600px; }
 
 .goldenWrapper {
@@ -56,7 +63,8 @@ aside {
   width: 100%;
   height: 650px;
   margin: 0;
-  border: 1px solid black; }
+  border: 1px solid black;
+  background-size: cover; }
 
 .goldPlate {
   background-image: url("../img/goldPlate.png");
@@ -139,13 +147,10 @@ aside {
   height: 650px;
   border: 1px solid black; }
 
-.wordList {
-  display: inline; }
-  .wordList p {
-    display: inline;
-    color: white;
-    margin-left: 2%;
-    font-size: 1.4em; }
+.wordList h3 {
+  color: white;
+  margin-left: 5%;
+  font-size: 1.4em; }
 
 .clearBoth {
   clear: both; }
@@ -157,7 +162,8 @@ aside {
 .footer {
   padding: 1.5%;
   color: white;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  z-index: -1; }
 
 .home .siteNav {
   background-color: #1B237C; }
@@ -185,121 +191,148 @@ aside {
 .golden .footer {
   background-color: #E48F03; }
 
-.travel .siteNav {
+.travel {
   background-color: #854E24; }
+  .travel .siteNav {
+    background-color: #854E24; }
+  .travel .dashSide {
+    background-color: #F3A130; }
+  .travel .footer {
+    background-color: #854E24; }
 
-.travel .dashSide {
-  background-color: #F3A130; }
-
-.travel .footer {
-  background-color: #854E24; }
-
-.tech .siteNav {
+.tech {
   background-color: #062549; }
+  .tech .siteNav {
+    background-color: #062549; }
+  .tech .dashSide {
+    background-color: #124279; }
+  .tech .footer {
+    background-color: #062549; }
 
-.tech .dashSide {
-  background-color: #124279; }
-
-.tech .footer {
-  background-color: #062549; }
-
-.sports .siteNav {
+.sports {
   background-color: #36651B; }
+  .sports .siteNav {
+    background-color: #36651B; }
+  .sports .dashSide {
+    background-color: #588B25; }
+  .sports .footer {
+    background-color: #36651B; }
 
-.sports .dashSide {
-  background-color: #588B25; }
-
-.sports .footer {
-  background-color: #36651B; }
-
-.foodie .siteNav {
+.foodie {
   background-color: #F59000; }
+  .foodie .siteNav {
+    background-color: #F59000; }
+  .foodie .dashSide {
+    background-color: #F7B700; }
+  .foodie .footer {
+    background-color: #F59000; }
 
-.foodie .dashSide {
-  background-color: #F7B700; }
-
-.foodie .footer {
-  background-color: #CA3200; }
-
-.books .siteNav {
+.books {
   background-color: #A94C00; }
+  .books .siteNav {
+    background-color: #A94C00; }
+  .books .dashSide {
+    background-color: #CD760B; }
+  .books .footer {
+    background-color: #A94C00; }
 
-.books .dashSide {
-  background-color: #CD760B; }
-
-.books .footer {
-  background-color: #A94C00; }
-
-.music .siteNav {
+.music {
   background-color: #D6BA59; }
+  .music .siteNav {
+    background-color: #D6BA59; }
+  .music .dashSide {
+    background-color: #D5C46C; }
+  .music .footer {
+    background-color: #D6BA59; }
 
-.music .dashSide {
-  background-color: #D5C46C; }
-
-.music .footer {
-  background-color: #D6BA59; }
-
-.film .siteNav {
+.film {
   background-color: #6E0301; }
+  .film .siteNav {
+    background-color: #6E0301; }
+  .film .dashSide {
+    background-color: #C91E16; }
+  .film .footer {
+    background-color: #6E0301; }
 
-.film .dashSide {
-  background-color: #C91E16; }
-
-.film .footer {
-  background-color: #6E0301; }
-
-.pets .siteNav {
+.pets {
   background-color: #D5C46C; }
+  .pets .siteNav {
+    background-color: #D5C46C; }
+  .pets .dashSide {
+    background-color: #D6BA59; }
+  .pets .footer {
+    background-color: #D5C46C; }
 
-.pets .dashSide {
-  background-color: #D6BA59; }
-
-.pets .footer {
-  background-color: #D5C46C; }
-
-.cars .siteNav {
+.cars {
   background-color: #6E5500; }
+  .cars .siteNav {
+    background-color: #6E5500; }
+  .cars .dashSide {
+    background-color: #EBD29A; }
+  .cars .footer {
+    background-color: #6E5500; }
 
-.cars .dashSide {
-  background-color: #EBD29A; }
-
-.cars .footer {
-  background-color: #6E5500; }
-
-.profile .siteNav {
+.profile {
   background-color: #1B237C; }
+  .profile .siteNav {
+    background-color: #1B237C; }
+  .profile .profileSide {
+    background-color: #7785F6; }
+  .profile .footer {
+    background-color: #1B237C; }
 
-.profile .profileSide {
-  background-color: #7785F6; }
-
-.profile .footer {
-  background-color: #1B237C; }
-
-.photos .siteNav {
+.photos {
   background-color: #199300; }
+  .photos .siteNav {
+    background-color: #199300; }
+  .photos .profileSide {
+    background-color: #80F56C; }
+  .photos .footer {
+    background-color: #199300; }
 
-.photos .profileSide {
-  background-color: #80F56C; }
-
-.photos .footer {
-  background-color: #199300; }
-
-.photosAdd .siteNav {
+.photosAdd {
   background-color: #EE9D00; }
+  .photosAdd .siteNav {
+    background-color: #EE9D00; }
+  .photosAdd .profileSide {
+    background-color: #E9D900; }
+  .photosAdd .footer {
+    background-color: #EE9D00; }
 
-.photosAdd .profileSide {
-  background-color: #E9D900; }
-
-.photosAdd .footer {
-  background-color: #EE9D00; }
-
-.friends .siteNav {
+.friends {
   background-color: #B2308E; }
+  .friends .siteNav {
+    background-color: #B2308E; }
+  .friends .profileSide {
+    background-color: #F9E3E6; }
+  .friends .footer {
+    background-color: #B2308E; }
 
-.friends .profileSide {
-  background-color: #F9E3E6; }
+@media (max-width: 800px) {
+  .chalkBoard {
+    width: 90%; } }
 
-.friends .footer {
-  background-color: #B2308E; }
+@media (max-width: 500px) {
+  .chalkBoard {
+    background-image: url("../img/notepad.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    position: relative;
+    top: 10%;
+    width: 96%;
+    height: 600px; }
+    .chalkBoard button {
+      float: right;
+      margin-right: 5%;
+      width: 20%; }
+    .chalkBoard h3 {
+      color: black;
+      padding: 3%; }
+  .wordList h3 {
+    color: black;
+    margin-top: 5%;
+    margin-left: 20%;
+    font-size: 1.5em; } }
 
 /*# sourceMappingURL=main.css.map */

@@ -13,7 +13,6 @@ let BooksController = function(WordService, $state, $cookies) {
   function checkAuth() {
     let auth = $cookies.get('authToken');
    if (auth){
-    // console.log('auth');
    } else {
     $state.go('root.home');
    }
@@ -31,7 +30,6 @@ let BooksController = function(WordService, $state, $cookies) {
     let category = "books";
     WordService.getWords(category).then( (res) => {
       vm.words = res.data;
-      console.log(vm.words);
       let data = res.data.length;
       if(data) {
        

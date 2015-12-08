@@ -756,11 +756,9 @@ var BooksController = function BooksController(WordService, $state, $cookies) {
 
   function checkAuth() {
     var auth = $cookies.get('authToken');
-    if (auth) {
-      // console.log('auth');
-    } else {
-        $state.go('root.home');
-      }
+    if (auth) {} else {
+      $state.go('root.home');
+    }
   }
   //Change Style
   function changeStyle() {
@@ -775,7 +773,6 @@ var BooksController = function BooksController(WordService, $state, $cookies) {
     var category = "books";
     WordService.getWords(category).then(function (res) {
       vm.words = res.data;
-      console.log(vm.words);
       var data = res.data.length;
       if (data) {
 
