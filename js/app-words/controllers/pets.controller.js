@@ -5,6 +5,7 @@ let PetsController = function(WordService, $state, $cookies) {
   this.editWords      = editWords;
 
   checkAuth();
+  changeStyle();
   getWords();
 
   function checkAuth() {
@@ -14,6 +15,12 @@ let PetsController = function(WordService, $state, $cookies) {
    } else {
     $state.go('root.home');
    }
+  }
+  //Change Style
+  function changeStyle () {
+    let anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", "pets");
   }
   //Get Words
   function getWords () {

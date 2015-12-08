@@ -767,6 +767,7 @@ var CarController = function CarController(WordService, $state, $cookies) {
   this.editWords = editWords;
 
   checkAuth();
+  changeStyle();
   getWords();
 
   function checkAuth() {
@@ -776,6 +777,12 @@ var CarController = function CarController(WordService, $state, $cookies) {
     } else {
         $state.go('root.home');
       }
+  }
+  //Change Style
+  function changeStyle() {
+    var anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", "cars");
   }
   //Get Words
   function getWords() {
@@ -980,6 +987,7 @@ var FoodieController = function FoodieController(WordService, $state, $cookies) 
   this.editWords = editWords;
 
   checkAuth();
+  changeStyle();
   getWords();
 
   function checkAuth() {
@@ -989,6 +997,12 @@ var FoodieController = function FoodieController(WordService, $state, $cookies) 
     } else {
         $state.go('root.home');
       }
+  }
+  //Change Style
+  function changeStyle() {
+    var anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", "foodie");
   }
   //Get Words
   function getWords() {
@@ -1031,6 +1045,7 @@ var GoldenController = function GoldenController(WordService, $state, $cookies) 
   this.editWords = editWords;
 
   checkAuth();
+  changeStyle();
   getGolden();
 
   function checkAuth() {
@@ -1040,6 +1055,12 @@ var GoldenController = function GoldenController(WordService, $state, $cookies) 
     } else {
         $state.go('root.home');
       }
+  }
+  //Change Style
+  function changeStyle() {
+    var anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", "golden");
   }
 
   function getGolden() {
@@ -1067,6 +1088,7 @@ Object.defineProperty(exports, '__esModule', {
   value: true
 });
 var MusicController = function MusicController(WordService, $state, $cookies) {
+  console.log('music');
 
   var vm = this;
   this.editWords = editWords;
@@ -1088,6 +1110,7 @@ var MusicController = function MusicController(WordService, $state, $cookies) {
     var anchor = document.querySelector('#anchor');
     anchor.className = "";
     anchor.setAttribute("class", "music");
+    console.log(anchor.getAttribute());
   }
   //Get Words
   function getWords() {
@@ -1130,6 +1153,7 @@ var PetsController = function PetsController(WordService, $state, $cookies) {
   this.editWords = editWords;
 
   checkAuth();
+  changeStyle();
   getWords();
 
   function checkAuth() {
@@ -1139,6 +1163,12 @@ var PetsController = function PetsController(WordService, $state, $cookies) {
     } else {
         $state.go('root.home');
       }
+  }
+  //Change Style
+  function changeStyle() {
+    var anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", "pets");
   }
   //Get Words
   function getWords() {
@@ -1216,6 +1246,7 @@ var SportsController = function SportsController(WordService, $state, $cookies) 
   this.editWords = editWords;
 
   checkAuth();
+  changeStyle();
   getWords();
 
   function checkAuth() {
@@ -1225,6 +1256,12 @@ var SportsController = function SportsController(WordService, $state, $cookies) 
     } else {
         $state.go('root.home');
       }
+  }
+  //Change Style
+  function changeStyle() {
+    var anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", "sports");
   }
   //Get Words
   function getWords() {
@@ -1267,6 +1304,7 @@ var TechController = function TechController(WordService, $state, $cookies) {
   this.editWords = editWords;
 
   checkAuth();
+  changeStyle();
   getWords();
 
   function checkAuth() {
@@ -1276,6 +1314,12 @@ var TechController = function TechController(WordService, $state, $cookies) {
     } else {
         $state.go('root.home');
       }
+  }
+  //Change Style
+  function changeStyle() {
+    var anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", "tech");
   }
   //Get Words
   function getWords() {
@@ -1319,6 +1363,7 @@ var TravelController = function TravelController(WordService, $state, $cookies) 
   this.editWords = editWords;
 
   checkAuth();
+  changeStyle();
   getWords();
 
   function checkAuth() {
@@ -1328,6 +1373,12 @@ var TravelController = function TravelController(WordService, $state, $cookies) 
     } else {
         $state.go('root.home');
       }
+  }
+  //Change Style
+  function changeStyle() {
+    var anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", "travel");
   }
 
   //Get Words

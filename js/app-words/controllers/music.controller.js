@@ -1,4 +1,5 @@
 let MusicController = function(WordService, $state, $cookies) {
+  console.log('music');
   
   let vm = this;
   this.editWords      = editWords;
@@ -20,6 +21,7 @@ let MusicController = function(WordService, $state, $cookies) {
     let anchor = document.querySelector('#anchor');
     anchor.className = "";
     anchor.setAttribute("class", "music");
+    console.log(anchor.getAttribute());
   }
   //Get Words
   function getWords () {

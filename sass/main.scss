@@ -57,7 +57,8 @@ a {
 
 //Dashboard
 .dashSide {
- 
+ margin: 0;
+ padding: 1%;
 }
 .dashMain {
   float: right;
@@ -127,6 +128,7 @@ a {
 //Foodie
 .foodieWrapper {
   background-image: url("../img/foodie.jpg");
+  background-color: #F59000;
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
@@ -163,9 +165,9 @@ a {
 }
 //Pets
 .petsWrapper {
-  background-image: url("../img/pets.jpeg");
+  background-image: url("../img/pets.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
+  
   width: 100%;
   height: 650px;
   
@@ -198,16 +200,63 @@ a {
   background: $secondary-color;
   margin-bottom: 0;
 }
-
+//Golden Add Class Dynamic
+.golden {
+  .siteNav{background-color: #935302;}
+  .dashSide{background-color: #DFE400;}
+  .footer {background-color: #E48F03;}
+}
+//Travel Add Class Dynamic
+.travel {
+  .siteNav{background-color: #854E24;}
+  .dashSide{background-color: #F3A130;}
+  .footer {background-color: #854E24;}
+}
+//Tech Add Class Dynamic
+.tech {
+  .siteNav{background-color: #062549;}
+  .dashSide{background-color: #124279;}
+  .footer {background-color: #062549;}
+}
+//Sports Add Class Dynamic
+.sports {
+  .siteNav{background-color: #36651B;}
+  .dashSide{background-color: #588B25;}
+  .footer {background-color: #36651B;}
+}
+//Foodie Add Class Dynamic
+.foodie {
+  .siteNav{background-color: #F59000;}
+  .dashSide{background-color: #F79000;}
+  .footer {background-color: #CA3200;}
+}
+//Books Add Class Dynamic
+.books {
+  .siteNav{background-color: #A94C00;}
+  .dashSide{background-color: #CD760B;}
+  .footer {background-color: #A94C00;}
+}
 //Music Add Class Dynamic
 .music {
-  .siteNav{background-color: pink;}
-  .dashSide{background-color: grey;}
-  .footer {background-color: yellow;}
+  .siteNav{background-color: #D6BA59;}
+  .dashSide{background-color: #D5C46C;}
+  .footer {background-color: #D6BA59;}
 }
 //Film Add Class Dynamic
 .film {
-  .siteNav{background-color: blue;}
-  .dashSide{background-color: yellow;}
-  .footer {background-color: red;}
+  .siteNav{background-color: #6E0301;}
+  .dashSide{background-color: #C91E16;}
+  .footer {background-color: #6E0301;}
+}
+//Pets Add Class Dynamic
+.pets {
+  .siteNav{background-color: #D5C46C;}
+  .dashSide{background-color: #D6BA59;}
+  .footer {background-color: #D5C46C;}
+}
+//Cars Add Class Dynamic
+.cars {
+  .siteNav{background-color: #6E5500;}
+  .dashSide{background-color: #EBD29A;}
+  .footer {background-color: #6E5500;}
 }

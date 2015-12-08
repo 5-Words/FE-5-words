@@ -7,6 +7,7 @@ let TravelController = function(WordService, $state, $cookies) {
 
 
   checkAuth();
+  changeStyle();
   getWords();
 
   function checkAuth() {
@@ -16,6 +17,12 @@ let TravelController = function(WordService, $state, $cookies) {
    } else {
     $state.go('root.home');
    }
+  }
+  //Change Style
+  function changeStyle () {
+    let anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", "travel");
   }
 
   //Get Words
