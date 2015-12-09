@@ -80,20 +80,23 @@ let WordService = function($http, SERVER, $cookies) {
     })
   }
 
-  function editWords(words) {
-    console.log(words);
+  function editWords(words, category) {
+    // console.log(category);
     let auth = $cookies.get('authToken');
     
-  
-    return $http({
+  let request = $http({
       url: SERVER.URL + 'words/edit' ,
       method: 'PUT',
       headers:{
         access_token: auth
       }, 
-      data: words
-      
-    })
+      data: words 
+    });
+
+  return {
+    request: request,
+    category: category
+  }
 
   }
 

@@ -28,6 +28,7 @@ let GoldenController = function(WordService, $state, $cookies) {
     let golden = "golden";
     WordService.getGolden(golden).then( (res) => {
       vm.words = res.data;
+      
     })
    
   }

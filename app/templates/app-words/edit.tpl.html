@@ -1,6 +1,9 @@
+<!-- <h3>{{vm.category}}</h3> -->
 <div>
-  <form ng-repeat="word in vm.words">
-    <input type="text" ng-model="word.word">
+  <form name="editForm" ng-repeat="word in vm.words">
+    <input type="text" ng-model="word.word" >
   </form>
   <button ng-click="vm.editWords(vm.words)">Edit</button>
+  <!-- <div>Edit Form is: {{editForm.$valid}}</div> -->
+
 </div>  

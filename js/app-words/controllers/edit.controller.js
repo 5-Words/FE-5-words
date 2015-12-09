@@ -4,7 +4,7 @@ let EditController = function(WordService, $stateParams, $state, $cookies) {
 
   vm.getWords = getWords;
   vm.editWords = editWords;
-  //Get Words
+ 
 
   checkAuth();
   getWords();
@@ -12,7 +12,7 @@ let EditController = function(WordService, $stateParams, $state, $cookies) {
   function checkAuth() {
     let auth = $cookies.get('authToken');
    if (auth){
-    // console.log('auth');
+   
    } else {
     $state.go('root.home');
    }
@@ -25,11 +25,13 @@ let EditController = function(WordService, $stateParams, $state, $cookies) {
     
     WordService.getWords(category.category).then( (res) => {
       vm.words = res.data;
+      // console.log(vm.words);
+      // vm.category = res.data[0].category;
     })
   }
 
   function editWords (words) {
-
+   let cat = words[0].category;
     //Form Validation
     if(!words) {
       return console.log('Empty');
@@ -57,13 +59,7 @@ let EditController = function(WordService, $stateParams, $state, $cookies) {
     let three = words[2].word.toLowerCase();
     let four = words[3].word.toLowerCase();
     let five = words[4].word.toLowerCase();
-  // //Remove all the white spaces
-    // one = one.split(' ').join('');
-    // two = two.split(' ').join('');
-    // three = three.split(' ').join('');
-    // four = four.split(' ').join('');
-    // five = five.split(' ').join('');
-  // //Create an object to pass to the back end
+
     var words = {
       words: [
           { new: one, id: words[0].id},
@@ -75,11 +71,15 @@ let EditController = function(WordService, $stateParams, $state, $cookies) {
         }
     ;
 
-    WordService.editWords(words).then( (res) => {
-      console.log(res);
-      $state.go('root.golden');
+    let response = WordService.editWords(words, cat);
+
+    response.request.then( function () {
+      let promise = response.category;
+      $state.go('root.' + promise);
     })
+    
   } 
+
 
    function validateEmpty(field) {
     return field ? true: false;

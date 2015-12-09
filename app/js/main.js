@@ -893,18 +893,15 @@ var EditController = function EditController(WordService, $stateParams, $state, 
 
   vm.getWords = getWords;
   vm.editWords = editWords;
-  //Get Words
 
   checkAuth();
   getWords();
 
   function checkAuth() {
     var auth = $cookies.get('authToken');
-    if (auth) {
-      // console.log('auth');
-    } else {
-        $state.go('root.home');
-      }
+    if (auth) {} else {
+      $state.go('root.home');
+    }
   }
 
   function getWords() {
@@ -913,11 +910,13 @@ var EditController = function EditController(WordService, $stateParams, $state, 
 
     WordService.getWords(category.category).then(function (res) {
       vm.words = res.data;
+      // console.log(vm.words);
+      // vm.category = res.data[0].category;
     });
   }
 
   function editWords(words) {
-
+    var cat = words[0].category;
     //Form Validation
     if (!words) {
       return console.log('Empty');
@@ -945,20 +944,16 @@ var EditController = function EditController(WordService, $stateParams, $state, 
     var three = words[2].word.toLowerCase();
     var four = words[3].word.toLowerCase();
     var five = words[4].word.toLowerCase();
-    // //Remove all the white spaces
-    // one = one.split(' ').join('');
-    // two = two.split(' ').join('');
-    // three = three.split(' ').join('');
-    // four = four.split(' ').join('');
-    // five = five.split(' ').join('');
-    // //Create an object to pass to the back end
+
     var words = {
       words: [{ 'new': one, id: words[0].id }, { 'new': two, id: words[1].id }, { 'new': three, id: words[2].id }, { 'new': four, id: words[3].id }, { 'new': five, id: words[4].id }]
     };
 
-    WordService.editWords(words).then(function (res) {
-      console.log(res);
-      $state.go('root.golden');
+    var response = WordService.editWords(words, cat);
+
+    response.request.then(function () {
+      var promise = response.category;
+      $state.go('root.' + promise);
     });
   }
 
@@ -1318,6 +1313,7 @@ var RegisterController = function RegisterController($http, SERVER, $state, Home
   function addWords(words) {
     HomeService.addWords(words).then(function (res) {
       console.log(res);
+      $state.go('root.golden');
     });
   }
 };
@@ -1710,19 +1706,23 @@ var WordService = function WordService($http, SERVER, $cookies) {
     });
   }
 
-  function editWords(words) {
-    console.log(words);
+  function editWords(words, category) {
+    // console.log(category);
     var auth = $cookies.get('authToken');
 
-    return $http({
+    var request = $http({
       url: SERVER.URL + 'words/edit',
       method: 'PUT',
       headers: {
         access_token: auth
       },
       data: words
-
     });
+
+    return {
+      request: request,
+      category: category
+    };
   }
 };
 
