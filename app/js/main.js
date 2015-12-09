@@ -178,6 +178,10 @@ var config = function config($urlRouterProvider, $stateProvider) {
     url: '/add/:category',
     controller: 'AddController as vm',
     templateUrl: 'templates/app-words/add.tpl.html'
+  }).state('root.match', {
+    url: '/match/:category',
+    controller: 'MatchController as vm',
+    templateUrl: 'templates/app-words/match.tpl.html'
   }).state('root.profile', {
     url: '/profile',
     views: {
@@ -281,7 +285,7 @@ var _constantsServerConstant2 = _interopRequireDefault(_constantsServerConstant)
 
 _angular2['default'].module('app.core', ['ui.router']).config(_config2['default']).constant('SERVER', _constantsServerConstant2['default']);
 
-},{"./config":1,"./constants/server.constant":2,"angular":36,"angular-ui-router":34}],4:[function(require,module,exports){
+},{"./config":1,"./constants/server.constant":2,"angular":37,"angular-ui-router":35}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -309,6 +313,7 @@ var HomeController = function HomeController(HomeService, $cookies, $state) {
     HomeService.register(user).then(function (res) {
 
       $cookies.put('authToken', res.data.access_token);
+      $cookies.put('username', res.data.username);
 
       $state.go('root.register');
     });
@@ -319,6 +324,8 @@ var HomeController = function HomeController(HomeService, $cookies, $state) {
       console.log(res);
       var auth = $cookies.put('authToken', res.data.access_token);
       var userId = $cookies.put('userId', res.data.id);
+      $cookies.put('username', res.data.username);
+
       $state.go('root.golden');
     });
   }
@@ -357,7 +364,7 @@ var _servicesHomeService2 = _interopRequireDefault(_servicesHomeService);
 
 _angular2['default'].module('app.layout', ['ngCookies']).controller('HomeController', _controllersHomeController2['default']).service('HomeService', _servicesHomeService2['default']);
 
-},{"./controllers/home.controller":4,"./services/home.service":6,"angular":36,"angular-cookies":33}],6:[function(require,module,exports){
+},{"./controllers/home.controller":4,"./services/home.service":6,"angular":37,"angular-cookies":34}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -381,19 +388,23 @@ var HomeService = function HomeService($http, SERVER, $cookies) {
 
     return $http.post(SERVER.URL + 'signup', u);
   }
-  var Golden = function Golden(obj) {
+  var Golden = function Golden(obj, username) {
     this.one = obj.one;
     this.two = obj.two;
     this.three = obj.three;
     this.four = obj.four;
     this.five = obj.five;
     this.category = 'golden';
+    this.username = username;
   };
 
   function addWords(user) {
     var auth = $cookies.get('authToken');
-    // console.log(auth);
-    var g = new Golden(user);
+    var username = $cookies.get('username');
+    console.log(username);
+
+    var g = new Golden(user, username);
+    console.log(g);
 
     return $http({
       url: SERVER.URL + 'create',
@@ -620,7 +631,7 @@ var _servicesProfileService2 = _interopRequireDefault(_servicesProfileService);
 
 angular.module('app.profile', ['app.core', 'ngCookies']).controller('ProfileController', _controllersProfileController2['default']).controller('ProfileSideController', _controllersProfileSideController2['default']).controller('PhotosController', _controllersPhotoController2['default']).controller('FriendsController', _controllersFriendsController2['default']).controller('PhotosAddController', _controllersPhotosAddController2['default']).service('ProfileService', _servicesProfileService2['default']);
 
-},{"../app-core/index":3,"./controllers/friends.controller":7,"./controllers/photo.controller":8,"./controllers/photos.add.controller":9,"./controllers/profile.controller":10,"./controllers/profile.side.controller":11,"./services/profile.service":13,"angular":36,"angular-cookies":33}],13:[function(require,module,exports){
+},{"../app-core/index":3,"./controllers/friends.controller":7,"./controllers/photo.controller":8,"./controllers/photos.add.controller":9,"./controllers/profile.controller":10,"./controllers/profile.side.controller":11,"./services/profile.service":13,"angular":37,"angular-cookies":34}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -697,33 +708,22 @@ var addController = function addController(WordService, $stateParams, $state, $c
     var three = words.three.toLowerCase();
     var four = words.four.toLowerCase();
     var five = words.five.toLowerCase();
-    //Remove all the white spaces
-    // one = one.split(' ').join('');
-    // two = two.split(' ').join('');
-    // three = three.split(' ').join('');
-    // four = four.split(' ').join('');
-    // five = five.split(' ').join('');
-    //Create an object to pass to the back end
-    // var lower = {
-    //   one : one,
-    //   two : two,
-    //   three: three,
-    //   four: four,
-    //   five: five
-    // };
+
     var wordsArray = [one, two, three, four, five];
+
+    var username = $cookies.get('username');
 
     var lower = {
       words: wordsArray,
-      category: category
+      category: category,
+      username: username
     };
 
     console.log(lower);
 
-    // console.log(lower);
-
     WordService.addWords(lower).then(function (res) {
       $state.go('root.golden');
+      console.log(res);
     });
   }
 
@@ -749,6 +749,7 @@ var BooksController = function BooksController(WordService, $state, $cookies) {
 
   this.editWords = editWords;
   this.searchWords = searchWords;
+  this.matchWords = matchWords;
 
   checkAuth();
   changeStyle();
@@ -795,6 +796,11 @@ var BooksController = function BooksController(WordService, $state, $cookies) {
       console.log(res);
     });
   }
+  //Match Words
+  function matchWords(words, category) {
+    // console.log(words, category);
+    $state.go('root.match', { category: category });
+  }
 };
 
 BooksController.$inject = ['WordService', '$state', '$cookies'];
@@ -814,6 +820,7 @@ var CarController = function CarController(WordService, $state, $cookies) {
 
   this.editWords = editWords;
   this.searchWords = searchWords;
+  this.matchWords = matchWords;
 
   checkAuth();
   changeStyle();
@@ -860,6 +867,11 @@ var CarController = function CarController(WordService, $state, $cookies) {
     WordService.searchWords(words, category).then(function (res) {
       console.log(res);
     });
+  }
+  //Match Words
+  function matchWords(words, category) {
+    // console.log(words, category);
+    $state.go('root.match', { category: category });
   }
 };
 
@@ -979,6 +991,7 @@ var FilmController = function FilmController(WordService, $state, $cookies) {
 
   this.editWords = editWords;
   this.searchWords = searchWords;
+  this.matchWords = matchWords;
 
   checkAuth();
   changeStyle();
@@ -1026,6 +1039,10 @@ var FilmController = function FilmController(WordService, $state, $cookies) {
       console.log(res);
     });
   }
+  //Match Words
+  function matchWords(words, category) {
+    $state.go('root.match', { category: category });
+  }
 };
 
 FilmController.$inject = ['WordService', '$state', '$cookies'];
@@ -1045,6 +1062,7 @@ var FoodieController = function FoodieController(WordService, $state, $cookies) 
 
   this.editWords = editWords;
   this.searchWords = searchWords;
+  this.matchWords = matchWords;
 
   checkAuth();
   changeStyle();
@@ -1092,6 +1110,10 @@ var FoodieController = function FoodieController(WordService, $state, $cookies) 
       console.log(res);
     });
   }
+  //Match Words
+  function matchWords(words, category) {
+    $state.go('root.match', { category: category });
+  }
 };
 
 FoodieController.$inject = ['WordService', '$state', '$cookies'];
@@ -1111,6 +1133,7 @@ var GoldenController = function GoldenController(WordService, $state, $cookies) 
 
   this.editWords = editWords;
   this.searchWords = searchWords;
+  this.matchWords = matchWords;
 
   checkAuth();
   changeStyle();
@@ -1118,11 +1141,9 @@ var GoldenController = function GoldenController(WordService, $state, $cookies) 
 
   function checkAuth() {
     var auth = $cookies.get('authToken');
-    if (auth) {
-      // console.log('auth');
-    } else {
-        $state.go('root.home');
-      }
+    if (auth) {} else {
+      $state.go('root.home');
+    }
   }
   //Change Style
   function changeStyle() {
@@ -1137,7 +1158,6 @@ var GoldenController = function GoldenController(WordService, $state, $cookies) 
       vm.words = res.data;
     });
   }
-
   //Edit Words
   function editWords(words, category) {
     $state.go('root.edit', { category: category });
@@ -1147,6 +1167,10 @@ var GoldenController = function GoldenController(WordService, $state, $cookies) 
     WordService.searchWords(words, category).then(function (res) {
       console.log(res);
     });
+  }
+  function matchWords(words, category) {
+    // console.log(words, category);
+    $state.go('root.match', { category: category });
   }
 };
 
@@ -1161,12 +1185,63 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
+var MatchController = function MatchController(WordService, $state, $stateParams) {
+
+  var vm = this;
+
+  getWords();
+
+  function getWords() {
+    var category = $stateParams;
+    var words = WordService.tempWords;
+
+    console.log(words);
+
+    WordService.getWords(category.category).then(function (res) {
+
+      matchWords(res);
+
+      function matchWords(res) {
+        var one = res.data[0].word;
+        var two = res.data[1].word;
+        var three = res.data[2].word;
+        var four = res.data[3].word;
+        var five = res.data[4].word;
+
+        var words = [one, two, three, four, five];
+        var category = res.data[0].category;
+
+        WordService.searchWords(words, category).then(function (res) {
+          console.log(res);
+          var matches = res.data;
+
+          matches.forEach(function (match) {
+            console.log(match.user_id, match.word);
+          });
+        });
+      }
+    });
+  }
+};
+
+MatchController.$inject = ['WordService', '$state', '$stateParams'];
+
+exports['default'] = MatchController;
+module.exports = exports['default'];
+
+},{}],23:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
 var MusicController = function MusicController(WordService, $state, $cookies) {
   console.log('music');
 
   var vm = this;
   this.editWords = editWords;
   this.searchWords = searchWords;
+  this.matchWords = matchWords;
 
   checkAuth();
   changeStyle();
@@ -1214,6 +1289,10 @@ var MusicController = function MusicController(WordService, $state, $cookies) {
       console.log(res);
     });
   }
+  //Match Words
+  function matchWords(words, category) {
+    $state.go('root.match', { category: category });
+  }
 };
 
 MusicController.$inject = ['WordService', '$state', '$cookies'];
@@ -1221,7 +1300,7 @@ MusicController.$inject = ['WordService', '$state', '$cookies'];
 exports['default'] = MusicController;
 module.exports = exports['default'];
 
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -1233,6 +1312,7 @@ var PetsController = function PetsController(WordService, $state, $cookies) {
 
   this.editWords = editWords;
   this.searchWords = searchWords;
+  this.matchWords = matchWords;
 
   checkAuth();
   changeStyle();
@@ -1280,6 +1360,10 @@ var PetsController = function PetsController(WordService, $state, $cookies) {
       console.log(res);
     });
   }
+  //Match Words
+  function matchWords(words, category) {
+    $state.go('root.match', { category: category });
+  }
 };
 
 PetsController.$inject = ['WordService', '$state', '$cookies'];
@@ -1287,7 +1371,7 @@ PetsController.$inject = ['WordService', '$state', '$cookies'];
 exports['default'] = PetsController;
 module.exports = exports['default'];
 
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -1323,7 +1407,7 @@ RegisterController.$inject = ['$http', 'SERVER', '$state', 'HomeService', '$cook
 exports['default'] = RegisterController;
 module.exports = exports['default'];
 
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -1335,6 +1419,7 @@ var SportsController = function SportsController(WordService, $state, $cookies) 
 
   this.editWords = editWords;
   this.searchWords = searchWords;
+  this.matchWords = matchWords;
 
   checkAuth();
   changeStyle();
@@ -1382,6 +1467,10 @@ var SportsController = function SportsController(WordService, $state, $cookies) 
       console.log(res);
     });
   }
+  //Match Words
+  function matchWords(words, category) {
+    $state.go('root.match', { category: category });
+  }
 };
 
 SportsController.$inject = ['WordService', '$state', '$cookies'];
@@ -1389,7 +1478,7 @@ SportsController.$inject = ['WordService', '$state', '$cookies'];
 exports['default'] = SportsController;
 module.exports = exports['default'];
 
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -1401,6 +1490,7 @@ var TechController = function TechController(WordService, $state, $cookies) {
 
   this.editWords = editWords;
   this.searchWords = searchWords;
+  this.matchWords = matchWords;
 
   checkAuth();
   changeStyle();
@@ -1448,6 +1538,10 @@ var TechController = function TechController(WordService, $state, $cookies) {
       console.log(res);
     });
   }
+  //Match Words
+  function matchWords(words, category) {
+    $state.go('root.match', { category: category });
+  }
 };
 
 TechController.$inject = ['WordService', '$state', '$cookies'];
@@ -1455,7 +1549,7 @@ TechController.$inject = ['WordService', '$state', '$cookies'];
 exports['default'] = TechController;
 module.exports = exports['default'];
 
-},{}],27:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -1467,6 +1561,7 @@ var TravelController = function TravelController(WordService, $state, $cookies) 
 
   this.searchWords = searchWords;
   this.editWords = editWords;
+  this.matchWords = matchWords;
 
   checkAuth();
   changeStyle();
@@ -1493,6 +1588,8 @@ var TravelController = function TravelController(WordService, $state, $cookies) 
     var category = "travel";
     WordService.getWords(category).then(function (res) {
       vm.words = res.data;
+      console.log(res.data);
+      WordService.tempWords = res.data.word;
       var data = res.data.length;
 
       if (data) {
@@ -1517,6 +1614,10 @@ var TravelController = function TravelController(WordService, $state, $cookies) 
 
     $state.go('root.edit', { category: category });
   }
+  //Match Words
+  function matchWords(words, category) {
+    $state.go('root.match', { category: category });
+  }
 };
 
 TravelController.$inject = ['WordService', '$state', '$cookies'];
@@ -1524,7 +1625,7 @@ TravelController.$inject = ['WordService', '$state', '$cookies'];
 exports['default'] = TravelController;
 module.exports = exports['default'];
 
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -1540,7 +1641,7 @@ lowercaseWord.$inject = ['WordService', '$parsers'];
 exports['default'] = lowercaseWord;
 module.exports = exports['default'];
 
-},{}],29:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -1585,14 +1686,6 @@ var _controllersBooksController = require('./controllers/books.controller');
 
 var _controllersBooksController2 = _interopRequireDefault(_controllersBooksController);
 
-var _controllersAddController = require('./controllers/add.controller');
-
-var _controllersAddController2 = _interopRequireDefault(_controllersAddController);
-
-var _controllersEditController = require('./controllers/edit.controller');
-
-var _controllersEditController2 = _interopRequireDefault(_controllersEditController);
-
 var _controllersMusicController = require('./controllers/music.controller');
 
 var _controllersMusicController2 = _interopRequireDefault(_controllersMusicController);
@@ -1609,6 +1702,18 @@ var _controllersCarsController = require('./controllers/cars.controller');
 
 var _controllersCarsController2 = _interopRequireDefault(_controllersCarsController);
 
+var _controllersAddController = require('./controllers/add.controller');
+
+var _controllersAddController2 = _interopRequireDefault(_controllersAddController);
+
+var _controllersEditController = require('./controllers/edit.controller');
+
+var _controllersEditController2 = _interopRequireDefault(_controllersEditController);
+
+var _controllersMatchController = require('./controllers/match.controller');
+
+var _controllersMatchController2 = _interopRequireDefault(_controllersMatchController);
+
 //Directive
 
 var _directivesLowercaseDirective = require('./directives/lowercase.directive');
@@ -1623,9 +1728,9 @@ var _servicesWordService = require('./services/word.service');
 
 var _servicesWordService2 = _interopRequireDefault(_servicesWordService);
 
-angular.module('app.words', ['app.core', 'ngCookies']).controller('GoldenController', _controllersGoldenController2['default']).controller('TravelController', _controllersTravelController2['default']).controller('TechController', _controllersTechController2['default']).controller('SportsController', _controllersSportsController2['default']).controller('FoodieController', _controllersFoodieController2['default']).controller('BooksController', _controllersBooksController2['default']).controller('MusicController', _controllersMusicController2['default']).controller('FilmController', _controllersFilmController2['default']).controller('PetsController', _controllersPetsController2['default']).controller('CarsController', _controllersCarsController2['default']).directive('lowercaseWord', _directivesLowercaseDirective2['default']).controller('AddController', _controllersAddController2['default']).controller('EditController', _controllersEditController2['default']).controller('RegisterController', _controllersRegisterController2['default']).controller('DashSideController', _controllersDashSideController2['default']).service('WordService', _servicesWordService2['default']);
+angular.module('app.words', ['app.core', 'ngCookies']).controller('GoldenController', _controllersGoldenController2['default']).controller('TravelController', _controllersTravelController2['default']).controller('TechController', _controllersTechController2['default']).controller('SportsController', _controllersSportsController2['default']).controller('FoodieController', _controllersFoodieController2['default']).controller('BooksController', _controllersBooksController2['default']).controller('MusicController', _controllersMusicController2['default']).controller('FilmController', _controllersFilmController2['default']).controller('PetsController', _controllersPetsController2['default']).controller('CarsController', _controllersCarsController2['default']).directive('lowercaseWord', _directivesLowercaseDirective2['default']).controller('AddController', _controllersAddController2['default']).controller('EditController', _controllersEditController2['default']).controller('MatchController', _controllersMatchController2['default']).controller('RegisterController', _controllersRegisterController2['default']).controller('DashSideController', _controllersDashSideController2['default']).service('WordService', _servicesWordService2['default']);
 
-},{"../app-core/index":3,"./controllers/add.controller":14,"./controllers/books.controller":15,"./controllers/cars.controller":16,"./controllers/dash.side.controller":17,"./controllers/edit.controller":18,"./controllers/film.controller":19,"./controllers/foodie.controller":20,"./controllers/golden.controller":21,"./controllers/music.controller":22,"./controllers/pets.controller":23,"./controllers/register.controller":24,"./controllers/sports.controller":25,"./controllers/tech.controller":26,"./controllers/travel.controller":27,"./directives/lowercase.directive":28,"./services/word.service":30,"angular":36,"angular-cookies":33}],30:[function(require,module,exports){
+},{"../app-core/index":3,"./controllers/add.controller":14,"./controllers/books.controller":15,"./controllers/cars.controller":16,"./controllers/dash.side.controller":17,"./controllers/edit.controller":18,"./controllers/film.controller":19,"./controllers/foodie.controller":20,"./controllers/golden.controller":21,"./controllers/match.controller":22,"./controllers/music.controller":23,"./controllers/pets.controller":24,"./controllers/register.controller":25,"./controllers/sports.controller":26,"./controllers/tech.controller":27,"./controllers/travel.controller":28,"./directives/lowercase.directive":29,"./services/word.service":31,"angular":37,"angular-cookies":34}],31:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -1638,6 +1743,8 @@ var WordService = function WordService($http, SERVER, $cookies) {
   this.addWords = addWords;
   this.editWords = editWords;
   this.searchWords = searchWords;
+
+  this.tempWords = [];
 
   //GET WORDS
   function getWords(category) {
@@ -1731,7 +1838,7 @@ WordService.$inject = ['$http', 'SERVER', '$cookies'];
 exports['default'] = WordService;
 module.exports = exports['default'];
 
-},{}],31:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -1750,7 +1857,7 @@ require('./app-profile/index');
 
 _angular2['default'].module('app', ['app.core', 'app.layout', 'app.words', 'app.profile']);
 
-},{"./app-core/index":3,"./app-layout/index":5,"./app-profile/index":12,"./app-words/index":29,"angular":36}],32:[function(require,module,exports){
+},{"./app-core/index":3,"./app-layout/index":5,"./app-profile/index":12,"./app-words/index":30,"angular":37}],33:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -2073,11 +2180,11 @@ angular.module('ngCookies').provider('$$cookieWriter', function $$CookieWriterPr
 
 })(window, window.angular);
 
-},{}],33:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 require('./angular-cookies');
 module.exports = 'ngCookies';
 
-},{"./angular-cookies":32}],34:[function(require,module,exports){
+},{"./angular-cookies":33}],35:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -6448,7 +6555,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],35:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -35467,11 +35574,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],36:[function(require,module,exports){
+},{}],37:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":35}]},{},[31])
+},{"./angular":36}]},{},[32])
 
 
 //# sourceMappingURL=main.js.map

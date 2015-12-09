@@ -4,6 +4,7 @@ let TravelController = function(WordService, $state, $cookies) {
 
   this.searchWords    = searchWords;
   this.editWords      = editWords;
+  this.matchWords     = matchWords;
 
 
   checkAuth();
@@ -31,6 +32,8 @@ let TravelController = function(WordService, $state, $cookies) {
     let category = "travel";
     WordService.getWords(category).then( (res) => {
       vm.words = res.data;
+      console.log(res.data);
+      WordService.tempWords = res.data.word;
       let data = res.data.length;
       
       if(data) {
@@ -56,6 +59,10 @@ let TravelController = function(WordService, $state, $cookies) {
 
     $state.go('root.edit', {category});
     
+  }
+  //Match Words
+  function matchWords(words, category) {
+    $state.go('root.match', {category})
   }
 
 };

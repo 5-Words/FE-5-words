@@ -52,33 +52,22 @@ let addController = function(WordService, $stateParams, $state, $cookies) {
     let three = words.three.toLowerCase();
     let four = words.four.toLowerCase();
     let five = words.five.toLowerCase();
-  //Remove all the white spaces
-    // one = one.split(' ').join('');
-    // two = two.split(' ').join('');
-    // three = three.split(' ').join('');
-    // four = four.split(' ').join('');
-    // five = five.split(' ').join('');
-  //Create an object to pass to the back end
-    // var lower = {
-    //   one : one,
-    //   two : two,
-    //   three: three,
-    //   four: four,
-    //   five: five
-    // };
+ 
     let wordsArray = [one, two, three, four, five];
+
+    let username = $cookies.get('username');
 
     let lower = {
       words: wordsArray,
-      category: category
+      category: category,
+      username: username
     }
 
     console.log(lower);
 
-    // console.log(lower);
-
      WordService.addWords(lower).then( (res) => {
         $state.go('root.golden');
+        console.log(res);
     })
   }
 

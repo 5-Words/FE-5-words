@@ -4,6 +4,7 @@ let BooksController = function(WordService, $state, $cookies) {
 
   this.editWords      = editWords;
   this.searchWords    = searchWords;
+  this.matchWords     = matchWords;
 
 
   checkAuth();
@@ -52,6 +53,11 @@ let BooksController = function(WordService, $state, $cookies) {
     WordService.searchWords(words, category).then( (res) => {
       console.log(res);
     })
+  }
+  //Match Words
+  function matchWords(words, category) {
+    // console.log(words, category);
+    $state.go('root.match', {category})
   }
 
 

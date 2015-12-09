@@ -19,21 +19,27 @@ let HomeService = function($http, SERVER, $cookies) {
 
     return $http.post(SERVER.URL + 'signup', u);
 
+  
   }
-  let Golden = function (obj) {
+  let Golden = function (obj, username) {
     this.one = obj.one;
     this.two = obj.two;
     this.three = obj.three;
     this.four = obj.four;
     this.five = obj.five;
     this.category = 'golden';
+    this.username = username
+    
 
   }; 
 
   function addWords (user) {
     let auth = $cookies.get('authToken');
-    // console.log(auth);
-    let g = new Golden(user);
+    let username = $cookies.get('username');
+    console.log(username);
+   
+    let g = new Golden(user, username);
+    console.log(g);
   
     return $http({
       url: SERVER.URL + 'create',

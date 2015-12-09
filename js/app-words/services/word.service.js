@@ -6,6 +6,8 @@ let WordService = function($http, SERVER, $cookies) {
   this.editWords   = editWords;
   this.searchWords = searchWords;
 
+  this.tempWords = [];
+
   //GET WORDS
   function getWords (category) {
    let auth = $cookies.get('authToken');

@@ -21,6 +21,8 @@ let HomeController = function(HomeService, $cookies, $state) {
   
       
       $cookies.put('authToken', res.data.access_token);
+      $cookies.put('username', res.data.username);
+
       
       $state.go('root.register');
     })
@@ -31,6 +33,8 @@ let HomeController = function(HomeService, $cookies, $state) {
       console.log(res);
       let auth = $cookies.put('authToken', res.data.access_token);
       let userId = $cookies.put('userId', res.data.id);
+      $cookies.put('username', res.data.username);
+  
       $state.go('root.golden');
     })
   }

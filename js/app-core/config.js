@@ -190,6 +190,12 @@ let config = function($urlRouterProvider, $stateProvider) {
       controller: 'AddController as vm',
       templateUrl: 'templates/app-words/add.tpl.html'
     })
+     .state('root.match', {
+      url: '/match/:category',
+      controller: 'MatchController as vm',
+      templateUrl: 'templates/app-words/match.tpl.html'
+    })
+
 
      .state('root.profile', {
       url: '/profile',
