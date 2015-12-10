@@ -29,6 +29,10 @@ let GoldenController = function(WordService, $state, $cookies) {
   function getGolden () {
     let golden = "golden";
     WordService.getGolden(golden).then( (res) => {
+      
+      //The GET request for the category saves the words to the WordService to be used when the user clicks the 'match' button and goes to the 'match' page.
+      WordService.tempWords = res;
+
       vm.words = res.data;
     })  
   }

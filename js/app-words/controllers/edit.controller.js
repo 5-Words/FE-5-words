@@ -70,11 +70,15 @@ let EditController = function(WordService, $stateParams, $state, $cookies) {
           ]
         }
     ;
-
+ 
     let response = WordService.editWords(words, cat);
+
+    console.log(response);
+
 
     response.request.then( function () {
       let promise = response.category;
+      console.log(promise);
       $state.go('root.' + promise);
     })
     

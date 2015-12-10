@@ -19,10 +19,11 @@ let addController = function(WordService, $stateParams, $state, $cookies) {
     $state.go('root.home');
    }
   }
-
+ 
   
   //Add Words 
   function addWords (words, category) {
+    console.log(category);
     
   //Form Validation
     if(!words) {
@@ -65,9 +66,21 @@ let addController = function(WordService, $stateParams, $state, $cookies) {
 
     console.log(lower);
 
+//-------------------------------
+    //  let response = WordService.editWords(words, cat);
+
+    // response.request.then( function () {
+    //   let promise = response.category;
+    //   $state.go('root.' + promise);
+    // })
+//-------------------------------
+
+
      WordService.addWords(lower).then( (res) => {
+      console.log(res);
+
         $state.go('root.golden');
-        console.log(res);
+      
     })
   }
 

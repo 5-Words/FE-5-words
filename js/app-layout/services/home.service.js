@@ -18,36 +18,38 @@ let HomeService = function($http, SERVER, $cookies) {
     let u = new User(user);
 
     return $http.post(SERVER.URL + 'signup', u);
-
-  
   }
-  let Golden = function (obj, username) {
-    this.one = obj.one;
-    this.two = obj.two;
-    this.three = obj.three;
-    this.four = obj.four;
-    this.five = obj.five;
-    this.category = 'golden';
-    this.username = username
-    
 
-  }; 
-
-  function addWords (user) {
+  function addWords (words) {
     let auth = $cookies.get('authToken');
+    console.log(words);
+    let category = 'golden'
+    // let username = $cookies.get('username');
+
+    //Change all the words to lowercase 
+    let one = words.one.toLowerCase();
+    let two = words.two.toLowerCase();
+    let three = words.three.toLowerCase();
+    let four = words.four.toLowerCase();
+    let five = words.five.toLowerCase();
+ 
+    let wordsArray = [one, two, three, four, five];
+
     let username = $cookies.get('username');
-    console.log(username);
-   
-    let g = new Golden(user, username);
-    console.log(g);
+
+    let lower = {
+      words: wordsArray,
+      category: category,
+      username: username
+    }
   
     return $http({
-      url: SERVER.URL + 'create',
+      url: SERVER.URL + 'words/create',
       method: 'POST',
       headers:{
         access_token: auth
       }, 
-      data: g
+      data: lower
 
      })
   } 

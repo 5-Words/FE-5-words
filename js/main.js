@@ -1,4 +1,6 @@
 import angular from 'angular';
+import _ from 'underscore';
+
 
 import './app-core/index';
 import './app-layout/index';

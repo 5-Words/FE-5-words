@@ -1,6 +1,6 @@
 let RegisterController = function($http, SERVER, $state, HomeService, $cookies) {
   
-  let vm = this;
+  let vm = this; 
 
   this.addWords = addWords;
 
@@ -10,7 +10,7 @@ let RegisterController = function($http, SERVER, $state, HomeService, $cookies) 
   function checkAuth() {
     let auth = $cookies.get('authToken');
    if (auth){
-    // console.log('auth');
+
    } else {
     $state.go('root.home');
    }

@@ -1,8 +1,9 @@
-import angualar from 'angular';
+import angular from 'angular';
 
 import '../app-core/index';
 
 import 'angular-cookies';
+
 
 //Controllers
 import DashSideController from './controllers/dash.side.controller';
