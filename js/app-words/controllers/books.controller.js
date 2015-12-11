@@ -18,6 +18,7 @@ let BooksController = function(WordService, $state, $cookies) {
     $state.go('root.home');
    }
   }
+  
   //Change Style
   function changeStyle () {
     let anchor = document.querySelector('#anchor');

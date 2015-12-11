@@ -14,23 +14,22 @@ let PhotosAddController = function(ProfileService, $state, $cookies) {
     anchor.setAttribute("class", "photosAdd");
   }
  
-
+  //Check Auth
   function checkAuth() {
     let auth = $cookies.get('authToken');
-   if (auth){
-    // console.log('auth');
-   } else {
-    $state.go('root.home');
-   }
+     if (auth){
+     } else {
+      $state.go('root.home');
+     }
   }
-
+  //Add Photo
   function addPhoto (photo) {
     console.log(photo);
     ProfileService.addPhoto(photo).then( (res) => {
       console.log(res);
     })
   }
-
+  
 };
 
 PhotosAddController.$inject = ['ProfileService', '$state', '$cookies'];

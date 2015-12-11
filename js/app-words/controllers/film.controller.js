@@ -6,18 +6,16 @@ let FilmController = function(WordService, $state, $cookies) {
   this.searchWords    = searchWords;
   this.matchWords     = matchWords;
 
-
   checkAuth();
   changeStyle();
   getWords();
 
   function checkAuth() {
     let auth = $cookies.get('authToken');
-   if (auth){
-    // console.log('auth');
-   } else {
-    $state.go('root.home');
-   }
+     if (auth){
+     } else {
+      $state.go('root.home');
+     }
   }
    //Change Style
   function changeStyle () {
@@ -25,6 +23,7 @@ let FilmController = function(WordService, $state, $cookies) {
     anchor.className = "";
     anchor.setAttribute("class", "film");
   }
+
   //Get Words
   function getWords () {
 
@@ -49,8 +48,7 @@ let FilmController = function(WordService, $state, $cookies) {
   
   //Edit Words
   function editWords (words, category) {
-    $state.go('root.edit', {category});
-    
+    $state.go('root.edit', {category});   
   }
 
   //Search Words

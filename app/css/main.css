@@ -155,6 +155,16 @@ aside {
 .clearBoth {
   clear: both; }
 
+.userMatch {
+  display: inline-block;
+  margin-right: 5%; }
+
+.wordMatchWrapper {
+  display: inline-block;
+  margin-right: 5%; }
+  .wordMatchWrapper .wordMatch {
+    display: inline-block; }
+
 .profileSide {
   padding: 1%;
   margin: 0; }

@@ -12,18 +12,20 @@ let PetsController = function(WordService, $state, $cookies) {
 
   function checkAuth() {
     let auth = $cookies.get('authToken');
-   if (auth){
-   
-   } else {
-    $state.go('root.home');
-   }
+     if (auth){
+     
+     } else {
+      $state.go('root.home');
+     }
   }
+  
   //Change Style
   function changeStyle () {
     let anchor = document.querySelector('#anchor');
     anchor.className = "";
     anchor.setAttribute("class", "pets");
   }
+
   //Get Words
   function getWords () {
 

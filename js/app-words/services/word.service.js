@@ -14,8 +14,6 @@ let WordService = function($http, SERVER, $cookies) {
    let auth = $cookies.get('authToken');
    let id   = $cookies.get('userId');
 
-   
-
    return $http({
       url: SERVER.URL + 'words/user/' + category,
       method: 'GET',
@@ -23,13 +21,11 @@ let WordService = function($http, SERVER, $cookies) {
         access_token: auth
       }
     })
-
   }
   //GET GOLDEN WORDS
   function getGolden (golden) {
    let auth = $cookies.get('authToken');
    let id   = $cookies.get('userId');
-
 
    return $http({
       url: SERVER.URL + 'words/user/' + golden,
@@ -46,22 +42,22 @@ let WordService = function($http, SERVER, $cookies) {
     let auth = $cookies.get('authToken');
     let id   = $cookies.get('userId');
 
-  
-  return $http({
-    url: SERVER.URL + 'words/matches/' + category,
-    method: 'GET',
-    headers: {
-      access_token: auth
-    }
-  })
+    return $http({
+      url: SERVER.URL + 'words/matches/' + category,
+      method: 'GET',
+      headers: {
+        access_token: auth
+      }
+    })
   }
 
+//Add Words
 
-  function addWords (words) {
+  function addWords (words, category) {
     let auth = $cookies.get('authToken');
-    console.log(words);
-  
-    return $http({
+      
+    
+    let request = $http({
       url: SERVER.URL + 'words/create',
       method: 'POST',
       headers:{
@@ -70,13 +66,17 @@ let WordService = function($http, SERVER, $cookies) {
       data: words
       
     })
+    return {
+      request: request,
+      category: category
+    }
   }
-
+//Edit Words
   function editWords(words, category) {
-    // console.log(category);
+    
     let auth = $cookies.get('authToken');
     
-  let request = $http({
+    let request = $http({
       url: SERVER.URL + 'words/edit' ,
       method: 'PUT',
       headers:{
@@ -85,13 +85,11 @@ let WordService = function($http, SERVER, $cookies) {
       data: words 
     });
 
-  return {
-    request: request,
-    category: category
+    return {
+      request: request,
+      category: category
+    }
   }
-
-  }
-
 };
 
 WordService.$inject = ['$http', 'SERVER', '$cookies'];

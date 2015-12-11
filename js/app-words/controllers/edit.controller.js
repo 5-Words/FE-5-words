@@ -11,27 +11,24 @@ let EditController = function(WordService, $stateParams, $state, $cookies) {
 
   function checkAuth() {
     let auth = $cookies.get('authToken');
-   if (auth){
-   
-   } else {
-    $state.go('root.home');
-   }
+     if (auth){
+     } else {
+      $state.go('root.home');
+     }
   }
 
   function getWords () {
 
-  let category = $stateParams;
-  
-    
+    let category = $stateParams;
+   
     WordService.getWords(category.category).then( (res) => {
       vm.words = res.data;
-      // console.log(vm.words);
-      // vm.category = res.data[0].category;
     })
   }
 
   function editWords (words) {
-   let cat = words[0].category;
+    let cat = words[0].category;
+
     //Form Validation
     if(!words) {
       return console.log('Empty');
@@ -73,9 +70,6 @@ let EditController = function(WordService, $stateParams, $state, $cookies) {
  
     let response = WordService.editWords(words, cat);
 
-    console.log(response);
-
-
     response.request.then( function () {
       let promise = response.category;
       console.log(promise);
@@ -85,7 +79,7 @@ let EditController = function(WordService, $stateParams, $state, $cookies) {
   } 
 
 
-   function validateEmpty(field) {
+ function validateEmpty(field) {
     return field ? true: false;
   }
   

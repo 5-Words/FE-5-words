@@ -12,18 +12,19 @@ let CarController = function(WordService, $state, $cookies) {
 
   function checkAuth() {
     let auth = $cookies.get('authToken');
-   if (auth){
-    // console.log('auth');
-   } else {
-    $state.go('root.home');
-   }
+     if (auth){
+     } else {
+      $state.go('root.home');
+     }
   }
+
   //Change Style
   function changeStyle () {
     let anchor = document.querySelector('#anchor');
     anchor.className = "";
     anchor.setAttribute("class", "cars");
   }
+
   //Get Words
   function getWords () {
 
@@ -44,7 +45,7 @@ let CarController = function(WordService, $state, $cookies) {
         $state.go('root.add', {category})
       }    
     })
-  }  
+  }  //getWords()
   
   //Edit Words
   function editWords (words, category) {
@@ -58,9 +59,10 @@ let CarController = function(WordService, $state, $cookies) {
       console.log(res);
     })
   }
+
   //Match Words
   function matchWords(words, category) {
-    // console.log(words, category);
+   
     $state.go('root.match', {category})
   }
 

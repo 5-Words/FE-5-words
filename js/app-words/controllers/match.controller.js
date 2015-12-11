@@ -1,12 +1,12 @@
 import _ from 'underscore';
 
-
 let MatchController = function(WordService, $state, $stateParams) {
   
   let vm = this;
 
   getWords();
 
+  //Get the Words
   function getWords () {
     let category = $stateParams;
     
@@ -14,13 +14,14 @@ let MatchController = function(WordService, $state, $stateParams) {
   
     let words = WordService.tempWords;
 
+      //If the user has no words
       if(words.length === 0) {
         console.log('No Words');
-
+        //Get the words first
         WordService.getWords(category.category).then( (res) => {    
     
         matchWords(res);
-
+          //Match the words
           function matchWords(res) {
             let one = res.data[0].word;
             let two = res.data[1].word;
@@ -50,8 +51,11 @@ let MatchController = function(WordService, $state, $stateParams) {
 
                 byUser.push(obj);
 
-                console.log(obj);
-                }); 
+                vm.matches = byUser;
+               
+               
+                });
+                console.log(byUser); 
 //----------
               
             }) //WordService.searchWords
@@ -59,6 +63,7 @@ let MatchController = function(WordService, $state, $stateParams) {
         }) //WordService.getWords
 
       } else {
+        //The user has already made a GET request so the words have already been saved
         console.log('Have Words');
        
         WordService.searchWords(words, category1).then( (res) => {
@@ -79,9 +84,12 @@ let MatchController = function(WordService, $state, $stateParams) {
 
           byUser.push(obj);
           
-          console.log(obj);
+     
+          vm.matches = byUser;
+          
 
           }); 
+           console.log(byUser);
           
         })// WordService
 
@@ -89,10 +97,6 @@ let MatchController = function(WordService, $state, $stateParams) {
 
   }  //getWords
   
-
-
-
-
 
 }; 
 

@@ -1,5 +1,4 @@
 let MusicController = function(WordService, $state, $cookies) {
-  console.log('music');
   
   let vm = this;
   this.editWords      = editWords;
@@ -10,13 +9,13 @@ let MusicController = function(WordService, $state, $cookies) {
   changeStyle();
   getWords();
 
+  //Check Auth
   function checkAuth() {
     let auth = $cookies.get('authToken');
-   if (auth){
-    // console.log('auth');
-   } else {
-    $state.go('root.home');
-   }
+     if (auth){
+     } else {
+      $state.go('root.home');
+     }
   }
   //Change Style
   function changeStyle () {
@@ -30,7 +29,6 @@ let MusicController = function(WordService, $state, $cookies) {
 
     let category = "music";
     WordService.getWords(category).then( (res) => {
-
       vm.words = res.data;
 
       //The GET request for the category saves the words to the WordService to be used when the user clicks the 'match' button and goes to the 'match' page.
@@ -65,7 +63,6 @@ let MusicController = function(WordService, $state, $cookies) {
     $state.go('root.match', {category})
   }
   
-
 };
 
 MusicController.$inject = ['WordService', '$state', '$cookies'];

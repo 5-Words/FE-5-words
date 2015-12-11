@@ -1,7 +1,12 @@
-let ProfileController = function($state, $cookies) {
-  
+let ProfileController = function($state, $cookies, ProfileService) {
+  let vm = this;
+ 
+
+
   checkAuth();
   changeStyle();
+
+
   
   //Change Style
   function changeStyle () {
@@ -22,6 +27,6 @@ let ProfileController = function($state, $cookies) {
 
 };
 
-ProfileController.$inject = ['$state', '$cookies'];
+ProfileController.$inject = ['$state', '$cookies', 'ProfileService'];
 
 export default ProfileController;

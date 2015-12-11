@@ -10,21 +10,19 @@ let addController = function(WordService, $stateParams, $state, $cookies) {
 
   checkAuth();
  
-
+  //Check Auth
   function checkAuth() {
     let auth = $cookies.get('authToken');
-   if (auth){
-    // console.log('auth');
-   } else {
-    $state.go('root.home');
-   }
+
+     if (auth){
+     } else {
+      $state.go('root.home');
+     }
   }
  
-  
   //Add Words 
   function addWords (words, category) {
-    console.log(category);
-    
+   
   //Form Validation
     if(!words) {
       return console.log('Empty');
@@ -44,8 +42,6 @@ let addController = function(WordService, $stateParams, $state, $cookies) {
     if(!validateEmpty(words.five)) {
       return console.log('The fifth word is empty');
     }
-  //------------------------------------------------- 
-  
 
   //Change all the words to lowercase 
     let one = words.one.toLowerCase();
@@ -64,29 +60,19 @@ let addController = function(WordService, $stateParams, $state, $cookies) {
       username: username
     }
 
-    console.log(lower);
+    let response = WordService.addWords(lower, category);
 
-//-------------------------------
-    //  let response = WordService.editWords(words, cat);
+    response.request.then( function () {
+        let promise = response.category;
+        $state.go('root.' + promise);
+      })
 
-    // response.request.then( function () {
-    //   let promise = response.category;
-    //   $state.go('root.' + promise);
-    // })
-//-------------------------------
-
-
-     WordService.addWords(lower).then( (res) => {
-      console.log(res);
-
-        $state.go('root.golden');
-      
-    })
-  }
+  } //addWords()
 
   function validateEmpty(field) {
     return field ? true: false;
-  }
+    
+  } //validateEmpty()
   
 
 };

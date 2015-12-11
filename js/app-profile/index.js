@@ -14,8 +14,7 @@ import PhotosAddController from './controllers/photos.add.controller';
 
 import ProfileService from './services/profile.service';
 
-
-
+import fileUpload from './directives/file.upload.directive';
 
 angular
   .module('app.profile', ['app.core', 'ngCookies'])
@@ -26,5 +25,7 @@ angular
   .controller('PhotosAddController', PhotosAddController)
 
   .service('ProfileService', ProfileService)
+
+  .directive('fileUpload', fileUpload)
 
 ;

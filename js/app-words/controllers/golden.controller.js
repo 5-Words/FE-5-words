@@ -10,15 +10,15 @@ let GoldenController = function(WordService, $state, $cookies) {
   changeStyle();
   getGolden();
 
- 
-
+  //Check Auth
   function checkAuth() {
     let auth = $cookies.get('authToken');
-   if (auth){
-   } else {
-    $state.go('root.home');
-   }
+     if (auth){
+     } else {
+      $state.go('root.home');
+     }
   }
+
   //Change Style
   function changeStyle () {
     let anchor = document.querySelector('#anchor');
@@ -26,6 +26,7 @@ let GoldenController = function(WordService, $state, $cookies) {
     anchor.setAttribute("class", "golden");
   }
 
+  //Get Golden Words
   function getGolden () {
     let golden = "golden";
     WordService.getGolden(golden).then( (res) => {
@@ -36,17 +37,19 @@ let GoldenController = function(WordService, $state, $cookies) {
       vm.words = res.data;
     })  
   }
+
   //Edit Words
   function editWords (words, category) {
     $state.go('root.edit', {category});
-
   }
+
   //Search Words
   function searchWords (words, category) {
     WordService.searchWords(words, category).then( (res) => {
       console.log(res);
     })
   }
+  //Math The Words
    function matchWords(words, category) {
     // console.log(words, category);
     $state.go('root.match', {category})

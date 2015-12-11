@@ -1,3 +1,8 @@
-<div ng-repeat="match in vm.matches>
-  
+<div ng-repeat="match in vm.matches">
+    <h3 class="userMatch">{{match.user}}</h3>
+    <button>Add Me!</button>
+    <div class="wordMatchWrapper" ng-repeat="word in match.words">
+      <h3 class="wordMatch">{{word.word}}</h3>
+    </div>
+
 </div>
