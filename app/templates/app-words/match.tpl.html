@@ -1,5 +1,7 @@
-<div ng-repeat="match in vm.matches">
-    <a href="#/friends/add/{{match.user}}"><h3 class="userMatch">{{match.user}}</h3></a>
+<div class="matchWrapper" ng-repeat="match in vm.matches">
+    <div class="userMatch">
+    <a href="#/friends/add/{{match.user}}"><h3>{{match.user}}</h3></a>
+    </div>
   
     <div class="wordMatchWrapper" ng-repeat="word in match.words">
       <h3 class="wordMatch">{{word.word}}</h3>

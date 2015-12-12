@@ -7,6 +7,7 @@ let MatchController = function(WordService, $state, $stateParams, $cookies) {
   this.checkProfile = checkProfile;
 
   checkAuth();
+  changeStyle();
 
    //Check Auth
   function checkAuth() {
@@ -15,6 +16,15 @@ let MatchController = function(WordService, $state, $stateParams, $cookies) {
      } else {
       $state.go('root.home');
      }
+  }
+  //Change Style
+  function changeStyle () {
+    let category = $stateParams;
+    category = category.category;
+    
+    let anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", category);
   }
 
   //User gets the match results back and if they see another user who they would like to match with, they can click a button that calls this function. The user name of the person they want to add is passed as the name parameter. They are routed to the check profile page of that specific user name.

@@ -19,6 +19,15 @@ let addController = function(WordService, $stateParams, $state, $cookies) {
       $state.go('root.home');
      }
   }
+  //Change Style
+  function changeStyle () {
+    let category = $stateParams;
+    category = category.category;
+    console.log(category);
+    let anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", category);
+  }
  
   //Add Words 
   function addWords (words, category) {

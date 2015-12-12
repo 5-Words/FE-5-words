@@ -130,10 +130,6 @@ button {
   border-color: green;
 }
 //---------------------------------------------------
-//Home
-.loginFormWrap {  
-}
-//---------------------------------------------------
 //Dashboard
 .dashSide {
  margin: 0;
@@ -160,9 +156,9 @@ button {
     }
     .wordList {
       h3 {
-      font-size: 1.5em;
-      margin-left: 7%;
-      margin-top: 3%;
+      font-size: 2em;
+      margin-left: 10%;
+      margin-top: 2%;
 
       }
 
@@ -273,6 +269,7 @@ button {
 .musicWrapper {
   background-image: url("../img/music.jpg");
   background-repeat: no-repeat;
+  background-size: cover;
   width: 100%;
   height: 650px;
   border: 1px solid black; 
@@ -321,17 +318,37 @@ button {
 }
 //---------------------------------------------------
 //Match Page
-.userMatch {
-  display: inline-block;
-  margin-right: 5%;
+.matchWrapper {
+  background-color: white;
+  opacity: .7;
 
-}
-.wordMatchWrapper {
-  display: inline-block;
-  margin-right: 5%;
-
-  .wordMatch {
+  .userMatch {
     display: inline-block;
+    margin-right: 5%;
+    
+      h3 {
+        float: left;
+        margin-left: 1%;
+        margin-right: 3%;
+        color: black;
+        font-weight: bolder;
+        font-size: 1.2em;
+        text-transform: uppercase;
+        text-decoration: underline;
+      }
+
+  }
+  .wordMatchWrapper {
+    display: inline-block;
+    margin-right: 5%;
+      h3 {
+        float: right;
+        color: red;
+      }
+
+    .wordMatch {
+      display: inline-block;
+    }
   }
 }
 //---------------------------------------------------
@@ -427,6 +444,12 @@ button {
 //---------------------------------------------------
 //Travel Add Class 
 .travel {
+  background-image: url("../img/travel.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 650px;
+  border: 1px solid black; 
   background-color: #854E24;
   .siteNav{background-color: #854E24;}
   .dashSide{background-color: #F3A130;}
@@ -436,6 +459,12 @@ button {
 //Tech Add Class 
 .tech {
   background-color: #062549;
+  background-image: url("../img/tech.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 650px;
+  border: 1px solid black; 
   .siteNav{background-color: #062549;}
   .dashSide{background-color: #124279;}
   .footer {background-color: #062549;}
@@ -444,6 +473,12 @@ button {
 //Sports Add Class 
 .sports {
   background-color: #36651B;
+  background-image: url("../img/sports.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 650px;
+  border: 1px solid black;  
   .siteNav{background-color: #36651B;}
   .dashSide{background-color: #588B25;}
   .footer {background-color: #36651B;}
@@ -452,6 +487,13 @@ button {
 //Foodie Add Class 
 .foodie {
   background-color: #F59000;
+  background-image: url("../img/foodie.jpg");
+  background-color: #F59000;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 650px;
+  border: 1px solid black;  
   .siteNav{background-color: #F59000;}
   .dashSide{background-color: #F7B700;}
   .footer {background-color: #F59000;}
@@ -460,6 +502,12 @@ button {
 //Books Add Class 
 .books {
   background-color: #A94C00;
+  background-image: url("../img/books.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 650px;
+  border: 1px solid black; 
   .siteNav{background-color: #A94C00;}
   .dashSide{background-color: #CD760B;}
   .footer {background-color: #A94C00;}
@@ -468,6 +516,12 @@ button {
 //Music Add Class 
 .music {
   background-color: #D6BA59;
+  background-image: url("../img/music.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 650px;
+  border: 1px solid black; 
   .siteNav{background-color: #D6BA59;}
   .dashSide{background-color: #D5C46C;}
   .footer {background-color: #D6BA59;}
@@ -476,6 +530,12 @@ button {
 //Film Add Class 
 .film {
   background-color: #6E0301;
+  background-image: url("../img/film.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 650px;
+  border: 1px solid black; 
   .siteNav{background-color: #6E0301;}
   .dashSide{background-color: #C91E16;}
   .footer {background-color: #6E0301;}
@@ -484,6 +544,11 @@ button {
 //Pets Add Class 
 .pets {
   background-color: #D5C46C;
+  background-image: url("../img/pets.jpg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 650px;
+  border: 1px solid black; 
   .siteNav{background-color: #D5C46C;}
   .dashSide{background-color: #D6BA59;}
   .footer {background-color: #D5C46C;}
@@ -492,6 +557,11 @@ button {
 //Cars Add Class 
 .cars {
   background-color: #6E5500;
+  background-image: url("../img/cars.jpg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 650px;
+  border: 1px solid black; 
   .siteNav{background-color: #6E5500;}
   .dashSide{background-color: #EBD29A;}
   .footer {background-color: #6E5500;}
@@ -538,16 +608,107 @@ button {
   .goldPlate {
   background-size: 100%;
   width: 90%;
- 
+    h3 {
+    }
+    .wordList {
+      
+      h3 {
+         font-size: 1.5em;
+      }
+    }  
+  } 
 }
-  
-}
+
+//HOME PAGE
 @media (max-width: 550px) {
-  .goldenWrapper {
-     button {
-      width: 30%;
+  //Home
+  .homeWrapper {
+    input {
+      width: 80%;
+      margin: 0 auto;
+    }
+    .homeBanner {
+    background-image: url("../img/wordsLogo.jpg");
+    background-repeat: no-repeat;
+    border: 3px solid #4EABF8;
+    border-radius: 3px;
+    background-size: 100% 200px;
+    margin: 4% auto;
+
+    height: 200px;
+      h3 {
+        color: #4EABF8;
+        text-shadow: 1px 1px black;
+      }
     }
   }
+
+}
+  //DASHBOARD PAGE
+@media (max-width: 550px) {
+
+   .goldenWrapper {
+     button {
+      width: 30%;
+      margin: 1%;
+    }
+  }
+ 
+  .travelWrapper {
+     button {
+      width: 30%;
+      margin: 1%;
+    }
+  }
+  .techWrapper {
+     button {
+      width: 30%;
+      margin: 1%;
+    }
+  }
+  .sportsWrapper {
+     button {
+      width: 30%;
+      margin: 1%;
+    }
+  }
+  .foodieWrapper {
+     button {
+      width: 30%;
+      margin: 1%;
+    }
+  }
+   .booksWrapper {
+     button {
+      width: 30%;
+      margin: 1%;
+    }
+  }
+   .musicWrapper {
+     button {
+      width: 30%;
+      margin: 1%;
+    }
+  }
+   .filmWrapper {
+     button {
+      width: 30%;
+      margin: 1%;
+    }
+  }
+   .petsWrapper {
+     button {
+      width: 30%;
+      margin: 1%;
+    }
+  }
+   .carsWrapper {
+     button {
+      width: 30%;
+      margin: 1%;
+    }
+  }
+  //GOLDEN WORDS
   .goldPlate.wordListWrapper {
   background-image: url("../img/scroll.gif");
   background-size: 90%;
@@ -574,40 +735,8 @@ button {
         left: 5%;
       }
     }  
-}
-  
-  
-}
-@media (max-width: 550px) {
-  //Home
-  .homeWrapper {
-    input {
-      width: 80%;
-      margin: 0 auto;
-    }
-    .homeBanner {
-    background-image: url("../img/wordsLogo.jpg");
-    background-repeat: no-repeat;
-    border: 3px solid #4EABF8;
-    border-radius: 3px;
-    background-size: 100% 200px;
-    margin: 4% auto;
-
-    height: 200px;
-      h3 {
-        color: #4EABF8;
-        text-shadow: 1px 1px black;
-      }
-    }
   }
-
-
-}
-
-@media (max-width: 500px) {
-
-
-  //Dash
+  //ALL OTHER CATEGORIES
   .chalkBoard {
   background-image: url("../img/notepad.png");
   background-size: 100%;

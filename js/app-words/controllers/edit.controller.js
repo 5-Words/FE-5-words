@@ -7,6 +7,7 @@ let EditController = function(WordService, $stateParams, $state, $cookies) {
  
 
   checkAuth();
+  changeStyle();
   getWords();
 
   function checkAuth() {
@@ -15,6 +16,15 @@ let EditController = function(WordService, $stateParams, $state, $cookies) {
      } else {
       $state.go('root.home');
      }
+  }
+  //Change Style
+  function changeStyle () {
+    let category = $stateParams;
+    category = category.category;
+    
+    let anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", category);
   }
 
   function getWords () {

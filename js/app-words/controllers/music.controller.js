@@ -2,7 +2,6 @@ let MusicController = function(WordService, $state, $cookies) {
   
   let vm = this;
   this.editWords      = editWords;
-  this.searchWords    = searchWords;
   this.matchWords     = matchWords;
 
   checkAuth();
@@ -52,12 +51,6 @@ let MusicController = function(WordService, $state, $cookies) {
     
   }
 
-  //Search Words
-  function searchWords (words, category) {
-    WordService.searchWords(words, category).then( (res) => {
-      console.log(res);
-    })
-  }
   //Match Words
   function matchWords(words, category) {
     $state.go('root.match', {category})

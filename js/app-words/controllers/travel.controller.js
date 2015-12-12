@@ -2,7 +2,6 @@ let TravelController = function(WordService, $state, $cookies) {
   
   let vm = this;
 
-  this.searchWords    = searchWords;
   this.editWords      = editWords;
   this.matchWords     = matchWords;
 
@@ -46,13 +45,6 @@ let TravelController = function(WordService, $state, $cookies) {
         $state.go('root.add', {category})
       }  
       
-    })
-  }
-
-  //Search Words
-  function searchWords (words, category) {
-    WordService.searchWords(words, category).then( (res) => {
-      console.log(res);
     })
   }
   

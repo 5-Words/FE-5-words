@@ -1022,6 +1022,15 @@ var addController = function addController(WordService, $stateParams, $state, $c
       $state.go('root.home');
     }
   }
+  //Change Style
+  function changeStyle() {
+    var category = $stateParams;
+    category = category.category;
+    console.log(category);
+    var anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", category);
+  }
 
   //Add Words
   function addWords(words, category) {
@@ -1092,7 +1101,6 @@ var BooksController = function BooksController(WordService, $state, $cookies) {
   var vm = this;
 
   this.editWords = editWords;
-  this.searchWords = searchWords;
   this.matchWords = matchWords;
 
   checkAuth();
@@ -1141,12 +1149,6 @@ var BooksController = function BooksController(WordService, $state, $cookies) {
     $state.go('root.edit', { category: category });
   }
 
-  //Search Words
-  function searchWords(words, category) {
-    WordService.searchWords(words, category).then(function (res) {
-      console.log(res);
-    });
-  }
   //Match Words
   function matchWords(words, category) {
     // console.log(words, category);
@@ -1170,7 +1172,6 @@ var CarController = function CarController(WordService, $state, $cookies) {
   var vm = this;
 
   this.editWords = editWords;
-  this.searchWords = searchWords;
   this.matchWords = matchWords;
 
   checkAuth();
@@ -1218,13 +1219,6 @@ var CarController = function CarController(WordService, $state, $cookies) {
     $state.go('root.edit', { category: category });
   }
 
-  //Search Words
-  function searchWords(words, category) {
-    WordService.searchWords(words, category).then(function (res) {
-      console.log(res);
-    });
-  }
-
   //Match Words
   function matchWords(words, category) {
 
@@ -1264,6 +1258,7 @@ var EditController = function EditController(WordService, $stateParams, $state, 
   vm.editWords = editWords;
 
   checkAuth();
+  changeStyle();
   getWords();
 
   function checkAuth() {
@@ -1271,6 +1266,15 @@ var EditController = function EditController(WordService, $stateParams, $state, 
     if (auth) {} else {
       $state.go('root.home');
     }
+  }
+  //Change Style
+  function changeStyle() {
+    var category = $stateParams;
+    category = category.category;
+
+    var anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", category);
   }
 
   function getWords() {
@@ -1347,7 +1351,6 @@ var FilmController = function FilmController(WordService, $state, $cookies) {
   var vm = this;
 
   this.editWords = editWords;
-  this.searchWords = searchWords;
   this.matchWords = matchWords;
 
   checkAuth();
@@ -1394,12 +1397,6 @@ var FilmController = function FilmController(WordService, $state, $cookies) {
     $state.go('root.edit', { category: category });
   }
 
-  //Search Words
-  function searchWords(words, category) {
-    WordService.searchWords(words, category).then(function (res) {
-      console.log(res);
-    });
-  }
   //Match Words
   function matchWords(words, category) {
     $state.go('root.match', { category: category });
@@ -1422,7 +1419,6 @@ var FoodieController = function FoodieController(WordService, $state, $cookies) 
   var vm = this;
 
   this.editWords = editWords;
-  this.searchWords = searchWords;
   this.matchWords = matchWords;
 
   checkAuth();
@@ -1472,13 +1468,6 @@ var FoodieController = function FoodieController(WordService, $state, $cookies) 
     $state.go('root.edit', { category: category });
   }
 
-  //Search Words
-  function searchWords(words, category) {
-    WordService.searchWords(words, category).then(function (res) {
-      console.log(res);
-    });
-  }
-
   //Match Words
   function matchWords(words, category) {
     $state.go('root.match', { category: category });
@@ -1501,7 +1490,6 @@ var GoldenController = function GoldenController(WordService, $state, $cookies) 
   var vm = this;
 
   this.editWords = editWords;
-  this.searchWords = searchWords;
   this.matchWords = matchWords;
 
   checkAuth();
@@ -1540,12 +1528,6 @@ var GoldenController = function GoldenController(WordService, $state, $cookies) 
     $state.go('root.edit', { category: category });
   }
 
-  //Search Words
-  function searchWords(words, category) {
-    WordService.searchWords(words, category).then(function (res) {
-      console.log(res);
-    });
-  }
   //Math The Words
   function matchWords(words, category) {
     // console.log(words, category);
@@ -1578,6 +1560,7 @@ var MatchController = function MatchController(WordService, $state, $stateParams
   this.checkProfile = checkProfile;
 
   checkAuth();
+  changeStyle();
 
   //Check Auth
   function checkAuth() {
@@ -1585,6 +1568,15 @@ var MatchController = function MatchController(WordService, $state, $stateParams
     if (auth) {} else {
       $state.go('root.home');
     }
+  }
+  //Change Style
+  function changeStyle() {
+    var category = $stateParams;
+    category = category.category;
+
+    var anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", category);
   }
 
   //User gets the match results back and if they see another user who they would like to match with, they can click a button that calls this function. The user name of the person they want to add is passed as the name parameter. They are routed to the check profile page of that specific user name.
@@ -1691,7 +1683,6 @@ var MusicController = function MusicController(WordService, $state, $cookies) {
 
   var vm = this;
   this.editWords = editWords;
-  this.searchWords = searchWords;
   this.matchWords = matchWords;
 
   checkAuth();
@@ -1738,12 +1729,6 @@ var MusicController = function MusicController(WordService, $state, $cookies) {
     $state.go('root.edit', { category: category });
   }
 
-  //Search Words
-  function searchWords(words, category) {
-    WordService.searchWords(words, category).then(function (res) {
-      console.log(res);
-    });
-  }
   //Match Words
   function matchWords(words, category) {
     $state.go('root.match', { category: category });
@@ -1766,7 +1751,6 @@ var PetsController = function PetsController(WordService, $state, $cookies) {
   var vm = this;
 
   this.editWords = editWords;
-  this.searchWords = searchWords;
   this.matchWords = matchWords;
 
   checkAuth();
@@ -1816,12 +1800,6 @@ var PetsController = function PetsController(WordService, $state, $cookies) {
     $state.go('root.edit', { category: category });
   }
 
-  //Search Words
-  function searchWords(words, category) {
-    WordService.searchWords(words, category).then(function (res) {
-      console.log(res);
-    });
-  }
   //Match Words
   function matchWords(words, category) {
     $state.go('root.match', { category: category });
@@ -1878,7 +1856,6 @@ var SportsController = function SportsController(WordService, $state, $cookies) 
   var vm = this;
 
   this.editWords = editWords;
-  this.searchWords = searchWords;
   this.matchWords = matchWords;
 
   checkAuth();
@@ -1925,12 +1902,6 @@ var SportsController = function SportsController(WordService, $state, $cookies) 
     $state.go('root.edit', { category: category });
   }
 
-  //Search Words
-  function searchWords(words, category) {
-    WordService.searchWords(words, category).then(function (res) {
-      console.log(res);
-    });
-  }
   //Match Words
   function matchWords(words, category) {
     $state.go('root.match', { category: category });
@@ -1953,7 +1924,6 @@ var TechController = function TechController(WordService, $state, $cookies) {
   var vm = this;
 
   this.editWords = editWords;
-  this.searchWords = searchWords;
   this.matchWords = matchWords;
 
   checkAuth();
@@ -2002,12 +1972,6 @@ var TechController = function TechController(WordService, $state, $cookies) {
     $state.go('root.edit', { category: category });
   }
 
-  //Search Words
-  function searchWords(words, category) {
-    WordService.searchWords(words, category).then(function (res) {
-      console.log(res);
-    });
-  }
   //Match Words
   function matchWords(words, category) {
     $state.go('root.match', { category: category });
@@ -2029,7 +1993,6 @@ var TravelController = function TravelController(WordService, $state, $cookies) 
 
   var vm = this;
 
-  this.searchWords = searchWords;
   this.editWords = editWords;
   this.matchWords = matchWords;
 
@@ -2070,13 +2033,6 @@ var TravelController = function TravelController(WordService, $state, $cookies) 
         //The user is routed to the add form where they can add words only once.
         $state.go('root.add', { category: category });
       }
-    });
-  }
-
-  //Search Words
-  function searchWords(words, category) {
-    WordService.searchWords(words, category).then(function (res) {
-      console.log(res);
     });
   }
 

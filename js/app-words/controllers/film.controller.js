@@ -3,7 +3,6 @@ let FilmController = function(WordService, $state, $cookies) {
   let vm = this;
 
   this.editWords      = editWords;
-  this.searchWords    = searchWords;
   this.matchWords     = matchWords;
 
   checkAuth();
@@ -51,12 +50,6 @@ let FilmController = function(WordService, $state, $cookies) {
     $state.go('root.edit', {category});   
   }
 
-  //Search Words
-  function searchWords (words, category) {
-    WordService.searchWords(words, category).then( (res) => {
-      console.log(res);
-    })
-  }
   //Match Words
   function matchWords(words, category) {
     $state.go('root.match', {category})

@@ -107,9 +107,9 @@ button {
     font-size: 2.5em;
     text-shadow: 1px 1px 1px black; }
   .wordListWrapper .wordList h3 {
-    font-size: 1.5em;
-    margin-left: 7%;
-    margin-top: 3%; }
+    font-size: 2em;
+    margin-left: 10%;
+    margin-top: 2%; }
 
 .chalkBoard {
   background-image: url("../img/chalkboard.jpg");
@@ -193,6 +193,7 @@ button {
 .musicWrapper {
   background-image: url("../img/music.jpg");
   background-repeat: no-repeat;
+  background-size: cover;
   width: 100%;
   height: 650px;
   border: 1px solid black; }
@@ -228,15 +229,29 @@ button {
 .clearBoth {
   clear: both; }
 
-.userMatch {
-  display: inline-block;
-  margin-right: 5%; }
-
-.wordMatchWrapper {
-  display: inline-block;
-  margin-right: 5%; }
-  .wordMatchWrapper .wordMatch {
-    display: inline-block; }
+.matchWrapper {
+  background-color: white;
+  opacity: .7; }
+  .matchWrapper .userMatch {
+    display: inline-block;
+    margin-right: 5%; }
+    .matchWrapper .userMatch h3 {
+      float: left;
+      margin-left: 1%;
+      margin-right: 3%;
+      color: black;
+      font-weight: bolder;
+      font-size: 1.2em;
+      text-transform: uppercase;
+      text-decoration: underline; }
+  .matchWrapper .wordMatchWrapper {
+    display: inline-block;
+    margin-right: 5%; }
+    .matchWrapper .wordMatchWrapper h3 {
+      float: right;
+      color: red; }
+    .matchWrapper .wordMatchWrapper .wordMatch {
+      display: inline-block; }
 
 .profileMainWrap img {
   width: 10%;
@@ -307,6 +322,12 @@ button {
   background-color: #E48F03; }
 
 .travel {
+  background-image: url("../img/travel.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 650px;
+  border: 1px solid black;
   background-color: #854E24; }
   .travel .siteNav {
     background-color: #854E24; }
@@ -316,7 +337,13 @@ button {
     background-color: #854E24; }
 
 .tech {
-  background-color: #062549; }
+  background-color: #062549;
+  background-image: url("../img/tech.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 650px;
+  border: 1px solid black; }
   .tech .siteNav {
     background-color: #062549; }
   .tech .dashSide {
@@ -325,7 +352,13 @@ button {
     background-color: #062549; }
 
 .sports {
-  background-color: #36651B; }
+  background-color: #36651B;
+  background-image: url("../img/sports.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 650px;
+  border: 1px solid black; }
   .sports .siteNav {
     background-color: #36651B; }
   .sports .dashSide {
@@ -334,7 +367,14 @@ button {
     background-color: #36651B; }
 
 .foodie {
-  background-color: #F59000; }
+  background-color: #F59000;
+  background-image: url("../img/foodie.jpg");
+  background-color: #F59000;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 650px;
+  border: 1px solid black; }
   .foodie .siteNav {
     background-color: #F59000; }
   .foodie .dashSide {
@@ -343,7 +383,13 @@ button {
     background-color: #F59000; }
 
 .books {
-  background-color: #A94C00; }
+  background-color: #A94C00;
+  background-image: url("../img/books.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 650px;
+  border: 1px solid black; }
   .books .siteNav {
     background-color: #A94C00; }
   .books .dashSide {
@@ -352,7 +398,13 @@ button {
     background-color: #A94C00; }
 
 .music {
-  background-color: #D6BA59; }
+  background-color: #D6BA59;
+  background-image: url("../img/music.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 650px;
+  border: 1px solid black; }
   .music .siteNav {
     background-color: #D6BA59; }
   .music .dashSide {
@@ -361,7 +413,13 @@ button {
     background-color: #D6BA59; }
 
 .film {
-  background-color: #6E0301; }
+  background-color: #6E0301;
+  background-image: url("../img/film.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 650px;
+  border: 1px solid black; }
   .film .siteNav {
     background-color: #6E0301; }
   .film .dashSide {
@@ -370,7 +428,12 @@ button {
     background-color: #6E0301; }
 
 .pets {
-  background-color: #D5C46C; }
+  background-color: #D5C46C;
+  background-image: url("../img/pets.jpg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 650px;
+  border: 1px solid black; }
   .pets .siteNav {
     background-color: #D5C46C; }
   .pets .dashSide {
@@ -379,7 +442,12 @@ button {
     background-color: #D5C46C; }
 
 .cars {
-  background-color: #6E5500; }
+  background-color: #6E5500;
+  background-image: url("../img/cars.jpg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 650px;
+  border: 1px solid black; }
   .cars .siteNav {
     background-color: #6E5500; }
   .cars .dashSide {
@@ -428,11 +496,57 @@ button {
     width: 90%; }
   .goldPlate {
     background-size: 100%;
-    width: 90%; } }
+    width: 90%; }
+    .goldPlate .wordList h3 {
+      font-size: 1.5em; } }
+
+@media (max-width: 550px) {
+  .homeWrapper input {
+    width: 80%;
+    margin: 0 auto; }
+  .homeWrapper .homeBanner {
+    background-image: url("../img/wordsLogo.jpg");
+    background-repeat: no-repeat;
+    border: 3px solid #4EABF8;
+    border-radius: 3px;
+    background-size: 100% 200px;
+    margin: 4% auto;
+    height: 200px; }
+    .homeWrapper .homeBanner h3 {
+      color: #4EABF8;
+      text-shadow: 1px 1px black; } }
 
 @media (max-width: 550px) {
   .goldenWrapper button {
-    width: 30%; }
+    width: 30%;
+    margin: 1%; }
+  .travelWrapper button {
+    width: 30%;
+    margin: 1%; }
+  .techWrapper button {
+    width: 30%;
+    margin: 1%; }
+  .sportsWrapper button {
+    width: 30%;
+    margin: 1%; }
+  .foodieWrapper button {
+    width: 30%;
+    margin: 1%; }
+  .booksWrapper button {
+    width: 30%;
+    margin: 1%; }
+  .musicWrapper button {
+    width: 30%;
+    margin: 1%; }
+  .filmWrapper button {
+    width: 30%;
+    margin: 1%; }
+  .petsWrapper button {
+    width: 30%;
+    margin: 1%; }
+  .carsWrapper button {
+    width: 30%;
+    margin: 1%; }
   .goldPlate.wordListWrapper {
     background-image: url("../img/scroll.gif");
     background-size: 90%;
@@ -454,25 +568,7 @@ button {
         margin-top: 5%;
         color: black;
         position: relative;
-        left: 5%; } }
-
-@media (max-width: 550px) {
-  .homeWrapper input {
-    width: 80%;
-    margin: 0 auto; }
-  .homeWrapper .homeBanner {
-    background-image: url("../img/wordsLogo.jpg");
-    background-repeat: no-repeat;
-    border: 3px solid #4EABF8;
-    border-radius: 3px;
-    background-size: 100% 200px;
-    margin: 4% auto;
-    height: 200px; }
-    .homeWrapper .homeBanner h3 {
-      color: #4EABF8;
-      text-shadow: 1px 1px black; } }
-
-@media (max-width: 500px) {
+        left: 5%; }
   .chalkBoard {
     background-image: url("../img/notepad.png");
     background-size: 100%;
