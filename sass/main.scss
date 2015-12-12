@@ -8,7 +8,9 @@ $primary-text: #FFFFFF;
 
 body {
   background: $primary-color;
+  width: 100%;
   max-height: 100%;
+
 }
 input {
 
@@ -26,6 +28,25 @@ aside {
   margin: 0;
   padding: 0;
 }
+//---------------------------------------------------
+//Home 
+.homeWrapper {
+  margin: 0 auto;
+  width: 90%;
+    h3 {
+      display: inline-block;
+    }
+
+  .homeBanner {
+    background-image: url("../img/fiveBanner.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 250px;
+    margin: 0 auto;
+    width: 90%;
+    height: 250px;
+  }
+}
+
 //---------------------------------------------------
 //Site
 .siteButton {
@@ -385,11 +406,28 @@ aside {
 //@media responsive design
 @media (max-width: 800px) {
   .chalkBoard {
-  width: 90%;
-}
+    width: 90%;
   }
+  
+  
+}
 
 @media (max-width: 500px) {
+  //Home
+  .homeWrapper {
+
+    .homeBanner {
+    background-image: url("../img/wordsLogo.jpg");
+    background-repeat: no-repeat;
+    border: 3px solid #4EABF8;
+    background-size: 100% 200px;
+    margin: 0 auto;
+    // width: 90%;
+    height: 200px;
+    }
+  }
+
+  //Dash
   .chalkBoard {
   background-image: url("../img/notepad.png");
   background-size: 100%;

@@ -1,10 +1,21 @@
 import _ from 'underscore';
 
-let MatchController = function(WordService, $state, $stateParams) {
+let MatchController = function(WordService, $state, $stateParams, $cookies) {
   
   let vm = this;
 
   this.checkProfile = checkProfile;
+
+  checkAuth();
+
+   //Check Auth
+  function checkAuth() {
+    let auth = $cookies.get('authToken');
+     if (auth){
+     } else {
+      $state.go('root.home');
+     }
+  }
 
   //User gets the match results back and if they see another user who they would like to match with, they can click a button that calls this function. The user name of the person they want to add is passed as the name parameter. They are routed to the check profile page of that specific user name.
   function checkProfile (name) {
@@ -107,6 +118,6 @@ let MatchController = function(WordService, $state, $stateParams) {
 
 }; 
 
-MatchController.$inject = ['WordService', '$state', '$stateParams'];
+MatchController.$inject = ['WordService', '$state', '$stateParams', '$cookies'];
 
 export default MatchController;

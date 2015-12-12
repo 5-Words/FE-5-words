@@ -712,13 +712,22 @@ module.exports = exports["default"];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var ProfileEditController = function ProfileEditController(ProfileService) {
+var ProfileEditController = function ProfileEditController(ProfileService, $cookies) {
 
   var vm = this;
 
   this.editBio = editBio;
 
+  checkAuth();
   getBio();
+
+  //Check Auth
+  function checkAuth() {
+    var auth = $cookies.get('authToken');
+    if (auth) {} else {
+      $state.go('root.home');
+    }
+  }
 
   //Get the Words
   function getBio() {
@@ -748,7 +757,7 @@ var ProfileEditController = function ProfileEditController(ProfileService) {
   }
 };
 
-ProfileEditController.$inject = ['ProfileService'];
+ProfileEditController.$inject = ['ProfileService', '$cookies'];
 
 exports['default'] = ProfileEditController;
 module.exports = exports['default'];
@@ -1552,11 +1561,21 @@ var _underscore = require('underscore');
 
 var _underscore2 = _interopRequireDefault(_underscore);
 
-var MatchController = function MatchController(WordService, $state, $stateParams) {
+var MatchController = function MatchController(WordService, $state, $stateParams, $cookies) {
 
   var vm = this;
 
   this.checkProfile = checkProfile;
+
+  checkAuth();
+
+  //Check Auth
+  function checkAuth() {
+    var auth = $cookies.get('authToken');
+    if (auth) {} else {
+      $state.go('root.home');
+    }
+  }
 
   //User gets the match results back and if they see another user who they would like to match with, they can click a button that calls this function. The user name of the person they want to add is passed as the name parameter. They are routed to the check profile page of that specific user name.
   function checkProfile(name) {
@@ -1647,7 +1666,7 @@ var MatchController = function MatchController(WordService, $state, $stateParams
   } //getWords
 };
 
-MatchController.$inject = ['WordService', '$state', '$stateParams'];
+MatchController.$inject = ['WordService', '$state', '$stateParams', '$cookies'];
 
 exports['default'] = MatchController;
 module.exports = exports['default'];

@@ -1,11 +1,21 @@
-let ProfileEditController = function(ProfileService) {
+let ProfileEditController = function(ProfileService, $cookies) {
   
   let vm = this;
 
   this.editBio = editBio;
 
-
+  checkAuth();
   getBio();
+
+
+  //Check Auth
+  function checkAuth() {
+    let auth = $cookies.get('authToken');
+     if (auth){
+     } else {
+      $state.go('root.home');
+     }
+  }
 
   //Get the Words
   function getBio () {
@@ -39,6 +49,6 @@ let ProfileEditController = function(ProfileService) {
 
 };
 
-ProfileEditController.$inject = ['ProfileService'];
+ProfileEditController.$inject = ['ProfileService', '$cookies'];
 
 export default ProfileEditController;
