@@ -11,22 +11,28 @@ let ProfileService = function($http, SERVER, $cookies) {
   let tempBio;
   this.tempBio = [];
 
+  let Bio = function (obj) {
+    this.bio = obj.bio;
+    this.birthday = obj.birthday;
+    this.email = obj.email;
+    this.gender = obj.gender;
+    this.location = obj.location;
+    this.name  = obj.name;
+    this.phone_number = obj.phone_number;
+  };
+
   function editBio (bio) {
-    console.log(bio);
+    let b = new Bio (bio);
     let auth = $cookies.get('authToken');
 
     return $http({
-      url: SERVER.URL,
+      url: SERVER.URL + 'user/edit',
       method: 'PUT',
       headers:{
         access_token: auth  
       }, 
-      data: {
-
-      } 
-    })
-
-    
+      data: b   
+    })    
   }
 
 

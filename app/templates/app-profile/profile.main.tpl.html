@@ -1,11 +1,15 @@
-<h3>{{vm.bio.bio}}</h3>
-<h3>{{vm.bio.birthday}}</h3>
-<h3>{{vm.bio.email}}</h3>
-<h3>{{vm.bio.gender}}</h3>
-<h3>{{vm.bio.location}}</h3>
-<h3>{{vm.bio.name}}</h3>
-<h3>{{vm.bio.phone_number}}</h3>
-<img src="{{vm.bio.picture}}">
+<div class="profileMainWrap">
+  <img src="{{vm.bio.picture}}">
+  <h3>{{vm.bio.name}}</h3>
+  <h3>{{vm.bio.phone_number}}</h3>
+  <h3>{{vm.bio.email}}</h3>
+  <h3>{{vm.bio.location}}</h3>
+  <h3>{{vm.bio.gender}}</h3>
+  <h3>{{vm.bio.birthday}}</h3>
+  
+  <h3>{{vm.bio.bio}}</h3>
+  
 
-<button ng-click="vm.editBio()">Edit</button>
+  <button ng-click="vm.editBio()">Edit</button>
+</div>
 

@@ -902,17 +902,27 @@ var ProfileService = function ProfileService($http, SERVER, $cookies) {
   var tempBio = undefined;
   this.tempBio = [];
 
+  var Bio = function Bio(obj) {
+    this.bio = obj.bio;
+    this.birthday = obj.birthday;
+    this.email = obj.email;
+    this.gender = obj.gender;
+    this.location = obj.location;
+    this.name = obj.name;
+    this.phone_number = obj.phone_number;
+  };
+
   function editBio(bio) {
-    console.log(bio);
+    var b = new Bio(bio);
     var auth = $cookies.get('authToken');
 
     return $http({
-      url: SERVER.URL,
+      url: SERVER.URL + 'user/edit',
       method: 'PUT',
       headers: {
         access_token: auth
       },
-      data: {}
+      data: b
     });
   }
 
@@ -2261,7 +2271,6 @@ var WordService = function WordService($http, SERVER, $cookies) {
         access_token: auth
       },
       data: words
-
     });
     return {
       request: request,
@@ -2270,6 +2279,7 @@ var WordService = function WordService($http, SERVER, $cookies) {
   }
   //Edit Words
   function editWords(words, category) {
+    console.log(words);
 
     var auth = $cookies.get('authToken');
 

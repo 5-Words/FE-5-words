@@ -1,12 +1,14 @@
 <div class="musicWrapper">
+  <button ng-click="vm.matchWords(vm.words, 'music')">Match</button>
+  <button ng-click="vm.searchWords(vm.words, 'music')">Search</button>
+  <button ng-click="vm.editWords(vm.words, 'music')">Edit</button>
+  
   <div class="wordListWrapper chalkBoard">
     <h3>Music</h3>
     <div ng-repeat="word in vm.words | limitTo:5" class="wordList ">
       <h3>{{word.word}}</h3>
     </div> 
      <br>
-     <button ng-click="vm.matchWords(vm.words, 'music')">Match</button>
-     <button ng-click="vm.searchWords(vm.words, 'music')">Search</button>
-     <button ng-click="vm.editWords(vm.words, 'music')">Edit</button>
+     
   </div>
 </div>

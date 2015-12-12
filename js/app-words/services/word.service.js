@@ -61,8 +61,7 @@ let WordService = function($http, SERVER, $cookies) {
       headers:{
         access_token: auth
       }, 
-      data: words
-      
+      data: words    
     })
     return {
       request: request,
@@ -71,6 +70,7 @@ let WordService = function($http, SERVER, $cookies) {
   }
   //Edit Words
   function editWords(words, category) {
+    console.log(words);
     
     let auth = $cookies.get('authToken');
     

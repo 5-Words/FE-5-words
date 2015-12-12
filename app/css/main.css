@@ -15,18 +15,63 @@ aside {
   margin: 0;
   padding: 0; }
 
+input {
+  display: inline-block;
+  margin: 0;
+  width: 30%;
+  font-family: sans-serif;
+  font-size: 18px;
+  padding: 10px;
+  border: solid 3px #dcdcdc;
+  transition: box-shadow 0.3s, border 0.3s; }
+
+button {
+  border-radius: 4px;
+  font-family: sans-serif;
+  width: 22%;
+  height: 46px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 300;
+  padding: 10px; }
+
 .homeWrapper {
   margin: 0 auto;
   width: 90%; }
-  .homeWrapper h3 {
-    display: inline-block; }
+  .homeWrapper button {
+    background-color: #1704B5;
+    color: white;
+    border: 2px solid white;
+    margin-top: 1%; }
   .homeWrapper .homeBanner {
     background-image: url("../img/fiveBanner.jpg");
+    border-radius: 5px;
     background-repeat: no-repeat;
-    background-size: 100% 250px;
-    margin: 0 auto;
+    background-size: 100% 270px;
+    margin: 3% auto;
     width: 90%;
-    height: 250px; }
+    height: 270px; }
+    .homeWrapper .homeBanner h3 {
+      display: inline-block;
+      color: #1704B5;
+      margin-left: 3%;
+      margin-top: .5%;
+      text-shadow: 1px 1px black;
+      font-size: 1.5em; }
+  .homeWrapper .loginFormWrap {
+    margin-left: 5%; }
+    .homeWrapper .loginFormWrap h3 {
+      color: #4373B1;
+      text-shadow: 1px 1px black;
+      font-size: 1.5em;
+      letter-spacing: 3px; }
+  .homeWrapper .registerWrapper {
+    margin-left: 5%; }
+    .homeWrapper .registerWrapper h3 {
+      color: #4373B1;
+      text-shadow: 1px 1px black;
+      font-size: 1.5em;
+      letter-spacing: 3px; }
 
 .siteNav {
   padding: 3%;
@@ -59,8 +104,12 @@ aside {
     margin: 0 auto;
     width: 50%;
     color: white;
-    font-size: 2em;
+    font-size: 2.5em;
     text-shadow: 1px 1px 1px black; }
+  .wordListWrapper .wordList h3 {
+    font-size: 1.5em;
+    margin-left: 7%;
+    margin-top: 3%; }
 
 .chalkBoard {
   background-image: url("../img/chalkboard.jpg");
@@ -79,6 +128,10 @@ aside {
   margin: 0;
   border: 1px solid black;
   background-size: cover; }
+  .goldenWrapper button {
+    background-color: #B69F00;
+    border: 2px solid #904B15;
+    width: 180px; }
 
 .goldPlate {
   background-image: url("../img/goldPlate.png");
@@ -86,9 +139,15 @@ aside {
   background-repeat: no-repeat;
   margin: 0 auto;
   position: relative;
-  top: 10%;
-  width: 70%;
-  height: 470px; }
+  top: 5%;
+  width: 80%;
+  height: 500px; }
+  .goldPlate h3 {
+    color: black;
+    text-shadow: 2px 2px #893E1B; }
+  .goldPlate .wordList h3 {
+    color: black;
+    text-shadow: 1px 1px #893E1B; }
 
 .travelWrapper {
   background-image: url("../img/travel.jpg");
@@ -179,15 +238,47 @@ aside {
   .wordMatchWrapper .wordMatch {
     display: inline-block; }
 
+.profileMainWrap img {
+  width: 10%;
+  margin: 1%; }
+
+.profileMainWrap h3 {
+  margin: 2% 3%;
+  color: white;
+  font-size: 1.5em;
+  font-weight: normal;
+  text-shadow: 1px 1px black; }
+
+.profileMainWrap button {
+  margin: 1%; }
+
 .profileSide {
   padding: 1%;
   margin: 0; }
+
+.editProfile img {
+  width: 10%;
+  margin: 1%; }
+
+.editProfile input {
+  width: 25%;
+  margin: 1%; }
+
+.editProfile button {
+  margin: 1%; }
 
 .footer {
   padding: 1.5%;
   color: white;
   margin-bottom: 0;
   z-index: -1; }
+
+.photoWrappers {
+  width: 80%; }
+  .photoWrappers .photoWrapper {
+    width: 30%; }
+    .photoWrappers .photoWrapper img {
+      width: 100%; }
 
 .home .siteNav {
   background-color: #1B237C; }
@@ -334,23 +425,61 @@ aside {
 
 @media (max-width: 800px) {
   .chalkBoard {
+    width: 90%; }
+  .goldPlate {
+    background-size: 100%;
     width: 90%; } }
 
-@media (max-width: 500px) {
+@media (max-width: 550px) {
+  .goldenWrapper button {
+    width: 30%; }
+  .goldPlate.wordListWrapper {
+    background-image: url("../img/scroll.gif");
+    background-size: 90%;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%; }
+    .goldPlate.wordListWrapper h3 {
+      position: relative;
+      top: 6%;
+      color: black; }
+    .goldPlate.wordListWrapper .wordList {
+      margin: 0;
+      padding: 0;
+      position: relative;
+      top: 10%;
+      left: 5%; }
+      .goldPlate.wordListWrapper .wordList h3 {
+        margin-top: 5%;
+        color: black;
+        position: relative;
+        left: 5%; } }
+
+@media (max-width: 550px) {
+  .homeWrapper input {
+    width: 80%;
+    margin: 0 auto; }
   .homeWrapper .homeBanner {
     background-image: url("../img/wordsLogo.jpg");
     background-repeat: no-repeat;
     border: 3px solid #4EABF8;
+    border-radius: 3px;
     background-size: 100% 200px;
-    margin: 0 auto;
+    margin: 4% auto;
     height: 200px; }
+    .homeWrapper .homeBanner h3 {
+      color: #4EABF8;
+      text-shadow: 1px 1px black; } }
+
+@media (max-width: 500px) {
   .chalkBoard {
     background-image: url("../img/notepad.png");
     background-size: 100%;
     background-repeat: no-repeat;
     margin: 0 auto;
     position: relative;
-    top: 10%;
+    top: 5%;
     width: 96%;
     height: 600px; }
     .chalkBoard button {
@@ -359,11 +488,15 @@ aside {
       width: 20%; }
     .chalkBoard h3 {
       color: black;
-      padding: 3%; }
+      padding: 3%;
+      position: relative;
+      left: 10%;
+      top: 1%; }
   .wordList h3 {
+    position: relative;
+    left: 15%;
     color: black;
     margin-top: 5%;
-    margin-left: 20%;
     font-size: 1.5em; } }
 
 /*# sourceMappingURL=main.css.map */
