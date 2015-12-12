@@ -1,10 +1,11 @@
-let PhotosController = function($state, $cookies) {
+let PhotosController = function(ProfileService, $state, $cookies) {
   
   let vm = this;
   this.goTo = goTo;
 
   checkAuth();
   changeStyle();
+  getPhotos();
   
   //Change Style
   function changeStyle () {
@@ -13,16 +14,23 @@ let PhotosController = function($state, $cookies) {
     anchor.setAttribute("class", "photos");
   }
  
-
-  function checkAuth() {
+  //Check Auth
+  function checkAuth () {
     let auth = $cookies.get('authToken');
-   if (auth){
-    // console.log('auth');
-   } else {
-    $state.go('root.home');
-   }
+     if (auth){
+     } else {
+      $state.go('root.home');
+     }
   }
+  //Get Photos
+  function getPhotos () {
+    ProfileService.getPhotos().then( (res) => {
+      vm.photos = res.data;
+      console.log(res.data);
 
+    })
+  }
+  //Go to the add photos page
   function goTo () {
     $state.go('root.photosAdd');
   }
@@ -30,6 +38,6 @@ let PhotosController = function($state, $cookies) {
 
 };
 
-PhotosController.$inject = ['$state', '$cookies'];
+PhotosController.$inject = ['ProfileService', '$state', '$cookies'];
 
 export default PhotosController;

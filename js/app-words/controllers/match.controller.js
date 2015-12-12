@@ -4,6 +4,13 @@ let MatchController = function(WordService, $state, $stateParams) {
   
   let vm = this;
 
+  this.checkProfile = checkProfile;
+
+  //User gets the match results back and if they see another user who they would like to match with, they can click a button that calls this function. The user name of the person they want to add is passed as the name parameter. They are routed to the check profile page of that specific user name.
+  function checkProfile (name) {
+    $state.go('root.friendsAdd', {name})
+  }
+
   getWords();
 
   //Get the Words
@@ -37,7 +44,7 @@ let MatchController = function(WordService, $state, $stateParams) {
 
                 let array = res.data;
 
-                let users = _.union(_.pluck(array, 'user_id'));
+                let users = _.union(_.pluck(array, 'username'));
 
                 let byUser = [];
 
@@ -47,7 +54,7 @@ let MatchController = function(WordService, $state, $stateParams) {
 
                 obj.user = user;
 
-                obj.words = _.where(array, { user_id: user });
+                obj.words = _.where(array, { username: user });
 
                 byUser.push(obj);
 
@@ -70,7 +77,7 @@ let MatchController = function(WordService, $state, $stateParams) {
         
           let array = res.data;
 
-          let users = _.union(_.pluck(array, 'user_id'));
+          let users = _.union(_.pluck(array, 'username'));
 
           let byUser = [];
 
@@ -80,7 +87,7 @@ let MatchController = function(WordService, $state, $stateParams) {
 
           obj.user = user;
 
-          obj.words = _.where(array, { user_id: user });
+          obj.words = _.where(array, { username: user });
 
           byUser.push(obj);
           

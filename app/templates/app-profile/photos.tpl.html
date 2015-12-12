@@ -1,3 +1,11 @@
+<div ng-repeat="photo in vm.photos">
+<h3>{{photo.image_file_name}}</h3>
+<a href="{{photo.image_url}}">link</a>
+
+  <img src="{{photo.image_url}}">
+  <h3>{{photo.image_url}}</h3>
+</div>
+
 <div>
   <button ng-click="vm.goTo()">Add</button>
 </div>

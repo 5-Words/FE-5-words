@@ -36,7 +36,7 @@ let WordService = function($http, SERVER, $cookies) {
     })
   }  
 
-  //Serach Words
+  //Search Words
   function searchWords(words, category) {
     // console.log(words[0].word);
     let auth = $cookies.get('authToken');
@@ -51,11 +51,9 @@ let WordService = function($http, SERVER, $cookies) {
     })
   }
 
-//Add Words
-
+  //Add Words
   function addWords (words, category) {
-    let auth = $cookies.get('authToken');
-      
+    let auth = $cookies.get('authToken');  
     
     let request = $http({
       url: SERVER.URL + 'words/create',
@@ -71,7 +69,7 @@ let WordService = function($http, SERVER, $cookies) {
       category: category
     }
   }
-//Edit Words
+  //Edit Words
   function editWords(words, category) {
     
     let auth = $cookies.get('authToken');

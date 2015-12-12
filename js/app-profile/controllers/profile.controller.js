@@ -1,10 +1,11 @@
 let ProfileController = function($state, $cookies, ProfileService) {
   let vm = this;
  
-
+  this.editBio = editBio;
 
   checkAuth();
   changeStyle();
+  getBioPrivate();
 
 
   
@@ -22,6 +23,20 @@ let ProfileController = function($state, $cookies, ProfileService) {
    } else {
     $state.go('root.home');
    }
+  }
+
+  function getBioPrivate () {
+    ProfileService.getBioPrivate().then( (res) => {
+      console.log(res);
+      ProfileService.tempBio = res.data;
+      console.log(ProfileService.tempBio);
+      vm.bio = res.data;
+    })
+  }
+
+  function editBio () {
+    $state.go('root.profileEdit');
+
   }
   
 
