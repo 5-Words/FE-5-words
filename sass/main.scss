@@ -10,13 +10,8 @@ body {
   background: $primary-color;
   width: 100%;
   max-height: 100%;
-
 }
-input {
-
-}
-a {
-  
+a {  
   text-decoration: none;
   color: white;
 }
@@ -28,7 +23,6 @@ aside {
   margin: 0;
   padding: 0;
 }
-
 input {
   display: inline-block;
   margin: 0;
@@ -38,7 +32,6 @@ input {
   padding: 10px;
   border: solid 3px #dcdcdc;
   transition: box-shadow 0.3s, border 0.3s;
-
 }
 button {
   border-radius: 4px;
@@ -48,9 +41,18 @@ button {
   cursor: pointer;
   font-size : 18px;
   font-weight: 300;
-  padding: 10px;
-  
-  
+  padding: 10px;    
+}
+//---------------------------------------------------
+//Site
+.siteNav {
+  padding: 3%;
+  background: $secondary-color;
+  border-bottom: 1px solid black;
+  a {
+    color: white;
+    margin-right: 3%;
+  } 
 }
 //---------------------------------------------------
 //Home 
@@ -62,7 +64,6 @@ button {
     color: white;
     border: 2px solid white;
     margin-top: 1%;
-
   }
    
   .homeBanner {
@@ -100,27 +101,9 @@ button {
         font-size: 1.5em;
         letter-spacing: 3px;
     }
-
   }
 } //.homeWrapper
 
-//---------------------------------------------------
-//Site
-.siteButton {
-
-}
-.siteInput {
-
-}
-.siteNav {
-  padding: 3%;
-  background: $secondary-color;
-  border-bottom: 1px solid black;
-  a {
-    color: white;
-    margin-right: 3%;
-  } 
-}
 //---------------------------------------------------
 //Forms
 .ng-invalid.ng-dirty {
@@ -159,9 +142,7 @@ button {
       font-size: 2em;
       margin-left: 10%;
       margin-top: 2%;
-
       }
-
     }
 }
 //---------------------------------------------------
@@ -208,10 +189,8 @@ button {
       h3 {
         color: black;
         text-shadow: 1px 1px #893E1B;
-
       }
-    }
-    
+    }    
 }
 //---------------------------------------------------
 //Travel
@@ -303,7 +282,6 @@ button {
   height: 650px;
   border: 1px solid black;  
 }
-
 .wordList {
 
   h3 { 
@@ -319,31 +297,25 @@ button {
 //---------------------------------------------------
 //Match Page
 .matchWrapper {
-  background-color: white;
-  opacity: .7;
-
+    
   .userMatch {
     display: inline-block;
-    margin-right: 5%;
+    margin: 0 5%;
+
     
-      h3 {
-        float: left;
-        margin-left: 1%;
-        margin-right: 3%;
+      a h3 {
         color: black;
         font-weight: bolder;
         font-size: 1.2em;
         text-transform: uppercase;
         text-decoration: underline;
       }
-
   }
   .wordMatchWrapper {
     display: inline-block;
     margin-right: 5%;
       h3 {
-        float: right;
-        color: red;
+       
       }
 
     .wordMatch {
@@ -418,9 +390,18 @@ button {
 //---------------------------------------------------
 //Golden Add Class 
 .golden {
-    body {
-    background-color: red;
+  background-image: url("../img/golden.jpg");
+  width: 100%;
+  height: 650px;
+  margin: 0;
+  border: 1px solid black;
+  background-size: cover;
+    button {
+      background-color: #B69F00;
+      border: 2px solid #904B15;
+      width: 180px;
     }
+   
   .siteNav {
     background-color: #935302;
       a {
@@ -439,7 +420,10 @@ button {
 
       }
   }
-  .footer {background-color: #E48F03;}
+  .footer {background-color: #935302;}
+   .matchWrapper {
+    background-color: rgba(223, 203, 0, .5);  
+  }
 }
 //---------------------------------------------------
 //Travel Add Class 
@@ -451,9 +435,21 @@ button {
   height: 650px;
   border: 1px solid black; 
   background-color: #854E24;
-  .siteNav{background-color: #854E24;}
+  .siteNav{
+    background-color: #875C2B;
+    a {
+        color: black;
+        font-weight: bold;
+        font-family: 'Metal Mania', cursive;
+        font-size: 1.7em;
+        
+      }
+  }
   .dashSide{background-color: #F3A130;}
   .footer {background-color: #854E24;}
+  .matchWrapper {
+    background-color: rgba(253, 190, 72, .5);  
+  }
 }
 //---------------------------------------------------
 //Tech Add Class 
@@ -465,9 +461,22 @@ button {
   width: 100%;
   height: 650px;
   border: 1px solid black; 
-  .siteNav{background-color: #062549;}
+  .siteNav{background-color: #062549;
+
+    a {
+          color: white;
+          font-weight: bold;
+          font-family: 'Roboto Mono', Mono;
+          font-size: 1.5em;
+          
+        }
+  }
   .dashSide{background-color: #124279;}
   .footer {background-color: #062549;}
+  .matchWrapper {
+    background-color: rgba(188,219,232, 0.5);  
+  }
+
 }
 //---------------------------------------------------
 //Sports Add Class 
@@ -479,9 +488,20 @@ button {
   width: 100%;
   height: 650px;
   border: 1px solid black;  
-  .siteNav{background-color: #36651B;}
+  .siteNav{background-color: #36651B;
+    a {
+          color: white;
+          font-weight: bold;
+          font-family: 'Roboto Mono', Mono;
+          font-size: 1.5em;
+          
+        }
+  }
   .dashSide{background-color: #588B25;}
   .footer {background-color: #36651B;}
+  .matchWrapper {
+    background-color: rgba(114, 169, 73, .5);  
+  }
 }
 //---------------------------------------------------
 //Foodie Add Class 
@@ -494,9 +514,20 @@ button {
   width: 100%;
   height: 650px;
   border: 1px solid black;  
-  .siteNav{background-color: #F59000;}
+  .siteNav{background-color: #F59000;
+    a {
+          color: white;
+          font-weight: bold;
+          font-family: 'Roboto Mono', Mono;
+          font-size: 1.5em;
+          
+        }
+  }
   .dashSide{background-color: #F7B700;}
   .footer {background-color: #F59000;}
+  .matchWrapper {
+    background-color: rgba(246, 185, 0, .5);  
+  }
 }
 //---------------------------------------------------
 //Books Add Class 
@@ -508,9 +539,20 @@ button {
   width: 100%;
   height: 650px;
   border: 1px solid black; 
-  .siteNav{background-color: #A94C00;}
+  .siteNav{background-color: #A94C00;
+    a {
+          color: white;
+          font-weight: bold;
+          font-family: 'Roboto Mono', Mono;
+          font-size: 1.5em;
+          
+        }
+  }
   .dashSide{background-color: #CD760B;}
   .footer {background-color: #A94C00;}
+  .matchWrapper {
+    background-color: rgba(204, 119, 0, .5);  
+  }
 }
 //---------------------------------------------------
 //Music Add Class 
@@ -522,9 +564,20 @@ button {
   width: 100%;
   height: 650px;
   border: 1px solid black; 
-  .siteNav{background-color: #D6BA59;}
+  .siteNav{background-color: #D6BA59;
+    a {
+          color: white;
+          font-weight: bold;
+          font-family: 'Roboto Mono', Mono;
+          font-size: 1.5em;
+          
+        }
+  }
   .dashSide{background-color: #D5C46C;}
   .footer {background-color: #D6BA59;}
+  .matchWrapper {
+    background-color: rgba(248, 237, 187, .5);  
+  }
 }
 //---------------------------------------------------
 //Film Add Class 
@@ -536,10 +589,22 @@ button {
   width: 100%;
   height: 650px;
   border: 1px solid black; 
-  .siteNav{background-color: #6E0301;}
+  .siteNav{background-color: #6E0301;
+    a {
+          color: white;
+          font-weight: bold;
+          font-family: 'Roboto Mono', Mono;
+          font-size: 1.5em;
+          
+        }
+  }
   .dashSide{background-color: #C91E16;}
   .footer {background-color: #6E0301;}
+  .matchWrapper {
+    background-color: rgba(255, 255, 255, .5);  
+  }
 }
+
 //---------------------------------------------------
 //Pets Add Class 
 .pets {
@@ -549,10 +614,22 @@ button {
   width: 100%;
   height: 650px;
   border: 1px solid black; 
-  .siteNav{background-color: #D5C46C;}
+  .siteNav{background-color: #D5C46C;
+    a {
+          color: white;
+          font-weight: bold;
+          font-family: 'Roboto Mono', Mono;
+          font-size: 1.5em;
+          
+        }
+  }
   .dashSide{background-color: #D6BA59;}
   .footer {background-color: #D5C46C;}
+  .matchWrapper {
+    background-color: rgba(255, 250, 161, .5);  
+  }
 }
+
 //---------------------------------------------------
 //Cars Add Class 
 .cars {
@@ -562,9 +639,20 @@ button {
   width: 100%;
   height: 650px;
   border: 1px solid black; 
-  .siteNav{background-color: #6E5500;}
+  .siteNav{background-color: #6E5500;
+    a {
+          color: white;
+          font-weight: bold;
+          font-family: 'Roboto Mono', Mono;
+          font-size: 1.5em;
+          
+        }
+  }
   .dashSide{background-color: #EBD29A;}
   .footer {background-color: #6E5500;}
+  .matchWrapper {
+    background-color: rgba(255, 255, 255, .5);  
+  }
 }
 //---------------------------------------------------
 //Profile Add Class 
@@ -599,6 +687,8 @@ button {
   .footer {background-color: #B2308E;}
 }
 //---------------------------------------------------
+
+
 //@media responsive design
 @media (max-width: 800px) {
   .chalkBoard {

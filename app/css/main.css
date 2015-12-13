@@ -35,6 +35,14 @@ button {
   font-weight: 300;
   padding: 10px; }
 
+.siteNav {
+  padding: 3%;
+  background: #3362D4;
+  border-bottom: 1px solid black; }
+  .siteNav a {
+    color: white;
+    margin-right: 3%; }
+
 .homeWrapper {
   margin: 0 auto;
   width: 90%; }
@@ -72,14 +80,6 @@ button {
       text-shadow: 1px 1px black;
       font-size: 1.5em;
       letter-spacing: 3px; }
-
-.siteNav {
-  padding: 3%;
-  background: #3362D4;
-  border-bottom: 1px solid black; }
-  .siteNav a {
-    color: white;
-    margin-right: 3%; }
 
 .ng-invalid.ng-dirty {
   border-color: red; }
@@ -229,29 +229,21 @@ button {
 .clearBoth {
   clear: both; }
 
-.matchWrapper {
-  background-color: white;
-  opacity: .7; }
-  .matchWrapper .userMatch {
-    display: inline-block;
-    margin-right: 5%; }
-    .matchWrapper .userMatch h3 {
-      float: left;
-      margin-left: 1%;
-      margin-right: 3%;
-      color: black;
-      font-weight: bolder;
-      font-size: 1.2em;
-      text-transform: uppercase;
-      text-decoration: underline; }
-  .matchWrapper .wordMatchWrapper {
-    display: inline-block;
-    margin-right: 5%; }
-    .matchWrapper .wordMatchWrapper h3 {
-      float: right;
-      color: red; }
-    .matchWrapper .wordMatchWrapper .wordMatch {
-      display: inline-block; }
+.matchWrapper .userMatch {
+  display: inline-block;
+  margin: 0 5%; }
+  .matchWrapper .userMatch a h3 {
+    color: black;
+    font-weight: bolder;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    text-decoration: underline; }
+
+.matchWrapper .wordMatchWrapper {
+  display: inline-block;
+  margin-right: 5%; }
+  .matchWrapper .wordMatchWrapper .wordMatch {
+    display: inline-block; }
 
 .profileMainWrap img {
   width: 10%;
@@ -301,25 +293,33 @@ button {
 .home .footer {
   background-color: #1B237C; }
 
-.golden body {
-  background-color: red; }
-
-.golden .siteNav {
-  background-color: #935302; }
-  .golden .siteNav a {
-    color: black;
-    font-weight: bold;
-    font-family: 'Metal Mania', cursive;
-    font-size: 1.7em; }
-
-.golden .dashSide {
-  background-color: #DFE400; }
-  .golden .dashSide a {
-    color: black;
-    font-weight: bold; }
-
-.golden .footer {
-  background-color: #E48F03; }
+.golden {
+  background-image: url("../img/golden.jpg");
+  width: 100%;
+  height: 650px;
+  margin: 0;
+  border: 1px solid black;
+  background-size: cover; }
+  .golden button {
+    background-color: #B69F00;
+    border: 2px solid #904B15;
+    width: 180px; }
+  .golden .siteNav {
+    background-color: #935302; }
+    .golden .siteNav a {
+      color: black;
+      font-weight: bold;
+      font-family: 'Metal Mania', cursive;
+      font-size: 1.7em; }
+  .golden .dashSide {
+    background-color: #DFE400; }
+    .golden .dashSide a {
+      color: black;
+      font-weight: bold; }
+  .golden .footer {
+    background-color: #935302; }
+  .golden .matchWrapper {
+    background-color: rgba(223, 203, 0, 0.5); }
 
 .travel {
   background-image: url("../img/travel.jpg");
@@ -330,11 +330,18 @@ button {
   border: 1px solid black;
   background-color: #854E24; }
   .travel .siteNav {
-    background-color: #854E24; }
+    background-color: #875C2B; }
+    .travel .siteNav a {
+      color: black;
+      font-weight: bold;
+      font-family: 'Metal Mania', cursive;
+      font-size: 1.7em; }
   .travel .dashSide {
     background-color: #F3A130; }
   .travel .footer {
     background-color: #854E24; }
+  .travel .matchWrapper {
+    background-color: rgba(253, 190, 72, 0.5); }
 
 .tech {
   background-color: #062549;
@@ -346,10 +353,17 @@ button {
   border: 1px solid black; }
   .tech .siteNav {
     background-color: #062549; }
+    .tech .siteNav a {
+      color: white;
+      font-weight: bold;
+      font-family: 'Roboto Mono', Mono;
+      font-size: 1.5em; }
   .tech .dashSide {
     background-color: #124279; }
   .tech .footer {
     background-color: #062549; }
+  .tech .matchWrapper {
+    background-color: rgba(188, 219, 232, 0.5); }
 
 .sports {
   background-color: #36651B;
@@ -361,10 +375,17 @@ button {
   border: 1px solid black; }
   .sports .siteNav {
     background-color: #36651B; }
+    .sports .siteNav a {
+      color: white;
+      font-weight: bold;
+      font-family: 'Roboto Mono', Mono;
+      font-size: 1.5em; }
   .sports .dashSide {
     background-color: #588B25; }
   .sports .footer {
     background-color: #36651B; }
+  .sports .matchWrapper {
+    background-color: rgba(114, 169, 73, 0.5); }
 
 .foodie {
   background-color: #F59000;
@@ -377,10 +398,17 @@ button {
   border: 1px solid black; }
   .foodie .siteNav {
     background-color: #F59000; }
+    .foodie .siteNav a {
+      color: white;
+      font-weight: bold;
+      font-family: 'Roboto Mono', Mono;
+      font-size: 1.5em; }
   .foodie .dashSide {
     background-color: #F7B700; }
   .foodie .footer {
     background-color: #F59000; }
+  .foodie .matchWrapper {
+    background-color: rgba(246, 185, 0, 0.5); }
 
 .books {
   background-color: #A94C00;
@@ -392,10 +420,17 @@ button {
   border: 1px solid black; }
   .books .siteNav {
     background-color: #A94C00; }
+    .books .siteNav a {
+      color: white;
+      font-weight: bold;
+      font-family: 'Roboto Mono', Mono;
+      font-size: 1.5em; }
   .books .dashSide {
     background-color: #CD760B; }
   .books .footer {
     background-color: #A94C00; }
+  .books .matchWrapper {
+    background-color: rgba(204, 119, 0, 0.5); }
 
 .music {
   background-color: #D6BA59;
@@ -407,10 +442,17 @@ button {
   border: 1px solid black; }
   .music .siteNav {
     background-color: #D6BA59; }
+    .music .siteNav a {
+      color: white;
+      font-weight: bold;
+      font-family: 'Roboto Mono', Mono;
+      font-size: 1.5em; }
   .music .dashSide {
     background-color: #D5C46C; }
   .music .footer {
     background-color: #D6BA59; }
+  .music .matchWrapper {
+    background-color: rgba(248, 237, 187, 0.5); }
 
 .film {
   background-color: #6E0301;
@@ -422,10 +464,17 @@ button {
   border: 1px solid black; }
   .film .siteNav {
     background-color: #6E0301; }
+    .film .siteNav a {
+      color: white;
+      font-weight: bold;
+      font-family: 'Roboto Mono', Mono;
+      font-size: 1.5em; }
   .film .dashSide {
     background-color: #C91E16; }
   .film .footer {
     background-color: #6E0301; }
+  .film .matchWrapper {
+    background-color: rgba(255, 255, 255, 0.5); }
 
 .pets {
   background-color: #D5C46C;
@@ -436,10 +485,17 @@ button {
   border: 1px solid black; }
   .pets .siteNav {
     background-color: #D5C46C; }
+    .pets .siteNav a {
+      color: white;
+      font-weight: bold;
+      font-family: 'Roboto Mono', Mono;
+      font-size: 1.5em; }
   .pets .dashSide {
     background-color: #D6BA59; }
   .pets .footer {
     background-color: #D5C46C; }
+  .pets .matchWrapper {
+    background-color: rgba(255, 250, 161, 0.5); }
 
 .cars {
   background-color: #6E5500;
@@ -450,10 +506,17 @@ button {
   border: 1px solid black; }
   .cars .siteNav {
     background-color: #6E5500; }
+    .cars .siteNav a {
+      color: white;
+      font-weight: bold;
+      font-family: 'Roboto Mono', Mono;
+      font-size: 1.5em; }
   .cars .dashSide {
     background-color: #EBD29A; }
   .cars .footer {
     background-color: #6E5500; }
+  .cars .matchWrapper {
+    background-color: rgba(255, 255, 255, 0.5); }
 
 .profile {
   background-color: #1B237C; }
