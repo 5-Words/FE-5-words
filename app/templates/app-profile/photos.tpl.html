@@ -1,9 +1,6 @@
 <div class="photosWrapper">
+  <button ng-click="vm.goTo()">Add</button>
   <div class="photoWrapper" ng-repeat="photo in vm.photos">
-    <img src="{{photo.image_url}}">
-  </div>
-
-  <div>
-    <button ng-click="vm.goTo()">Add</button>
+    <img ng-src="{{photo.image_url}}">
   </div>
 </div>

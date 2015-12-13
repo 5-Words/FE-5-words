@@ -7,21 +7,30 @@ let FriendsAdd = function($state, ProfileService, $stateParams, $cookies) {
   console.log(user);
 
   checkAuth();
+  changeStyle();
   getBioPublic(user);
- 
+
   //Check Auth
+  //Checks to see if the user is logged in or not based on cookies that are saved when they login or register. If they do not have the authToken in the cookies they are sent back to the login page 
   function checkAuth() {
     let auth = $cookies.get('authToken');
-
      if (auth){
      } else {
       $state.go('root.home');
      }
   }
 
+  
+  //Change Style
+  function changeStyle () {
+    let anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", "friendAddWrapper");
+  }
+
   //Get the User's Profile
   function getBioPublic (user) {
-    ProfileService.getBio(user).then( (res) => {
+    ProfileService.getBioPublic(user).then( (res) => {
       console.log(res);
       vm.bio = res.data;
     })

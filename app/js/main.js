@@ -508,20 +508,28 @@ var FriendsAdd = function FriendsAdd($state, ProfileService, $stateParams, $cook
   console.log(user);
 
   checkAuth();
+  changeStyle();
   getBioPublic(user);
 
   //Check Auth
+  //Checks to see if the user is logged in or not based on cookies that are saved when they login or register. If they do not have the authToken in the cookies they are sent back to the login page
   function checkAuth() {
     var auth = $cookies.get('authToken');
-
     if (auth) {} else {
       $state.go('root.home');
     }
   }
 
+  //Change Style
+  function changeStyle() {
+    var anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", "friendAddWrapper");
+  }
+
   //Get the User's Profile
   function getBioPublic(user) {
-    ProfileService.getBio(user).then(function (res) {
+    ProfileService.getBioPublic(user).then(function (res) {
       console.log(res);
       vm.bio = res.data;
     });
@@ -551,13 +559,13 @@ var FriendsController = function FriendsController($state, $cookies) {
     anchor.setAttribute("class", "friends");
   }
 
+  //Check Auth
+  //Checks to see if the user is logged in or not based on cookies that are saved when they login or register. If they do not have the authToken in the cookies they are sent back to the login page
   function checkAuth() {
     var auth = $cookies.get('authToken');
-    if (auth) {
-      // console.log('auth');
-    } else {
-        $state.go('root.home');
-      }
+    if (auth) {} else {
+      $state.go('root.home');
+    }
   }
 };
 
@@ -589,6 +597,7 @@ var PhotosController = function PhotosController(ProfileService, $state, $cookie
   }
 
   //Check Auth
+  //Checks to see if the user is logged in or not based on cookies that are saved when they login or register. If they do not have the authToken in the cookies they are sent back to the login page
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
@@ -599,7 +608,6 @@ var PhotosController = function PhotosController(ProfileService, $state, $cookie
   function getPhotos() {
     ProfileService.getPhotos().then(function (res) {
       vm.photos = res.data;
-      console.log(res.data);
     });
   }
   //Go to the add photos page
@@ -636,6 +644,7 @@ var PhotosAddController = function PhotosAddController(ProfileService, $state, $
   }
 
   //Check Auth
+  //Checks to see if the user is logged in or not based on cookies that are saved when they login or register. If they do not have the authToken in the cookies they are sent back to the login page
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
@@ -678,13 +687,13 @@ var ProfileController = function ProfileController($state, $cookies, ProfileServ
     anchor.setAttribute("class", "profile");
   }
 
+  //Check Auth
+  //Checks to see if the user is logged in or not based on cookies that are saved when they login or register. If they do not have the authToken in the cookies they are sent back to the login page
   function checkAuth() {
     var auth = $cookies.get('authToken');
-    if (auth) {
-      // console.log('auth');
-    } else {
-        $state.go('root.home');
-      }
+    if (auth) {} else {
+      $state.go('root.home');
+    }
   }
 
   function getBioPrivate() {
@@ -722,6 +731,7 @@ var ProfileEditController = function ProfileEditController(ProfileService, $cook
   getBio();
 
   //Check Auth
+  //Checks to see if the user is logged in or not based on cookies that are saved when they login or register. If they do not have the authToken in the cookies they are sent back to the login page
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
@@ -790,7 +800,7 @@ var fileUpload = function fileUpload(ProfileService) {
     scope: {
       file: '=image'
     },
-    template: '\n    <form>\n      <input type="file" name="pic" accept="image/*" ng-model="image.one">\n      <input type="text" ng-model="image.two">Description</input>\n      <button>Add</button>\n    </form>\n      ',
+    template: '\n    <div class="addPhotosForm">\n      <h3>Upload Images</h3>\n      <br><br><br>\n      <form>\n      <label class="customFileLabel">Select a file</label>\n        <input class="customFileInput" type="file" name="pic" accept="image/*" ng-model="image.one" title="Choose an image please" >\n      \n        <button class="customFileBtn">Submit</button>\n      </form>\n    </div>\n      ',
 
     link: function link(scope, element, attrs) {
       element.on('submit', function () {
@@ -1014,7 +1024,8 @@ var addController = function addController(WordService, $stateParams, $state, $c
 
   checkAuth();
 
-  //Check Auth
+  ///Check Auth
+  //Checks to see if the user is logged in or not based on cookies that are saved when they login or register. If they do not have the authToken in the cookies they are sent back to the login page
   function checkAuth() {
     var auth = $cookies.get('authToken');
 
@@ -1107,6 +1118,8 @@ var BooksController = function BooksController(WordService, $state, $cookies) {
   changeStyle();
   getWords();
 
+  //Check Auth
+  //Checks to see if the user is logged in or not based on cookies that are saved when they login or register. If they do not have the authToken in the cookies they are sent back to the login page
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
@@ -1178,6 +1191,8 @@ var CarController = function CarController(WordService, $state, $cookies) {
   changeStyle();
   getWords();
 
+  //Check Auth
+  //Checks to see if the user is logged in or not based on cookies that are saved when they login or register. If they do not have the authToken in the cookies they are sent back to the login page
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
@@ -1261,6 +1276,8 @@ var EditController = function EditController(WordService, $stateParams, $state, 
   changeStyle();
   getWords();
 
+  //Check Auth
+  //Checks to see if the user is logged in or not based on cookies that are saved when they login or register. If they do not have the authToken in the cookies they are sent back to the login page
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
@@ -1357,6 +1374,8 @@ var FilmController = function FilmController(WordService, $state, $cookies) {
   changeStyle();
   getWords();
 
+  //Check Auth
+  //Checks to see if the user is logged in or not based on cookies that are saved when they login or register. If they do not have the authToken in the cookies they are sent back to the login page
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
@@ -1425,6 +1444,8 @@ var FoodieController = function FoodieController(WordService, $state, $cookies) 
   changeStyle();
   getWords();
 
+  //Check Auth
+  //Checks to see if the user is logged in or not based on cookies that are saved when they login or register. If they do not have the authToken in the cookies they are sent back to the login page
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
@@ -1497,6 +1518,7 @@ var GoldenController = function GoldenController(WordService, $state, $cookies) 
   getGolden();
 
   //Check Auth
+  //Checks to see if the user is logged in or not based on cookies that are saved when they login or register. If they do not have the authToken in the cookies they are sent back to the login page
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
@@ -1563,6 +1585,7 @@ var MatchController = function MatchController(WordService, $state, $stateParams
   changeStyle();
 
   //Check Auth
+  //Checks to see if the user is logged in or not based on cookies that are saved when they login or register. If they do not have the authToken in the cookies they are sent back to the login page
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
@@ -1690,6 +1713,7 @@ var MusicController = function MusicController(WordService, $state, $cookies) {
   getWords();
 
   //Check Auth
+  //Checks to see if the user is logged in or not based on cookies that are saved when they login or register. If they do not have the authToken in the cookies they are sent back to the login page
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
@@ -1757,6 +1781,8 @@ var PetsController = function PetsController(WordService, $state, $cookies) {
   changeStyle();
   getWords();
 
+  //Check Auth
+  //Checks to see if the user is logged in or not based on cookies that are saved when they login or register. If they do not have the authToken in the cookies they are sent back to the login page
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
@@ -1825,6 +1851,8 @@ var RegisterController = function RegisterController($http, SERVER, $state, Home
 
   checkAuth();
 
+  //Check Auth
+  //Checks to see if the user is logged in or not based on cookies that are saved when they login or register. If they do not have the authToken in the cookies they are sent back to the login page
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
@@ -1862,6 +1890,8 @@ var SportsController = function SportsController(WordService, $state, $cookies) 
   changeStyle();
   getWords();
 
+  //Check Auth
+  //Checks to see if the user is logged in or not based on cookies that are saved when they login or register. If they do not have the authToken in the cookies they are sent back to the login page
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
@@ -1930,13 +1960,13 @@ var TechController = function TechController(WordService, $state, $cookies) {
   changeStyle();
   getWords();
 
+  //Check Auth
+  //Checks to see if the user is logged in or not based on cookies that are saved when they login or register. If they do not have the authToken in the cookies they are sent back to the login page
   function checkAuth() {
     var auth = $cookies.get('authToken');
-    if (auth) {
-      // console.log('auth');
-    } else {
-        $state.go('root.home');
-      }
+    if (auth) {} else {
+      $state.go('root.home');
+    }
   }
   //Change Style
   function changeStyle() {
@@ -2000,6 +2030,8 @@ var TravelController = function TravelController(WordService, $state, $cookies) 
   changeStyle();
   getWords();
 
+  //Check Auth
+  //Checks to see if the user is logged in or not based on cookies that are saved when they login or register. If they do not have the authToken in the cookies they are sent back to the login page
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {

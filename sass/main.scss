@@ -325,6 +325,12 @@ button {
 }
 //---------------------------------------------------
 //Profile Page
+.profileSide {
+    a {
+      margin: 2%;
+
+    }
+}
 .profileMainWrap {
   img {
     width: 10%;
@@ -361,12 +367,80 @@ button {
   }
 }
 //---------------------------------------------------
+//View Your own Photos Page
+.photosWrapper {
+  width: 96%;
+  margin: 0 auto;
+    button {
+    margin: 1% 0 3% 0;
+  }
+  .photoWrapper{
+    img {
+      max-width: 400px;
+      margin: 2%;
+      float: left;
+    }
+  }
+}
+//Add Photo Page
+.addPhotosForm {
+  h3 {
+    margin: 2%;
+  }
+  .customFileLabel {
+    margin-left: 1%;
+    font-size: 1em;
+    font-weight: bold;
+  }
+
+  .customFileInput::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  .customFileInput {
+    content: 'Select some files';
+    display: inline-block;
+    background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+    border: 1px solid #999;
+    border-radius: 2px;
+    padding: 12px 10px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 14pt;
+    margin: 0 1% 0 2%;
+  }
+  .customFileBtn {
+    display: inline-block;
+    background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+    border: 1px solid #999;
+    border-radius: 4px;
+    padding: 12px 10px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 14pt;
+    margin: 0 1% 0 2%;
+  }
+}
+//---------------------------------------------------
+//Friends Add Page
+.friendAddWrapper {
+  background-color: white;
+}
+//---------------------------------------------------
 //Footer
 .footer {
   padding: 1.5%;
   color: white;
   margin-bottom: 0;
   z-index: -1;
+  clear: both;
 
 }
 //---------------------------------------------------
@@ -438,14 +512,18 @@ button {
   .siteNav{
     background-color: #875C2B;
     a {
-        color: black;
+        color: white;
         font-weight: bold;
-        font-family: 'Metal Mania', cursive;
-        font-size: 1.7em;
-        
+        font-family: 'Roboto Mono', Mono;
+        font-size: 1.5em;  
       }
   }
-  .dashSide{background-color: #F3A130;}
+  .dashSide{
+    background-color: #F3A130;
+    a {
+      color: #452102;
+    }
+  }
   .footer {background-color: #854E24;}
   .matchWrapper {
     background-color: rgba(253, 190, 72, .5);  
@@ -471,7 +549,12 @@ button {
           
         }
   }
-  .dashSide{background-color: #124279;}
+  .dashSide{
+    background-color: #6CAFF2;
+    a {
+      color: #06244C;
+    }
+  }
   .footer {background-color: #062549;}
   .matchWrapper {
     background-color: rgba(188,219,232, 0.5);  
@@ -497,7 +580,12 @@ button {
           
         }
   }
-  .dashSide{background-color: #588B25;}
+  .dashSide{
+    background-color: #588B25;
+    a {
+      color: #092B06;
+    }
+  }
   .footer {background-color: #36651B;}
   .matchWrapper {
     background-color: rgba(114, 169, 73, .5);  
@@ -523,7 +611,12 @@ button {
           
         }
   }
-  .dashSide{background-color: #F7B700;}
+  .dashSide{
+    background-color: #F7B700;
+     a {
+      color: #FC6700;
+    }
+  }
   .footer {background-color: #F59000;}
   .matchWrapper {
     background-color: rgba(246, 185, 0, .5);  
@@ -548,7 +641,12 @@ button {
           
         }
   }
-  .dashSide{background-color: #CD760B;}
+  .dashSide{
+    background-color: #CD760B;
+    a {
+      color: #5B1913;
+    }
+  }
   .footer {background-color: #A94C00;}
   .matchWrapper {
     background-color: rgba(204, 119, 0, .5);  
@@ -564,7 +662,7 @@ button {
   width: 100%;
   height: 650px;
   border: 1px solid black; 
-  .siteNav{background-color: #D6BA59;
+  .siteNav{background-color: #3C2512;
     a {
           color: white;
           font-weight: bold;
@@ -573,8 +671,13 @@ button {
           
         }
   }
-  .dashSide{background-color: #D5C46C;}
-  .footer {background-color: #D6BA59;}
+  .dashSide{
+    background-color: #D5C46C;
+    a {
+      color: #67420E;
+    }
+  }
+  .footer {background-color: #3C2512;}
   .matchWrapper {
     background-color: rgba(248, 237, 187, .5);  
   }
@@ -598,7 +701,12 @@ button {
           
         }
   }
-  .dashSide{background-color: #C91E16;}
+  .dashSide{
+    background-color: #FD6762;
+    a {
+      color: #480300;
+    }
+  }
   .footer {background-color: #6E0301;}
   .matchWrapper {
     background-color: rgba(255, 255, 255, .5);  
@@ -614,7 +722,7 @@ button {
   width: 100%;
   height: 650px;
   border: 1px solid black; 
-  .siteNav{background-color: #D5C46C;
+  .siteNav{background-color: #A5563F;
     a {
           color: white;
           font-weight: bold;
@@ -623,8 +731,13 @@ button {
           
         }
   }
-  .dashSide{background-color: #D6BA59;}
-  .footer {background-color: #D5C46C;}
+  .dashSide{
+    background-color: #D6BA59;
+    a {
+      color: #A5563F;
+    }
+  }
+  .footer {background-color: #A5563F;}
   .matchWrapper {
     background-color: rgba(255, 250, 161, .5);  
   }
@@ -648,7 +761,12 @@ button {
           
         }
   }
-  .dashSide{background-color: #EBD29A;}
+  .dashSide{
+    background-color: #EBD29A;
+     a {
+      color: #452102;
+    }
+  }
   .footer {background-color: #6E5500;}
   .matchWrapper {
     background-color: rgba(255, 255, 255, .5);  
@@ -658,7 +776,15 @@ button {
 //Profile Add Class 
 .profile {
   background-color: #1B237C;
-  .siteNav{background-color: #1B237C;}
+  .siteNav{background-color: #1B237C;
+      a {
+          color: white;
+          font-weight: bold;
+          font-family: 'Roboto Mono', Mono;
+          font-size: 1.5em;
+          
+        }
+  }
   .profileSide{background-color: #7785F6;}
   .footer {background-color: #1B237C;}
 }
@@ -666,24 +792,78 @@ button {
 //Photos Add Class 
 .photos {
   background-color: #199300;
-  .siteNav{background-color: #199300;}
-  .profileSide{background-color: #80F56C;}
+  .siteNav{background-color: #199300;
+      a {
+          color: white;
+          font-weight: bold;
+          font-family: 'Roboto Mono', Mono;
+          font-size: 1.5em;
+          
+        }
+  }
+  .profileSide{
+    background-color: #80F56C;
+    a {
+      color: #023C1B;
+    }
+  }
   .footer {background-color: #199300;}
 }
 //--------------------------------------------------
 //Photos Add Page Add Class 
 .photosAdd {
   background-color: #EE9D00;
-  .siteNav{background-color: #EE9D00;}
+  .siteNav{background-color: #EE9D00;
+      a {
+          color: white;
+          font-weight: bold;
+          font-family: 'Roboto Mono', Mono;
+          font-size: 1.5em;
+          
+        }
+  }
   .profileSide{background-color: #E9D900;}
   .footer {background-color: #EE9D00;}
 }
 //---------------------------------------------------
-//Profile Add Class 
+//Profile 
 .friends {
   background-color: #B2308E;
-  .siteNav{background-color: #B2308E;}
-  .profileSide{background-color: #F9E3E6;}
+  .siteNav{background-color: #B2308E;
+      a {
+          color: white;
+          font-weight: bold;
+          font-family: 'Roboto Mono', Mono;
+          font-size: 1.5em;
+          
+        }
+  }
+  .profileSide{
+    background-color: #F9E3E6;
+      a {
+      color: #E32B51;
+    }
+  }
+  .footer {background-color: #B2308E;}
+}
+//---------------------------------------------------
+//Friends Add Page
+.friendAddWrapper {
+  .siteNav{background-color: #B2308E;
+      a {
+          color: white;
+          font-weight: bold;
+          font-family: 'Roboto Mono', Mono;
+          font-size: 1.5em;
+          
+        }
+  }
+  .profileSide{
+    background-color: #F9E3E6;
+      a {
+      color: #E32B51;
+    }
+  }
   .footer {background-color: #B2308E;}
 }
 //---------------------------------------------------

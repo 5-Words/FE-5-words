@@ -245,6 +245,9 @@ button {
   .matchWrapper .wordMatchWrapper .wordMatch {
     display: inline-block; }
 
+.profileSide a {
+  margin: 2%; }
+
 .profileMainWrap img {
   width: 10%;
   margin: 1%; }
@@ -274,11 +277,67 @@ button {
 .editProfile button {
   margin: 1%; }
 
+.photosWrapper {
+  width: 96%;
+  margin: 0 auto; }
+  .photosWrapper button {
+    margin: 1% 0 3% 0; }
+  .photosWrapper .photoWrapper img {
+    max-width: 400px;
+    margin: 2%;
+    float: left; }
+
+.addPhotosForm h3 {
+  margin: 2%; }
+
+.addPhotosForm .customFileLabel {
+  margin-left: 1%;
+  font-size: 1em;
+  font-weight: bold; }
+
+.addPhotosForm .customFileInput::-webkit-file-upload-button {
+  visibility: hidden; }
+
+.addPhotosForm .customFileInput {
+  content: 'Select some files';
+  display: inline-block;
+  background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 2px;
+  padding: 12px 10px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 14pt;
+  margin: 0 1% 0 2%; }
+
+.addPhotosForm .customFileBtn {
+  display: inline-block;
+  background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 4px;
+  padding: 12px 10px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 14pt;
+  margin: 0 1% 0 2%; }
+
+.friendAddWrapper {
+  background-color: white; }
+
 .footer {
   padding: 1.5%;
   color: white;
   margin-bottom: 0;
-  z-index: -1; }
+  z-index: -1;
+  clear: both; }
 
 .photoWrappers {
   width: 80%; }
@@ -332,12 +391,14 @@ button {
   .travel .siteNav {
     background-color: #875C2B; }
     .travel .siteNav a {
-      color: black;
+      color: white;
       font-weight: bold;
-      font-family: 'Metal Mania', cursive;
-      font-size: 1.7em; }
+      font-family: 'Roboto Mono', Mono;
+      font-size: 1.5em; }
   .travel .dashSide {
     background-color: #F3A130; }
+    .travel .dashSide a {
+      color: #452102; }
   .travel .footer {
     background-color: #854E24; }
   .travel .matchWrapper {
@@ -359,7 +420,9 @@ button {
       font-family: 'Roboto Mono', Mono;
       font-size: 1.5em; }
   .tech .dashSide {
-    background-color: #124279; }
+    background-color: #6CAFF2; }
+    .tech .dashSide a {
+      color: #06244C; }
   .tech .footer {
     background-color: #062549; }
   .tech .matchWrapper {
@@ -382,6 +445,8 @@ button {
       font-size: 1.5em; }
   .sports .dashSide {
     background-color: #588B25; }
+    .sports .dashSide a {
+      color: #092B06; }
   .sports .footer {
     background-color: #36651B; }
   .sports .matchWrapper {
@@ -405,6 +470,8 @@ button {
       font-size: 1.5em; }
   .foodie .dashSide {
     background-color: #F7B700; }
+    .foodie .dashSide a {
+      color: #FC6700; }
   .foodie .footer {
     background-color: #F59000; }
   .foodie .matchWrapper {
@@ -427,6 +494,8 @@ button {
       font-size: 1.5em; }
   .books .dashSide {
     background-color: #CD760B; }
+    .books .dashSide a {
+      color: #5B1913; }
   .books .footer {
     background-color: #A94C00; }
   .books .matchWrapper {
@@ -441,7 +510,7 @@ button {
   height: 650px;
   border: 1px solid black; }
   .music .siteNav {
-    background-color: #D6BA59; }
+    background-color: #3C2512; }
     .music .siteNav a {
       color: white;
       font-weight: bold;
@@ -449,8 +518,10 @@ button {
       font-size: 1.5em; }
   .music .dashSide {
     background-color: #D5C46C; }
+    .music .dashSide a {
+      color: #67420E; }
   .music .footer {
-    background-color: #D6BA59; }
+    background-color: #3C2512; }
   .music .matchWrapper {
     background-color: rgba(248, 237, 187, 0.5); }
 
@@ -470,7 +541,9 @@ button {
       font-family: 'Roboto Mono', Mono;
       font-size: 1.5em; }
   .film .dashSide {
-    background-color: #C91E16; }
+    background-color: #FD6762; }
+    .film .dashSide a {
+      color: #480300; }
   .film .footer {
     background-color: #6E0301; }
   .film .matchWrapper {
@@ -484,7 +557,7 @@ button {
   height: 650px;
   border: 1px solid black; }
   .pets .siteNav {
-    background-color: #D5C46C; }
+    background-color: #A5563F; }
     .pets .siteNav a {
       color: white;
       font-weight: bold;
@@ -492,8 +565,10 @@ button {
       font-size: 1.5em; }
   .pets .dashSide {
     background-color: #D6BA59; }
+    .pets .dashSide a {
+      color: #A5563F; }
   .pets .footer {
-    background-color: #D5C46C; }
+    background-color: #A5563F; }
   .pets .matchWrapper {
     background-color: rgba(255, 250, 161, 0.5); }
 
@@ -513,6 +588,8 @@ button {
       font-size: 1.5em; }
   .cars .dashSide {
     background-color: #EBD29A; }
+    .cars .dashSide a {
+      color: #452102; }
   .cars .footer {
     background-color: #6E5500; }
   .cars .matchWrapper {
@@ -522,6 +599,11 @@ button {
   background-color: #1B237C; }
   .profile .siteNav {
     background-color: #1B237C; }
+    .profile .siteNav a {
+      color: white;
+      font-weight: bold;
+      font-family: 'Roboto Mono', Mono;
+      font-size: 1.5em; }
   .profile .profileSide {
     background-color: #7785F6; }
   .profile .footer {
@@ -531,8 +613,15 @@ button {
   background-color: #199300; }
   .photos .siteNav {
     background-color: #199300; }
+    .photos .siteNav a {
+      color: white;
+      font-weight: bold;
+      font-family: 'Roboto Mono', Mono;
+      font-size: 1.5em; }
   .photos .profileSide {
     background-color: #80F56C; }
+    .photos .profileSide a {
+      color: #023C1B; }
   .photos .footer {
     background-color: #199300; }
 
@@ -540,6 +629,11 @@ button {
   background-color: #EE9D00; }
   .photosAdd .siteNav {
     background-color: #EE9D00; }
+    .photosAdd .siteNav a {
+      color: white;
+      font-weight: bold;
+      font-family: 'Roboto Mono', Mono;
+      font-size: 1.5em; }
   .photosAdd .profileSide {
     background-color: #E9D900; }
   .photosAdd .footer {
@@ -549,10 +643,33 @@ button {
   background-color: #B2308E; }
   .friends .siteNav {
     background-color: #B2308E; }
+    .friends .siteNav a {
+      color: white;
+      font-weight: bold;
+      font-family: 'Roboto Mono', Mono;
+      font-size: 1.5em; }
   .friends .profileSide {
     background-color: #F9E3E6; }
+    .friends .profileSide a {
+      color: #E32B51; }
   .friends .footer {
     background-color: #B2308E; }
+
+.friendAddWrapper .siteNav {
+  background-color: #B2308E; }
+  .friendAddWrapper .siteNav a {
+    color: white;
+    font-weight: bold;
+    font-family: 'Roboto Mono', Mono;
+    font-size: 1.5em; }
+
+.friendAddWrapper .profileSide {
+  background-color: #F9E3E6; }
+  .friendAddWrapper .profileSide a {
+    color: #E32B51; }
+
+.friendAddWrapper .footer {
+  background-color: #B2308E; }
 
 @media (max-width: 800px) {
   .chalkBoard {

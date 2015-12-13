@@ -6,11 +6,11 @@ let RegisterController = function($http, SERVER, $state, HomeService, $cookies) 
 
   checkAuth();
  
-
+  //Check Auth
+  //Checks to see if the user is logged in or not based on cookies that are saved when they login or register. If they do not have the authToken in the cookies they are sent back to the login page 
   function checkAuth() {
     let auth = $cookies.get('authToken');
    if (auth){
-
    } else {
     $state.go('root.home');
    }

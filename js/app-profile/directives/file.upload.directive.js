@@ -8,11 +8,16 @@ let fileUpload = function(ProfileService) {
       file: '=image' 
     },
     template: `
-    <form>
-      <input type="file" name="pic" accept="image/*" ng-model="image.one">
-      <input type="text" ng-model="image.two">Description</input>
-      <button>Add</button>
-    </form>
+    <div class="addPhotosForm">
+      <h3>Upload Images</h3>
+      <br><br><br>
+      <form>
+      <label class="customFileLabel">Select a file</label>
+        <input class="customFileInput" type="file" name="pic" accept="image/*" ng-model="image.one" title="Choose an image please" >
+      
+        <button class="customFileBtn">Submit</button>
+      </form>
+    </div>
       `,
       
     link: function (scope, element, attrs) {
