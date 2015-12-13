@@ -1270,6 +1270,7 @@ var EditController = function EditController(WordService, $stateParams, $state, 
 
   vm.getWords = getWords;
   vm.editWords = editWords;
+  vm.goBack = goBack;
 
   checkAuth();
   changeStyle();
@@ -1348,6 +1349,12 @@ var EditController = function EditController(WordService, $stateParams, $state, 
 
   function validateEmpty(field) {
     return field ? true : false;
+  }
+
+  function goBack() {
+    var category = $stateParams;
+    category = category.category;
+    $state.go('root.' + category);
   }
 };
 

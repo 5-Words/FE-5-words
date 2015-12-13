@@ -4,11 +4,13 @@ let EditController = function(WordService, $stateParams, $state, $cookies) {
 
   vm.getWords = getWords;
   vm.editWords = editWords;
+  vm.goBack    = goBack;
  
 
   checkAuth();
   changeStyle();
   getWords();
+
 
   //Check Auth
   //Checks to see if the user is logged in or not based on cookies that are saved when they login or register. If they do not have the authToken in the cookies they are sent back to the login page 
@@ -77,8 +79,7 @@ let EditController = function(WordService, $stateParams, $state, $cookies) {
           { new: four, id: words[3].id},
           { new: five, id: words[4].id},
           ]
-        }
-    ;
+        };
  
     let response = WordService.editWords(words, cat);
 
@@ -93,6 +94,12 @@ let EditController = function(WordService, $stateParams, $state, $cookies) {
 
  function validateEmpty(field) {
     return field ? true: false;
+  }
+
+   function goBack() {
+    let category = $stateParams;
+    category = category.category;
+    $state.go('root.' + category);
   }
   
 
