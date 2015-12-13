@@ -6,7 +6,17 @@ let HomeController = function(HomeService, $cookies, $state) {
   vm.login         = login;
   vm.logout        = logout;
 
+  checkAuth();
   changeStyle();
+
+  function checkAuth() {
+    let auth = $cookies.get('authToken');
+   if (auth){
+    $state.go('root.golden')
+   } else {
+    $state.go('home');
+   }
+  }
 
   //Change Style
   function changeStyle () {
@@ -43,7 +53,7 @@ let HomeController = function(HomeService, $cookies, $state) {
     $cookies.remove('authToken');
     $cookies.remove('userId');
 
-    $state.go('root.home');
+    $state.go('home');
   }
 
 };

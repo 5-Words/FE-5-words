@@ -12,13 +12,12 @@ let RegisterController = function($http, SERVER, $state, HomeService, $cookies) 
     let auth = $cookies.get('authToken');
    if (auth){
    } else {
-    $state.go('root.home');
+    $state.go('home');
    }
   }
 
   function addWords (words) {
     HomeService.addWords(words).then( (res) => {
-      console.log(res);
       $state.go('root.golden')
     })
   }

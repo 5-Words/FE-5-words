@@ -20,14 +20,14 @@ let PhotosAddController = function(ProfileService, $state, $cookies) {
     let auth = $cookies.get('authToken');
      if (auth){
      } else {
-      $state.go('root.home');
+      $state.go('home');
      }
   }
   //Add Photo
   function addPhoto (photo) {
     console.log(photo);
     ProfileService.addPhoto(photo).then( (res) => {
-      console.log(res);
+      
     })
   }
   

@@ -22,15 +22,13 @@ let ProfileController = function($state, $cookies, ProfileService) {
     let auth = $cookies.get('authToken');
      if (auth){
      } else {
-      $state.go('root.home');
+      $state.go('home');
      }
   }
 
   function getBioPrivate () {
     ProfileService.getBioPrivate().then( (res) => {
-      console.log(res);
       ProfileService.tempBio = res.data;
-      console.log(ProfileService.tempBio);
       vm.bio = res.data;
     })
   }

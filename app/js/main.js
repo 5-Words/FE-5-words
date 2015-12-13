@@ -14,7 +14,7 @@ var config = function config($urlRouterProvider, $stateProvider) {
     templateUrl: 'templates/app-layout/layout.tpl.html'
   })
   //Home Page
-  .state('root.home', {
+  .state('home', {
     url: '/',
     controller: 'HomeController as vm',
     templateUrl: 'templates/app-layout/home.tpl.html'
@@ -340,9 +340,9 @@ var _constantsServerConstant2 = _interopRequireDefault(_constantsServerConstant)
 _angular2['default'].module('app.core', ['ui.router']).config(_config2['default']).constant('SERVER', _constantsServerConstant2['default']);
 
 },{"./config":1,"./constants/server.constant":2,"angular":40,"angular-ui-router":38}],4:[function(require,module,exports){
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
 var HomeController = function HomeController(HomeService, $cookies, $state) {
@@ -353,7 +353,17 @@ var HomeController = function HomeController(HomeService, $cookies, $state) {
   vm.login = login;
   vm.logout = logout;
 
+  checkAuth();
   changeStyle();
+
+  function checkAuth() {
+    var auth = $cookies.get('authToken');
+    if (auth) {
+      $state.go('root.golden');
+    } else {
+      $state.go('home');
+    }
+  }
 
   //Change Style
   function changeStyle() {
@@ -388,14 +398,14 @@ var HomeController = function HomeController(HomeService, $cookies, $state) {
     $cookies.remove('authToken');
     $cookies.remove('userId');
 
-    $state.go('root.home');
+    $state.go('home');
   }
 };
 
 HomeController.$inject = ['HomeService', '$cookies', '$state'];
 
-exports["default"] = HomeController;
-module.exports = exports["default"];
+exports['default'] = HomeController;
+module.exports = exports['default'];
 
 },{}],5:[function(require,module,exports){
 'use strict';
@@ -516,7 +526,7 @@ var FriendsAdd = function FriendsAdd($state, ProfileService, $stateParams, $cook
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
-      $state.go('root.home');
+      $state.go('home');
     }
   }
 
@@ -564,7 +574,7 @@ var FriendsController = function FriendsController($state, $cookies) {
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
-      $state.go('root.home');
+      $state.go('home');
     }
   }
 };
@@ -601,7 +611,7 @@ var PhotosController = function PhotosController(ProfileService, $state, $cookie
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
-      $state.go('root.home');
+      $state.go('home');
     }
   }
   //Get Photos
@@ -648,15 +658,13 @@ var PhotosAddController = function PhotosAddController(ProfileService, $state, $
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
-      $state.go('root.home');
+      $state.go('home');
     }
   }
   //Add Photo
   function addPhoto(photo) {
     console.log(photo);
-    ProfileService.addPhoto(photo).then(function (res) {
-      console.log(res);
-    });
+    ProfileService.addPhoto(photo).then(function (res) {});
   }
 };
 
@@ -692,15 +700,13 @@ var ProfileController = function ProfileController($state, $cookies, ProfileServ
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
-      $state.go('root.home');
+      $state.go('home');
     }
   }
 
   function getBioPrivate() {
     ProfileService.getBioPrivate().then(function (res) {
-      console.log(res);
       ProfileService.tempBio = res.data;
-      console.log(ProfileService.tempBio);
       vm.bio = res.data;
     });
   }
@@ -735,7 +741,7 @@ var ProfileEditController = function ProfileEditController(ProfileService, $cook
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
-      $state.go('root.home');
+      $state.go('home');
     }
   }
 
@@ -761,9 +767,7 @@ var ProfileEditController = function ProfileEditController(ProfileService, $cook
 
   function editBio(bio) {
     console.log(bio);
-    ProfileService.editBio(bio).then(function (res) {
-      console.log(res);
-    });
+    ProfileService.editBio(bio).then(function (res) {});
   }
 };
 
@@ -805,7 +809,6 @@ var fileUpload = function fileUpload(ProfileService) {
     link: function link(scope, element, attrs) {
       element.on('submit', function () {
         var file = element.find('input')[0].files[0];
-        console.log(file);
 
         // scope.file = file;
         ProfileService.sendPhoto(file);
@@ -950,9 +953,7 @@ var ProfileService = function ProfileService($http, SERVER, $cookies) {
 
   function sendPhoto(file) {
 
-    addPhoto(file).then(function (res) {
-      console.log(res);
-    });
+    addPhoto(file).then(function (res) {});
   }
 
   function addPhoto(file) {
@@ -960,8 +961,6 @@ var ProfileService = function ProfileService($http, SERVER, $cookies) {
     var formData = new FormData();
     formData.append('image', file);
     formData.append('title', 'photo');
-
-    console.log(formData);
 
     var auth = $cookies.get('authToken');
 
@@ -1030,7 +1029,7 @@ var addController = function addController(WordService, $stateParams, $state, $c
     var auth = $cookies.get('authToken');
 
     if (auth) {} else {
-      $state.go('root.home');
+      $state.go('home');
     }
   }
   //Change Style
@@ -1123,7 +1122,7 @@ var BooksController = function BooksController(WordService, $state, $cookies) {
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
-      $state.go('root.home');
+      $state.go('home');
     }
   }
 
@@ -1196,7 +1195,7 @@ var CarController = function CarController(WordService, $state, $cookies) {
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
-      $state.go('root.home');
+      $state.go('home');
     }
   }
 
@@ -1281,7 +1280,7 @@ var EditController = function EditController(WordService, $stateParams, $state, 
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
-      $state.go('root.home');
+      $state.go('home');
     }
   }
   //Change Style
@@ -1379,7 +1378,7 @@ var FilmController = function FilmController(WordService, $state, $cookies) {
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
-      $state.go('root.home');
+      $state.go('home');
     }
   }
   //Change Style
@@ -1449,7 +1448,7 @@ var FoodieController = function FoodieController(WordService, $state, $cookies) 
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
-      $state.go('root.home');
+      $state.go('home');
     }
   }
 
@@ -1522,7 +1521,7 @@ var GoldenController = function GoldenController(WordService, $state, $cookies) 
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
-      $state.go('root.home');
+      $state.go('home');
     }
   }
 
@@ -1589,7 +1588,7 @@ var MatchController = function MatchController(WordService, $state, $stateParams
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
-      $state.go('root.home');
+      $state.go('home');
     }
   }
   //Change Style
@@ -1717,7 +1716,7 @@ var MusicController = function MusicController(WordService, $state, $cookies) {
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
-      $state.go('root.home');
+      $state.go('home');
     }
   }
   //Change Style
@@ -1786,7 +1785,7 @@ var PetsController = function PetsController(WordService, $state, $cookies) {
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
-      $state.go('root.home');
+      $state.go('home');
     }
   }
 
@@ -1856,13 +1855,12 @@ var RegisterController = function RegisterController($http, SERVER, $state, Home
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
-      $state.go('root.home');
+      $state.go('home');
     }
   }
 
   function addWords(words) {
     HomeService.addWords(words).then(function (res) {
-      console.log(res);
       $state.go('root.golden');
     });
   }
@@ -1895,7 +1893,7 @@ var SportsController = function SportsController(WordService, $state, $cookies) 
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
-      $state.go('root.home');
+      $state.go('home');
     }
   }
   //Change Style
@@ -1965,7 +1963,7 @@ var TechController = function TechController(WordService, $state, $cookies) {
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
-      $state.go('root.home');
+      $state.go('home');
     }
   }
   //Change Style
@@ -2035,7 +2033,7 @@ var TravelController = function TravelController(WordService, $state, $cookies) 
   function checkAuth() {
     var auth = $cookies.get('authToken');
     if (auth) {} else {
-      $state.go('root.home');
+      $state.go('home');
     }
   }
   //Change Style

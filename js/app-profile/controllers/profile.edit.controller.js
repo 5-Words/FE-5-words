@@ -14,7 +14,7 @@ let ProfileEditController = function(ProfileService, $cookies) {
     let auth = $cookies.get('authToken');
      if (auth){
      } else {
-      $state.go('root.home');
+      $state.go('home');
      }
   }
 
@@ -43,7 +43,7 @@ let ProfileEditController = function(ProfileService, $cookies) {
   function editBio (bio) {
     console.log(bio);
     ProfileService.editBio(bio).then( (res) => {
-      console.log(res);
+      
     })
   }
   

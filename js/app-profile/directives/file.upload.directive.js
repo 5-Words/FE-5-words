@@ -23,7 +23,7 @@ let fileUpload = function(ProfileService) {
     link: function (scope, element, attrs) {
       element.on('submit', function () {
         let file = element.find('input')[0].files[0];
-        console.log(file);
+        
 
         // scope.file = file;
         ProfileService.sendPhoto(file);

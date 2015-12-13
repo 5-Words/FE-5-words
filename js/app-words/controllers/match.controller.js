@@ -15,7 +15,7 @@ let MatchController = function(WordService, $state, $stateParams, $cookies) {
     let auth = $cookies.get('authToken');
      if (auth){
      } else {
-      $state.go('root.home');
+      $state.go('home');
      }
   }
   //Change Style

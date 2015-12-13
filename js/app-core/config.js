@@ -9,7 +9,7 @@ let config = function($urlRouterProvider, $stateProvider) {
       templateUrl: 'templates/app-layout/layout.tpl.html'
     }) 
     //Home Page
-    .state('root.home', {
+    .state('home', {
       url: '/',
       controller: 'HomeController as vm',
       templateUrl: 'templates/app-layout/home.tpl.html'

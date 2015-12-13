@@ -16,7 +16,7 @@ let SportsController = function(WordService, $state, $cookies) {
    if (auth){
    
    } else {
-    $state.go('root.home');
+    $state.go('home');
    }
   }
   //Change Style

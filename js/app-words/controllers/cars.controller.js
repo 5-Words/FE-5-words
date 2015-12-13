@@ -15,7 +15,7 @@ let CarController = function(WordService, $state, $cookies) {
     let auth = $cookies.get('authToken');
      if (auth){
      } else {
-      $state.go('root.home');
+      $state.go('home');
      }
   }
 

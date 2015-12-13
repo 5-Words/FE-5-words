@@ -117,7 +117,7 @@ button {
   background-repeat: no-repeat;
   margin: 0 auto;
   position: relative;
-  top: 4%;
+  top: 1.5%;
   width: 78%;
   height: 600px; }
 
@@ -336,7 +336,6 @@ button {
   padding: 1.5%;
   color: white;
   margin-bottom: 0;
-  z-index: -1;
   clear: both; }
 
 .photoWrappers {
@@ -591,7 +590,8 @@ button {
     .cars .dashSide a {
       color: #452102; }
   .cars .footer {
-    background-color: #6E5500; }
+    background-color: #6E5500;
+    z-index: 2000; }
   .cars .matchWrapper {
     background-color: rgba(255, 255, 255, 0.5); }
 
@@ -749,6 +749,8 @@ button {
         color: black;
         position: relative;
         left: 5%; }
+  .travel .siteNav a, .tech .siteNav a, .sports .siteNav a, .foodie .siteNav a, .books .siteNav a, .music .siteNav a, .film .siteNav a, .pets .siteNav a, .cars .siteNav a, .profile .siteNav a, .photos .siteNav a, .photosAdd .siteNav a, .friends .siteNav a, .friendAddWrapper .siteNav a {
+    font-size: 1.1em; }
   .chalkBoard {
     background-image: url("../img/notepad.png");
     background-size: 100%;

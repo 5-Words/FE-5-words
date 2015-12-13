@@ -51,7 +51,7 @@ let ProfileService = function($http, SERVER, $cookies) {
   function sendPhoto(file) {
 
    addPhoto(file).then( (res) => {
-      console.log(res);
+      
     })
   } 
 
@@ -60,8 +60,6 @@ let ProfileService = function($http, SERVER, $cookies) {
     let formData = new FormData();
     formData.append('image', file);
     formData.append('title', 'photo');
-
-    console.log(formData);
 
     let auth = $cookies.get('authToken');
     
