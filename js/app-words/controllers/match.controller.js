@@ -5,6 +5,7 @@ let MatchController = function(WordService, $state, $stateParams, $cookies) {
   let vm = this;
 
   this.checkProfile = checkProfile;
+  this.goBack       = goBack;
 
   checkAuth();
   changeStyle();
@@ -125,6 +126,11 @@ let MatchController = function(WordService, $state, $stateParams, $cookies) {
       } //else
 
   }  //getWords
+   function goBack() {
+    let category = $stateParams;
+    category = category.category;
+    $state.go('root.' + category);
+  }
   
 
 }; 

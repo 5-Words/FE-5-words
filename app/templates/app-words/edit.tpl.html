@@ -1,11 +1,7 @@
-<!-- <h3>{{vm.category}}</h3> -->
-<div>
+<div class="editWordsForm">
   <form name="editForm" ng-repeat="word in vm.words">
     <input type="text" ng-model="word.word" >
   </form>
   <button ng-click="vm.editWords(vm.words)">Submit</button>
   <button ng-click="vm.goBack()">Back</button>
-  <br><br><br><br><br><br><br><br>
-  <br><br><br><br><br><br><br><br>
-  
 </div>  

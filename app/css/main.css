@@ -93,7 +93,7 @@ button {
   padding: 1%; }
   .dashSide a {
     color: white;
-    margin-right: 1%;
+    margin-right: .5%;
     line-height: 23px; }
 
 .dashMain {
@@ -234,6 +234,13 @@ button {
 
 .clearBoth {
   clear: both; }
+
+.editWordsForm form input {
+  margin: .5%; }
+
+.editWordsForm button {
+  width: 15%;
+  margin: .5% .2%; }
 
 .matchWrapper .userMatch {
   display: inline-block;
@@ -392,7 +399,6 @@ button {
   background-repeat: no-repeat;
   width: 100%;
   height: 650px;
-  border: 1px solid black;
   background-color: #854E24; }
   .travel .siteNav {
     background-color: #875C2B; }
@@ -416,8 +422,7 @@ button {
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  height: 650px;
-  border: 1px solid black; }
+  height: 650px; }
   .tech .siteNav {
     background-color: #062549; }
     .tech .siteNav a {
@@ -440,8 +445,7 @@ button {
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  height: 650px;
-  border: 1px solid black; }
+  height: 650px; }
   .sports .siteNav {
     background-color: #36651B; }
     .sports .siteNav a {
@@ -465,8 +469,7 @@ button {
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  height: 650px;
-  border: 1px solid black; }
+  height: 650px; }
   .foodie .siteNav {
     background-color: #F59000; }
     .foodie .siteNav a {
@@ -489,8 +492,7 @@ button {
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  height: 650px;
-  border: 1px solid black; }
+  height: 650px; }
   .books .siteNav {
     background-color: #A94C00; }
     .books .siteNav a {
@@ -513,8 +515,7 @@ button {
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  height: 650px;
-  border: 1px solid black; }
+  height: 650px; }
   .music .siteNav {
     background-color: #3C2512; }
     .music .siteNav a {
@@ -537,8 +538,7 @@ button {
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  height: 650px;
-  border: 1px solid black; }
+  height: 650px; }
   .film .siteNav {
     background-color: #6E0301; }
     .film .siteNav a {
@@ -561,7 +561,7 @@ button {
   background-repeat: no-repeat;
   width: 100%;
   height: 650px;
-  border: 1px solid black; }
+  background-size: cover; }
   .pets .siteNav {
     background-color: #A5563F; }
     .pets .siteNav a {
@@ -584,7 +584,7 @@ button {
   background-repeat: no-repeat;
   width: 100%;
   height: 650px;
-  border: 1px solid black; }
+  background-size: cover; }
   .cars .siteNav {
     background-color: #6E5500; }
     .cars .siteNav a {
@@ -756,7 +756,7 @@ button {
     position: relative;
     top: 2%;
     width: 96%;
-    height: 600px; }
+    height: 650px; }
     .chalkBoard button {
       position: relative;
       left: 20%;

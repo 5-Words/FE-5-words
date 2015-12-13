@@ -121,7 +121,7 @@ button {
  padding: 1%;
  a {
     color: white;
-    margin-right: 1%;
+    margin-right: .5%;
     line-height: 23px;
   }
 }
@@ -305,6 +305,19 @@ button {
 }
 .clearBoth {
   clear: both;
+}
+//---------------------------------------------------
+//Edit Page
+.editWordsForm {
+  form {
+    input {
+      margin: .5%;
+    }
+  }
+  button {
+    width: 15%;
+    margin: .5% .2%;
+  }
 }
 //---------------------------------------------------
 //Match Page
@@ -516,7 +529,6 @@ button {
   background-repeat: no-repeat;
   width: 100%;
   height: 650px;
-  border: 1px solid black; 
   background-color: #854E24;
   .siteNav{
     background-color: #875C2B;
@@ -546,8 +558,7 @@ button {
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  height: 650px;
-  border: 1px solid black; 
+  height: 650px; 
   .siteNav{background-color: #062549;
 
     a {
@@ -578,8 +589,7 @@ button {
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  height: 650px;
-  border: 1px solid black;  
+  height: 650px; 
   .siteNav{background-color: #36651B;
     a {
           color: white;
@@ -609,8 +619,7 @@ button {
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  height: 650px;
-  border: 1px solid black;  
+  height: 650px; 
   .siteNav{background-color: #F59000;
     a {
           color: white;
@@ -640,7 +649,6 @@ button {
   background-repeat: no-repeat;
   width: 100%;
   height: 650px;
-  border: 1px solid black; 
   .siteNav{background-color: #A94C00;
     a {
           color: white;
@@ -669,8 +677,7 @@ button {
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  height: 650px;
-  border: 1px solid black; 
+  height: 650px; 
   .siteNav{background-color: #3C2512;
     a {
           color: white;
@@ -700,7 +707,6 @@ button {
   background-repeat: no-repeat;
   width: 100%;
   height: 650px;
-  border: 1px solid black; 
   .siteNav{background-color: #6E0301;
     a {
           color: white;
@@ -729,15 +735,14 @@ button {
   background-image: url("../img/pets.jpg");
   background-repeat: no-repeat;
   width: 100%;
-  height: 650px;
-  border: 1px solid black; 
+  height: 650px; 
+  background-size: cover;
   .siteNav{background-color: #A5563F;
     a {
           color: white;
           font-weight: bold;
           font-family: 'Roboto Mono', Mono;
-          font-size: 1.5em;
-          
+          font-size: 1.5em; 
         }
   }
   .dashSide{
@@ -760,14 +765,15 @@ button {
   background-repeat: no-repeat;
   width: 100%;
   height: 650px;
-  border: 1px solid black; 
+  background-size: cover;
+
+
   .siteNav{background-color: #6E5500;
     a {
           color: white;
           font-weight: bold;
           font-family: 'Roboto Mono', Mono;
-          font-size: 1.5em;
-          
+          font-size: 1.5em; 
         }
   }
   .dashSide{
@@ -1006,7 +1012,7 @@ button {
   position: relative;
   top: 2%;
   width: 96%;
-  height: 600px;
+  height: 650px;
 
     button {
     

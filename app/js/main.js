@@ -1586,6 +1586,7 @@ var MatchController = function MatchController(WordService, $state, $stateParams
   var vm = this;
 
   this.checkProfile = checkProfile;
+  this.goBack = goBack;
 
   checkAuth();
   changeStyle();
@@ -1695,6 +1696,11 @@ var MatchController = function MatchController(WordService, $state, $stateParams
         }); // WordService
       } //else
   } //getWords
+  function goBack() {
+    var category = $stateParams;
+    category = category.category;
+    $state.go('root.' + category);
+  }
 };
 
 MatchController.$inject = ['WordService', '$state', '$stateParams', '$cookies'];
