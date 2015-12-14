@@ -8,6 +8,12 @@ let config = function($urlRouterProvider, $stateProvider) {
       controller: 'HomeController as vm',
       templateUrl: 'templates/app-layout/layout.tpl.html'
     }) 
+    //Landing Pages
+    .state('about', {
+      url: '/about',
+      controller: 'HomeController as vm',
+      templateUrl: 'templates/app-layout/about.tpl.html'
+    })
     //Home Page
     .state('home', {
       url: '/',
@@ -26,9 +32,7 @@ let config = function($urlRouterProvider, $stateProvider) {
           controller: 'GoldenController as vm',
           templateUrl: 'templates/app-words/golden.tpl.html'
         },
-        footer: {
-          template: '<small>I am a footer</small>'
-        }
+        
       }
     }) 
     .state('root.travel', {
@@ -42,9 +46,7 @@ let config = function($urlRouterProvider, $stateProvider) {
           controller: 'TravelController as vm',
           templateUrl: 'templates/app-words/travel.tpl.html'
         },
-        footer: {
-          template: '<small>I am a footer</small>'
-        }
+        
       }
     })
     .state('root.tech', {
@@ -58,9 +60,7 @@ let config = function($urlRouterProvider, $stateProvider) {
           controller: 'TechController as vm',
           templateUrl: 'templates/app-words/tech.tpl.html'
         },
-        footer: {
-          template: '<small>I am a footer</small>'
-        }
+       
       }  
     })
     .state('root.sports', {
@@ -74,9 +74,7 @@ let config = function($urlRouterProvider, $stateProvider) {
           controller: 'SportsController as vm',
           templateUrl: 'templates/app-words/sports.tpl.html'
         },
-        footer: {
-          template: '<small>I am a footer</small>'
-        }
+        
       }  
     })
     .state('root.foodie', {
@@ -90,9 +88,7 @@ let config = function($urlRouterProvider, $stateProvider) {
           controller: 'FoodieController as vm',
           templateUrl: 'templates/app-words/foodie.tpl.html'
         },
-        footer: {
-          template: '<small>I am a footer</small>'
-        }
+        
       }  
     })
       .state('root.books', {
@@ -106,9 +102,7 @@ let config = function($urlRouterProvider, $stateProvider) {
           controller: 'BooksController as vm',
           templateUrl: 'templates/app-words/books.tpl.html'
         },
-        footer: {
-          template: '<small>I am a footer</small>'
-        }
+        
       }  
     })
     .state('root.music', {
@@ -122,9 +116,7 @@ let config = function($urlRouterProvider, $stateProvider) {
           controller: 'MusicController as vm',
           templateUrl: 'templates/app-words/music.tpl.html'
         },
-        footer: {
-          template: '<small>I am a footer</small>'
-        }
+       
       }  
     })  
     .state('root.film', {
@@ -138,9 +130,7 @@ let config = function($urlRouterProvider, $stateProvider) {
           controller: 'FilmController as vm',
           templateUrl: 'templates/app-words/film.tpl.html'
         },
-        footer: {
-          template: '<small>I am a footer</small>'
-        }
+        
       }  
     }) 
     .state('root.pets', {
@@ -154,9 +144,7 @@ let config = function($urlRouterProvider, $stateProvider) {
           controller: 'PetsController as vm',
           templateUrl: 'templates/app-words/pets.tpl.html'
         },
-        footer: {
-          template: '<small>I am a footer</small>'
-        }
+        
       }  
     }) 
     .state('root.cars', {
@@ -170,13 +158,10 @@ let config = function($urlRouterProvider, $stateProvider) {
           controller: 'CarsController as vm',
           templateUrl: 'templates/app-words/cars.tpl.html'
         },
-        footer: {
-          template: '<small>I am a footer</small>'
-        }
       }  
     }) 
     //Register is where you add your first 5 words
-    .state('root.register', {
+    .state('register', {
       url: '/register',
       controller: 'RegisterController as vm',
       templateUrl: 'templates/app-words/register.tpl.html'
@@ -211,9 +196,7 @@ let config = function($urlRouterProvider, $stateProvider) {
           controller: 'ProfileController as vm',
           templateUrl: 'templates/app-profile/profile.main.tpl.html'
         },
-        footer: {
-          template: '<small>I am a footer</small>'
-        }
+       
       }  
     })
      //View your photos
@@ -227,12 +210,23 @@ let config = function($urlRouterProvider, $stateProvider) {
         content: {
           controller: 'PhotosController as vm',
           templateUrl: 'templates/app-profile/photos.tpl.html'
-        },
-        footer: {
-          template: '<small>I am a footer</small>'
-        }
+        }, 
       } 
     }) 
+     //Single Image
+    .state('root.single', {
+      url: '/photos/single/:id',
+      views: {
+        sidebar: {
+          controller: 'ProfileSideController as vm',
+          templateUrl: 'templates/app-profile/profile.side.tpl.html'
+        },
+        content: {
+          controller: 'SingleImageController as vm',
+          templateUrl: 'templates/app-profile/single.image.tpl.html'
+        },  
+      } 
+    })  
      //Add photos to your profile
     .state('root.photosAdd', {
       url: '/photos/add',
@@ -245,9 +239,7 @@ let config = function($urlRouterProvider, $stateProvider) {
           controller: 'PhotosAddController as vm',
           templateUrl: 'templates/app-profile/photos.add.tpl.html'
         },
-        footer: {
-          template: '<small>I am a footer</small>'
-        }
+        
       } 
     })  
     //Check out your friends
@@ -262,9 +254,7 @@ let config = function($urlRouterProvider, $stateProvider) {
           controller: 'FriendsController as vm',
           templateUrl: 'templates/app-profile/friends.tpl.html'
         },
-        footer: {
-          template: '<small>I am a footer</small>'
-        }
+       
       } 
     })
     //Add new friends
@@ -279,9 +269,7 @@ let config = function($urlRouterProvider, $stateProvider) {
           controller: 'FriendsAddController as vm',
           templateUrl: 'templates/app-profile/friendsAdd.tpl.html'
         },
-        footer: {
-          template: '<small>I am a footer</small>'
-        }
+        
       } 
     })
     //Edit your profile
@@ -296,9 +284,7 @@ let config = function($urlRouterProvider, $stateProvider) {
           controller: 'ProfileEditController as vm',
           templateUrl: 'templates/app-profile/profile.edit.tpl.html'
         },
-        footer: {
-          template: '<small>I am a footer</small>'
-        }
+        
       } 
     })
     

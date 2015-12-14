@@ -13,6 +13,12 @@ var config = function config($urlRouterProvider, $stateProvider) {
     controller: 'HomeController as vm',
     templateUrl: 'templates/app-layout/layout.tpl.html'
   })
+  //Landing Pages
+  .state('about', {
+    url: '/about',
+    controller: 'HomeController as vm',
+    templateUrl: 'templates/app-layout/about.tpl.html'
+  })
   //Home Page
   .state('home', {
     url: '/',
@@ -30,10 +36,8 @@ var config = function config($urlRouterProvider, $stateProvider) {
       content: {
         controller: 'GoldenController as vm',
         templateUrl: 'templates/app-words/golden.tpl.html'
-      },
-      footer: {
-        template: '<small>I am a footer</small>'
       }
+
     }
   }).state('root.travel', {
     url: '/travel',
@@ -45,10 +49,8 @@ var config = function config($urlRouterProvider, $stateProvider) {
       content: {
         controller: 'TravelController as vm',
         templateUrl: 'templates/app-words/travel.tpl.html'
-      },
-      footer: {
-        template: '<small>I am a footer</small>'
       }
+
     }
   }).state('root.tech', {
     url: '/tech',
@@ -60,10 +62,8 @@ var config = function config($urlRouterProvider, $stateProvider) {
       content: {
         controller: 'TechController as vm',
         templateUrl: 'templates/app-words/tech.tpl.html'
-      },
-      footer: {
-        template: '<small>I am a footer</small>'
       }
+
     }
   }).state('root.sports', {
     url: '/sports',
@@ -75,10 +75,8 @@ var config = function config($urlRouterProvider, $stateProvider) {
       content: {
         controller: 'SportsController as vm',
         templateUrl: 'templates/app-words/sports.tpl.html'
-      },
-      footer: {
-        template: '<small>I am a footer</small>'
       }
+
     }
   }).state('root.foodie', {
     url: '/foodie',
@@ -90,10 +88,8 @@ var config = function config($urlRouterProvider, $stateProvider) {
       content: {
         controller: 'FoodieController as vm',
         templateUrl: 'templates/app-words/foodie.tpl.html'
-      },
-      footer: {
-        template: '<small>I am a footer</small>'
       }
+
     }
   }).state('root.books', {
     url: '/books',
@@ -105,10 +101,8 @@ var config = function config($urlRouterProvider, $stateProvider) {
       content: {
         controller: 'BooksController as vm',
         templateUrl: 'templates/app-words/books.tpl.html'
-      },
-      footer: {
-        template: '<small>I am a footer</small>'
       }
+
     }
   }).state('root.music', {
     url: '/music',
@@ -120,10 +114,8 @@ var config = function config($urlRouterProvider, $stateProvider) {
       content: {
         controller: 'MusicController as vm',
         templateUrl: 'templates/app-words/music.tpl.html'
-      },
-      footer: {
-        template: '<small>I am a footer</small>'
       }
+
     }
   }).state('root.film', {
     url: '/film',
@@ -135,10 +127,8 @@ var config = function config($urlRouterProvider, $stateProvider) {
       content: {
         controller: 'FilmController as vm',
         templateUrl: 'templates/app-words/film.tpl.html'
-      },
-      footer: {
-        template: '<small>I am a footer</small>'
       }
+
     }
   }).state('root.pets', {
     url: '/pets',
@@ -150,10 +140,8 @@ var config = function config($urlRouterProvider, $stateProvider) {
       content: {
         controller: 'PetsController as vm',
         templateUrl: 'templates/app-words/pets.tpl.html'
-      },
-      footer: {
-        template: '<small>I am a footer</small>'
       }
+
     }
   }).state('root.cars', {
     url: '/cars',
@@ -165,14 +153,11 @@ var config = function config($urlRouterProvider, $stateProvider) {
       content: {
         controller: 'CarsController as vm',
         templateUrl: 'templates/app-words/cars.tpl.html'
-      },
-      footer: {
-        template: '<small>I am a footer</small>'
       }
     }
   })
   //Register is where you add your first 5 words
-  .state('root.register', {
+  .state('register', {
     url: '/register',
     controller: 'RegisterController as vm',
     templateUrl: 'templates/app-words/register.tpl.html'
@@ -206,10 +191,8 @@ var config = function config($urlRouterProvider, $stateProvider) {
       content: {
         controller: 'ProfileController as vm',
         templateUrl: 'templates/app-profile/profile.main.tpl.html'
-      },
-      footer: {
-        template: '<small>I am a footer</small>'
       }
+
     }
   })
   //View your photos
@@ -223,9 +206,20 @@ var config = function config($urlRouterProvider, $stateProvider) {
       content: {
         controller: 'PhotosController as vm',
         templateUrl: 'templates/app-profile/photos.tpl.html'
+      }
+    }
+  })
+  //Single Image
+  .state('root.single', {
+    url: '/photos/single/:id',
+    views: {
+      sidebar: {
+        controller: 'ProfileSideController as vm',
+        templateUrl: 'templates/app-profile/profile.side.tpl.html'
       },
-      footer: {
-        template: '<small>I am a footer</small>'
+      content: {
+        controller: 'SingleImageController as vm',
+        templateUrl: 'templates/app-profile/single.image.tpl.html'
       }
     }
   })
@@ -240,10 +234,8 @@ var config = function config($urlRouterProvider, $stateProvider) {
       content: {
         controller: 'PhotosAddController as vm',
         templateUrl: 'templates/app-profile/photos.add.tpl.html'
-      },
-      footer: {
-        template: '<small>I am a footer</small>'
       }
+
     }
   })
   //Check out your friends
@@ -257,10 +249,8 @@ var config = function config($urlRouterProvider, $stateProvider) {
       content: {
         controller: 'FriendsController as vm',
         templateUrl: 'templates/app-profile/friends.tpl.html'
-      },
-      footer: {
-        template: '<small>I am a footer</small>'
       }
+
     }
   })
   //Add new friends
@@ -274,10 +264,8 @@ var config = function config($urlRouterProvider, $stateProvider) {
       content: {
         controller: 'FriendsAddController as vm',
         templateUrl: 'templates/app-profile/friendsAdd.tpl.html'
-      },
-      footer: {
-        template: '<small>I am a footer</small>'
       }
+
     }
   })
   //Edit your profile
@@ -291,10 +279,8 @@ var config = function config($urlRouterProvider, $stateProvider) {
       content: {
         controller: 'ProfileEditController as vm',
         templateUrl: 'templates/app-profile/profile.edit.tpl.html'
-      },
-      footer: {
-        template: '<small>I am a footer</small>'
       }
+
     }
   });
 };
@@ -339,7 +325,7 @@ var _constantsServerConstant2 = _interopRequireDefault(_constantsServerConstant)
 
 _angular2['default'].module('app.core', ['ui.router']).config(_config2['default']).constant('SERVER', _constantsServerConstant2['default']);
 
-},{"./config":1,"./constants/server.constant":2,"angular":41,"angular-ui-router":39}],4:[function(require,module,exports){
+},{"./config":1,"./constants/server.constant":2,"angular":42,"angular-ui-router":40}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -369,13 +355,13 @@ var HomeController = function HomeController(HomeService, $cookies, $state) {
       $cookies.put('authToken', res.data.access_token);
       $cookies.put('username', res.data.username);
 
-      $state.go('root.register');
+      $state.go('register');
     });
   }
 
   function login(user) {
     HomeService.login(user).then(function (res) {
-      console.log(res);
+
       var auth = $cookies.put('authToken', res.data.access_token);
       var userId = $cookies.put('userId', res.data.id);
       $cookies.put('username', res.data.username);
@@ -422,7 +408,7 @@ var _servicesHomeService2 = _interopRequireDefault(_servicesHomeService);
 
 _angular2['default'].module('app.layout', ['ngCookies']).controller('HomeController', _controllersHomeController2['default']).service('HomeService', _servicesHomeService2['default']);
 
-},{"./controllers/home.controller":4,"./services/home.service":6,"angular":41,"angular-cookies":38,"underscore":42}],6:[function(require,module,exports){
+},{"./controllers/home.controller":4,"./services/home.service":6,"angular":42,"angular-cookies":39,"underscore":43}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -607,6 +593,7 @@ var PhotosController = function PhotosController(ProfileService, $state, $cookie
   //Get Photos
   function getPhotos() {
     ProfileService.getPhotos().then(function (res) {
+
       vm.photos = res.data;
     });
   }
@@ -791,6 +778,44 @@ module.exports = exports["default"];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
+var SingleImageController = function SingleImageController($stateParams, ProfileService) {
+
+  var vm = this;
+
+  this.deleteImage = deleteImage;
+
+  var id = $stateParams.id;
+
+  getImage(id);
+
+  //Get Image
+  function getImage(id) {
+
+    ProfileService.getImage(id).then(function (res) {
+      vm.image = res.data[0].image_url;
+      console.log(res);
+    });
+  }
+
+  function deleteImage() {
+    var id2 = $stateParams.id;
+
+    console.log(id2);
+    ProfileService.deleteImage(id2).then(function (res) {});
+  }
+};
+
+SingleImageController.$inject = ['$stateParams', 'ProfileService'];
+
+exports['default'] = SingleImageController;
+module.exports = exports['default'];
+
+},{}],15:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
 var avatarUpload = function avatarUpload(ProfileService) {
 
   return {
@@ -819,12 +844,13 @@ avatarUpload.$inject = ['ProfileService'];
 exports['default'] = avatarUpload;
 module.exports = exports['default'];
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
+
 var fileUpload = function fileUpload(ProfileService) {
 
   return {
@@ -834,16 +860,22 @@ var fileUpload = function fileUpload(ProfileService) {
     scope: {
       file: '=image'
     },
-    template: '\n    <div class="addPhotosForm">\n      <h3>Upload Images</h3>\n      <br><br><br>\n      <form>\n        <input class="customFileInput" type="file" name="pic" accept="image/*" ng-model="image.one" title="Choose an image please" >\n      \n        <button class="customFileBtn">Submit</button>\n      </form>\n      <hr>\n      </form>\n    </div>\n\n      ',
+    template: '\n    <div class="addPhotosForm">\n      <h3>Upload Images</h3>\n      <br><br><br>\n      <form>\n        <input class="customFileInput" type="file" name="pic" accept="image/*" ng-model="image.one" title="Choose an image please" >\n        <button id="addPhotosbtn"  class="customFileBtn hide">Submit</button>\n      </form>\n      <hr>\n      </form>\n    </div>\n\n      ',
 
     link: function link(scope, element, attrs) {
+      element.on('click', function () {
+
+        var submit = angular.element(document.querySelector('#addPhotosbtn'));
+
+        submit.toggleClass('hide');
+      });
       element.on('submit', function () {
         var file = element.find('input')[0].files[0];
 
-        // scope.file = file;
         ProfileService.sendPhoto(file);
       });
     }
+
   };
 };
 
@@ -852,7 +884,7 @@ fileUpload.$inject = ['ProfileService'];
 exports['default'] = fileUpload;
 module.exports = exports['default'];
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -885,6 +917,10 @@ var _controllersProfileEditController2 = _interopRequireDefault(_controllersProf
 var _controllersPhotoController = require('./controllers/photo.controller');
 
 var _controllersPhotoController2 = _interopRequireDefault(_controllersPhotoController);
+
+var _controllersSingleImageController = require('./controllers/single.image.controller');
+
+var _controllersSingleImageController2 = _interopRequireDefault(_controllersSingleImageController);
 
 var _controllersPhotosAddController = require('./controllers/photos.add.controller');
 
@@ -921,7 +957,7 @@ angular.module('app.profile', ['app.core', 'ngCookies'])
 .controller('ProfileController', _controllersProfileController2['default']).controller('ProfileEditController', _controllersProfileEditController2['default']).controller('ProfileSideController', _controllersProfileSideController2['default'])
 
 //Photos
-.controller('PhotosController', _controllersPhotoController2['default']).controller('PhotosAddController', _controllersPhotosAddController2['default'])
+.controller('PhotosController', _controllersPhotoController2['default']).controller('SingleImageController', _controllersSingleImageController2['default']).controller('PhotosAddController', _controllersPhotosAddController2['default'])
 //Friends
 .controller('FriendsController', _controllersFriendsController2['default']).controller('FriendsAddController', _controllersFriendsAddController2['default'])
 
@@ -931,7 +967,7 @@ angular.module('app.profile', ['app.core', 'ngCookies'])
 //Directives
 .directive('fileUpload', _directivesFileUploadDirective2['default']).directive('avatarUpload', _directivesAvatarUploadDirective2['default']);
 
-},{"../app-core/index":3,"./controllers/friends.add.controller":7,"./controllers/friends.controller":8,"./controllers/photo.controller":9,"./controllers/photos.add.controller":10,"./controllers/profile.controller":11,"./controllers/profile.edit.controller":12,"./controllers/profile.side.controller":13,"./directives/avatar.upload.directive":14,"./directives/file.upload.directive":15,"./services/profile.service":17,"angular":41,"angular-cookies":38}],17:[function(require,module,exports){
+},{"../app-core/index":3,"./controllers/friends.add.controller":7,"./controllers/friends.controller":8,"./controllers/photo.controller":9,"./controllers/photos.add.controller":10,"./controllers/profile.controller":11,"./controllers/profile.edit.controller":12,"./controllers/profile.side.controller":13,"./controllers/single.image.controller":14,"./directives/avatar.upload.directive":15,"./directives/file.upload.directive":16,"./services/profile.service":18,"angular":42,"angular-cookies":39}],18:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -946,9 +982,36 @@ var ProfileService = function ProfileService($http, SERVER, $cookies, $state) {
   this.getBioPrivate = getBioPrivate;
   this.editBio = editBio;
   this.getBioPublic = getBioPublic;
+  this.getImage = getImage;
+  this.deleteImage = deleteImage;
 
   var tempBio = undefined;
   this.tempBio = [];
+
+  function getImage(id) {
+    var auth = $cookies.get('authToken');
+
+    return $http({
+      url: SERVER.URL + 'user/image/' + id,
+      method: 'GET',
+      headers: {
+        access_token: auth
+      }
+    });
+  }
+
+  function deleteImage(id) {
+
+    var auth = $cookies.get('authToken');
+
+    return $http({
+      url: SERVER.URL + 'image/destroy/' + id,
+      method: 'DELETE',
+      headers: {
+        access_token: auth
+      }
+    });
+  }
 
   var Bio = function Bio(obj) {
     this.bio = obj.bio;
@@ -1070,7 +1133,7 @@ ProfileService.$inject = ['$http', 'SERVER', '$cookies', '$state'];
 exports['default'] = ProfileService;
 module.exports = exports['default'];
 
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -1165,7 +1228,7 @@ addController.$inject = ['WordService', '$stateParams', '$state', '$cookies'];
 exports['default'] = addController;
 module.exports = exports['default'];
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -1238,7 +1301,7 @@ BooksController.$inject = ['WordService', '$state', '$cookies'];
 exports['default'] = BooksController;
 module.exports = exports['default'];
 
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -1310,7 +1373,7 @@ CarController.$inject = ['WordService', '$state', '$cookies'];
 exports['default'] = CarController;
 module.exports = exports['default'];
 
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1323,7 +1386,7 @@ DashSideController.$inject = [];
 exports["default"] = DashSideController;
 module.exports = exports["default"];
 
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -1428,7 +1491,7 @@ EditController.$inject = ['WordService', '$stateParams', '$state', '$cookies'];
 exports['default'] = EditController;
 module.exports = exports['default'];
 
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -1498,7 +1561,7 @@ FilmController.$inject = ['WordService', '$state', '$cookies'];
 exports['default'] = FilmController;
 module.exports = exports['default'];
 
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -1571,7 +1634,7 @@ FoodieController.$inject = ['WordService', '$state', '$cookies'];
 exports['default'] = FoodieController;
 module.exports = exports['default'];
 
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -1633,7 +1696,7 @@ GoldenController.$inject = ['WordService', '$state', '$cookies'];
 exports['default'] = GoldenController;
 module.exports = exports['default'];
 
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -1773,7 +1836,7 @@ MatchController.$inject = ['WordService', '$state', '$stateParams', '$cookies'];
 exports['default'] = MatchController;
 module.exports = exports['default'];
 
-},{"underscore":42}],27:[function(require,module,exports){
+},{"underscore":43}],28:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -1841,7 +1904,7 @@ MusicController.$inject = ['WordService', '$state', '$cookies'];
 exports['default'] = MusicController;
 module.exports = exports['default'];
 
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -1914,19 +1977,20 @@ PetsController.$inject = ['WordService', '$state', '$cookies'];
 exports['default'] = PetsController;
 module.exports = exports['default'];
 
-},{}],29:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var RegisterController = function RegisterController($http, SERVER, $state, HomeService, $cookies) {
+var RegisterController = function RegisterController($http, SERVER, $state, HomeService, $cookies, WordService) {
 
   var vm = this;
 
   this.addWords = addWords;
 
   checkAuth();
+  getGolden();
 
   //Check Auth
   //Checks to see if the user is logged in or not based on cookies that are saved when they login or register. If they do not have the authToken in the cookies they are sent back to the login page
@@ -1937,6 +2001,20 @@ var RegisterController = function RegisterController($http, SERVER, $state, Home
     }
   }
 
+  //Get Golden Words
+  function getGolden() {
+    var golden = "golden";
+    WordService.getGolden(golden).then(function (res) {
+      console.log(res.data);
+      if (res.data.length === 5) {
+        // console.log('Have Words');
+        $state.go('root.golden');
+      } else {
+        // console.log('No Words');
+      }
+    });
+  }
+
   function addWords(words) {
     HomeService.addWords(words).then(function (res) {
       $state.go('root.golden');
@@ -1944,12 +2022,12 @@ var RegisterController = function RegisterController($http, SERVER, $state, Home
   }
 };
 
-RegisterController.$inject = ['$http', 'SERVER', '$state', 'HomeService', '$cookies'];
+RegisterController.$inject = ['$http', 'SERVER', '$state', 'HomeService', '$cookies', 'WordService'];
 
 exports['default'] = RegisterController;
 module.exports = exports['default'];
 
-},{}],30:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -2019,7 +2097,7 @@ SportsController.$inject = ['WordService', '$state', '$cookies'];
 exports['default'] = SportsController;
 module.exports = exports['default'];
 
-},{}],31:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -2089,7 +2167,7 @@ TechController.$inject = ['WordService', '$state', '$cookies'];
 exports['default'] = TechController;
 module.exports = exports['default'];
 
-},{}],32:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -2160,7 +2238,7 @@ TravelController.$inject = ['WordService', '$state', '$cookies'];
 exports['default'] = TravelController;
 module.exports = exports['default'];
 
-},{}],33:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -2176,7 +2254,7 @@ lowercaseWord.$inject = ['WordService', '$parsers'];
 exports['default'] = lowercaseWord;
 module.exports = exports['default'];
 
-},{}],34:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -2265,7 +2343,7 @@ var _servicesWordService2 = _interopRequireDefault(_servicesWordService);
 
 _angular2['default'].module('app.words', ['app.core', 'ngCookies']).controller('GoldenController', _controllersGoldenController2['default']).controller('TravelController', _controllersTravelController2['default']).controller('TechController', _controllersTechController2['default']).controller('SportsController', _controllersSportsController2['default']).controller('FoodieController', _controllersFoodieController2['default']).controller('BooksController', _controllersBooksController2['default']).controller('MusicController', _controllersMusicController2['default']).controller('FilmController', _controllersFilmController2['default']).controller('PetsController', _controllersPetsController2['default']).controller('CarsController', _controllersCarsController2['default']).directive('lowercaseWord', _directivesLowercaseDirective2['default']).controller('AddController', _controllersAddController2['default']).controller('EditController', _controllersEditController2['default']).controller('MatchController', _controllersMatchController2['default']).controller('RegisterController', _controllersRegisterController2['default']).controller('DashSideController', _controllersDashSideController2['default']).service('WordService', _servicesWordService2['default']);
 
-},{"../app-core/index":3,"./controllers/add.controller":18,"./controllers/books.controller":19,"./controllers/cars.controller":20,"./controllers/dash.side.controller":21,"./controllers/edit.controller":22,"./controllers/film.controller":23,"./controllers/foodie.controller":24,"./controllers/golden.controller":25,"./controllers/match.controller":26,"./controllers/music.controller":27,"./controllers/pets.controller":28,"./controllers/register.controller":29,"./controllers/sports.controller":30,"./controllers/tech.controller":31,"./controllers/travel.controller":32,"./directives/lowercase.directive":33,"./services/word.service":35,"angular":41,"angular-cookies":38}],35:[function(require,module,exports){
+},{"../app-core/index":3,"./controllers/add.controller":19,"./controllers/books.controller":20,"./controllers/cars.controller":21,"./controllers/dash.side.controller":22,"./controllers/edit.controller":23,"./controllers/film.controller":24,"./controllers/foodie.controller":25,"./controllers/golden.controller":26,"./controllers/match.controller":27,"./controllers/music.controller":28,"./controllers/pets.controller":29,"./controllers/register.controller":30,"./controllers/sports.controller":31,"./controllers/tech.controller":32,"./controllers/travel.controller":33,"./directives/lowercase.directive":34,"./services/word.service":36,"angular":42,"angular-cookies":39}],36:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -2368,7 +2446,7 @@ WordService.$inject = ['$http', 'SERVER', '$cookies'];
 exports['default'] = WordService;
 module.exports = exports['default'];
 
-},{}],36:[function(require,module,exports){
+},{}],37:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -2391,7 +2469,7 @@ require('./app-profile/index');
 
 _angular2['default'].module('app', ['app.core', 'app.layout', 'app.words', 'app.profile']);
 
-},{"./app-core/index":3,"./app-layout/index":5,"./app-profile/index":16,"./app-words/index":34,"angular":41,"underscore":42}],37:[function(require,module,exports){
+},{"./app-core/index":3,"./app-layout/index":5,"./app-profile/index":17,"./app-words/index":35,"angular":42,"underscore":43}],38:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -2714,11 +2792,11 @@ angular.module('ngCookies').provider('$$cookieWriter', function $$CookieWriterPr
 
 })(window, window.angular);
 
-},{}],38:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 require('./angular-cookies');
 module.exports = 'ngCookies';
 
-},{"./angular-cookies":37}],39:[function(require,module,exports){
+},{"./angular-cookies":38}],40:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -7089,7 +7167,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],40:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -36108,11 +36186,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],41:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":40}],42:[function(require,module,exports){
+},{"./angular":41}],43:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -37662,7 +37740,7 @@ module.exports = angular;
   }
 }.call(this));
 
-},{}]},{},[36])
+},{}]},{},[37])
 
 
 //# sourceMappingURL=main.js.map

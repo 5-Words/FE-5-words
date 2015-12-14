@@ -15,6 +15,8 @@ import ProfileEditController from './controllers/profile.edit.controller'
 //Photo
 import PhotosController from './controllers/photo.controller';
 
+import SingleImageController from './controllers/single.image.controller';
+
 import PhotosAddController from './controllers/photos.add.controller';
 
 //Friends
@@ -42,6 +44,7 @@ angular
 
   //Photos
   .controller('PhotosController', PhotosController)
+  .controller('SingleImageController', SingleImageController)
   .controller('PhotosAddController', PhotosAddController)
   //Friends
   .controller('FriendsController', FriendsController)

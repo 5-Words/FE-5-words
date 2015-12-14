@@ -7,10 +7,43 @@ let ProfileService = function($http, SERVER, $cookies, $state) {
   this.getBioPrivate   = getBioPrivate;
   this.editBio         = editBio;
   this.getBioPublic    = getBioPublic;
+  this.getImage        = getImage;
+  this.deleteImage     = deleteImage;
 
 
   let tempBio;
   this.tempBio = [];
+
+
+
+  function getImage(id) {
+    let auth = $cookies.get('authToken');
+
+    return $http({
+      url: SERVER.URL + 'user/image/' + id,
+      method: 'GET',
+      headers:{
+        access_token: auth  
+      },  
+    })
+    
+  }
+
+  function deleteImage(id) {
+    
+    let auth = $cookies.get('authToken');
+   
+
+    return $http({
+      url: SERVER.URL + 'image/destroy/' + id,
+      method: 'DELETE',
+      headers:{
+        access_token: auth  
+      },  
+    })
+
+  }
+
 
   let Bio = function (obj) {
     this.bio = obj.bio;

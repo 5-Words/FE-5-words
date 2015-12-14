@@ -1,13 +1,13 @@
 <div class="editProfile">
   <img src="{{vm.bio.picture}}">
   <form>
-    <input ng-model="vm.bio.bio" placeholder="bio">
     <input ng-model="vm.bio.birthday"placeholder="birthday">
     <input ng-model="vm.bio.email" placeholder="email">
     <input ng-model="vm.bio.gender" placeholder="gender">
     <input ng-model="vm.bio.location" placeholder="location">
     <input ng-model="vm.bio.name" placeholder="name">
     <input ng-model="vm.bio.phone_number" placeholder="phone number">
+    <textarea ng-model="vm.bio.bio" placeholder="bio"></textarea> 
     <br>
     <button ng-click="vm.editBio(vm.bio)">Submit</button>
   </form>

@@ -1,3 +1,5 @@
+
+
 let fileUpload = function(ProfileService) {
 
   return {
@@ -13,8 +15,7 @@ let fileUpload = function(ProfileService) {
       <br><br><br>
       <form>
         <input class="customFileInput" type="file" name="pic" accept="image/*" ng-model="image.one" title="Choose an image please" >
-      
-        <button class="customFileBtn">Submit</button>
+        <button id="addPhotosbtn"  class="customFileBtn hide">Submit</button>
       </form>
       <hr>
       </form>
@@ -23,16 +24,24 @@ let fileUpload = function(ProfileService) {
       `,
       
     link: function (scope, element, attrs) {
+      element.on('click', function () {
+
+        let submit = angular.element(document.querySelector('#addPhotosbtn'));
+        
+        submit.toggleClass('hide');
+    
+      });
       element.on('submit', function () {
         let file = element.find('input')[0].files[0];
-        
-
-        // scope.file = file;
-        ProfileService.sendPhoto(file);
-
+  
+        ProfileService.sendPhoto(file); 
 
       });
     }
+
+
+
+
   };
   
 };

@@ -1,5 +1,5 @@
 <div>
-  <h3>5 Words</h3>
+  <h3>{{vm.category.category}}</h3>
   <form name="addForm" ng-submit="addForm.$valid && vm.addWords(words, vm.category.category)" novalidate>
     <input type="text" placeholder="Word 1" ng-model="words.one" required>
     <input type="text" placeholder="Word 2" ng-model="words.two" required>
@@ -8,6 +8,6 @@
     <input type="text" placeholder="Word 5" ng-model="words.five" required>
     <button>Submit</button>
   </form>
-  <div>The {{vm.category.category}} add form is: {{addForm.$valid}}</div>
+
 
 </div>

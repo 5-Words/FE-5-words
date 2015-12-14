@@ -26,15 +26,16 @@ let PhotosController = function(ProfileService, $state, $cookies) {
   //Get Photos
   function getPhotos () {
     ProfileService.getPhotos().then( (res) => {
-      vm.photos = res.data;
-      
 
+      vm.photos = res.data;
+    
     })
   }
   //Go to the add photos page
   function goTo () {
     $state.go('root.photosAdd');
   }
+
   
 
 };
