@@ -1,4 +1,4 @@
-let ProfileEditController = function(ProfileService, $cookies) {
+let ProfileEditController = function(ProfileService, $cookies, $state) {
   
   let vm = this;
 
@@ -41,15 +41,15 @@ let ProfileEditController = function(ProfileService, $cookies) {
   }  //getBio
 
   function editBio (bio) {
-    console.log(bio);
+  
     ProfileService.editBio(bio).then( (res) => {
-      
+      $state.go('root.profile');
     })
   }
   
 
 };
 
-ProfileEditController.$inject = ['ProfileService', '$cookies'];
+ProfileEditController.$inject = ['ProfileService', '$cookies', '$state'];
 
 export default ProfileEditController;

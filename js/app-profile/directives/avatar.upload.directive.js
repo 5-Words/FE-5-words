@@ -1,4 +1,4 @@
-let fileUpload = function(ProfileService) {
+let avatarUpload = function(ProfileService) {
 
   return {
 
@@ -9,14 +9,12 @@ let fileUpload = function(ProfileService) {
     },
     template: `
     <div class="addPhotosForm">
-      <h3>Upload Images</h3>
+      <h3>Upload Your Avatar</h3>
       <br><br><br>
       <form>
-        <input class="customFileInput" type="file" name="pic" accept="image/*" ng-model="image.one" title="Choose an image please" >
+        <input class="customFileInput" type="file" name="pic" accept="image/*" ng-model="image.one" title="Choose an Avatar please" >
       
         <button class="customFileBtn">Submit</button>
-      </form>
-      <hr>
       </form>
     </div>
 
@@ -26,9 +24,9 @@ let fileUpload = function(ProfileService) {
       element.on('submit', function () {
         let file = element.find('input')[0].files[0];
         
-
+        console.log('avatarUpload');
         // scope.file = file;
-        ProfileService.sendPhoto(file);
+        ProfileService.sendAvatar(file);
 
 
       });
@@ -37,6 +35,6 @@ let fileUpload = function(ProfileService) {
   
 };
 
-fileUpload.$inject = ['ProfileService'];
+avatarUpload.$inject = ['ProfileService'];
 
-export default fileUpload;
+export default avatarUpload;

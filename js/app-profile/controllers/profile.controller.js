@@ -2,6 +2,7 @@ let ProfileController = function($state, $cookies, ProfileService) {
   let vm = this;
  
   this.editBio = editBio;
+  this.editAvatar = editAvatar;
 
   checkAuth();
   changeStyle();
@@ -36,6 +37,9 @@ let ProfileController = function($state, $cookies, ProfileService) {
   function editBio () {
     $state.go('root.profileEdit');
 
+  }
+  function editAvatar () {
+    $state.go('root.photosAdd');
   }
   
 

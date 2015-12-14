@@ -1,7 +1,8 @@
-let ProfileService = function($http, SERVER, $cookies) {
-  
-  this.addPhoto        = addPhoto;
+let ProfileService = function($http, SERVER, $cookies, $state) {
   this.sendPhoto       = sendPhoto;
+  this.addPhoto        = addPhoto;
+  this.sendAvatar      = sendAvatar;
+  this.addAvatar       = addAvatar;
   this.getPhotos       = getPhotos;
   this.getBioPrivate   = getBioPrivate;
   this.editBio         = editBio;
@@ -51,6 +52,8 @@ let ProfileService = function($http, SERVER, $cookies) {
   function sendPhoto(file) {
 
    addPhoto(file).then( (res) => {
+
+    $state.go('root.photos');
       
     })
   } 
@@ -73,6 +76,34 @@ let ProfileService = function($http, SERVER, $cookies) {
       data: formData  
     }) 
   } //addPhoto
+
+  //TEST
+  function sendAvatar(file) {
+
+   addAvatar(file).then( (res) => {
+      $state.go('root.profile');
+    })
+  } 
+
+  function addAvatar (file) { 
+   
+    let formData = new FormData();
+    formData.append('avatar', file);
+  
+    let auth = $cookies.get('authToken');
+    
+    return $http({
+      url: SERVER.URL + 'user/avatar',
+      method: 'Put',
+      headers:{
+        'Content-Type': undefined,
+        access_token: auth  
+      }, 
+      data: formData  
+    }) 
+  } //add Avatar
+  //TEST
+
 
   //Get current user's profile
   function getBioPrivate () {
@@ -101,6 +132,6 @@ let ProfileService = function($http, SERVER, $cookies) {
 
 }
 
-ProfileService.$inject = ['$http', 'SERVER', '$cookies'];
+ProfileService.$inject = ['$http', 'SERVER', '$cookies', '$state'];
 
 export default ProfileService;

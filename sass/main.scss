@@ -413,14 +413,11 @@ button {
     font-weight: bold;
   }
 
-  .customFileInput::-webkit-file-upload-button {
-    visibility: hidden;
-  }
   .customFileInput {
     content: 'Select some files';
     display: inline-block;
     background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
-    border: 1px solid #999;
+    border: 1px solid #ED9F00;
     border-radius: 2px;
     padding: 12px 10px;
     outline: none;
@@ -432,6 +429,7 @@ button {
     font-size: 14pt;
     margin: 0 1% 0 2%;
   }
+}
   .customFileBtn {
     display: inline-block;
     background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
@@ -446,7 +444,7 @@ button {
     font-weight: 700;
     font-size: 14pt;
     margin: 0 1% 0 2%;
-  }
+  
 }
 //---------------------------------------------------
 //Friends Add Page

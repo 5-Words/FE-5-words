@@ -30,6 +30,8 @@ import ProfileService from './services/profile.service';
 //Directives
 import fileUpload from './directives/file.upload.directive';
 
+import avatarUpload from './directives/avatar.upload.directive';
+
 angular
   .module('app.profile', ['app.core', 'ngCookies'])
   //Profile
@@ -50,5 +52,6 @@ angular
 
   //Directives
   .directive('fileUpload', fileUpload)
+  .directive('avatarUpload', avatarUpload)
 
 ;
