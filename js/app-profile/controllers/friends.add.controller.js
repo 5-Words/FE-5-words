@@ -1,6 +1,7 @@
 let FriendsAdd = function($state, ProfileService, $stateParams, $cookies) {
 
   let vm = this;
+  this.addFriends = addFriends;
 
   let user = $stateParams;
   user = user.name;
@@ -9,6 +10,14 @@ let FriendsAdd = function($state, ProfileService, $stateParams, $cookies) {
   checkAuth();
   changeStyle();
   getBioPublic(user);
+
+  function addFriends(user) {
+    ProfileService.addFriends(user).then( (res) => {
+      console.log(res);
+      $state.go('root.friends');
+
+    })
+  }
 
   //Check Auth
   //Checks to see if the user is logged in or not based on cookies that are saved when they login or register. If they do not have the authToken in the cookies they are sent back to the login page 

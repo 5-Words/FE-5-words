@@ -534,7 +534,7 @@ li {
   
 }
 //---------------------------------------------------
-//Single Image Page
+//Single Image User Page
 .singleImageWrapper {
   .singleImageBtn {
      margin: 2% 0 0 4%;
@@ -558,6 +558,18 @@ li {
   img {
     max-width: 400px;
   }
+}
+
+//View Friends Images
+.friendsImages {
+   img {
+      max-width: 300px;
+      margin: 2%;
+      float: left;
+      border-radius: 5px;
+      border: 5px solid black;
+    }
+
 }
 //---------------------------------------------------
 //Footer

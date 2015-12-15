@@ -14,24 +14,37 @@ let avatarUpload = function(ProfileService) {
       <form>
         <input class="customFileInput" type="file" name="pic" accept="image/*" ng-model="image.one" title="Choose an Avatar please" >
       
-        <button class="customFileBtn">Submit</button>
+        <button id="addPhotosbtn1" class="customFileBtn hide">Submit</button>
+        <i id="spin2" class="fa fa-spinner fa-2x fa-spin hide"></i>
+
       </form>
     </div>
 
       `,
       
     link: function (scope, element, attrs) {
+    
+        element.on('click', function () {
+
+        let submit = angular.element(document.querySelector('#addPhotosbtn1'));
+        
+        submit.toggleClass('hide');
+
+    
+      });
       element.on('submit', function () {
         let file = element.find('input')[0].files[0];
-        
-        console.log('avatarUpload');
-        // scope.file = file;
-        ProfileService.sendAvatar(file);
 
+         let spin2 = angular.element(document.querySelector('#spin2'));
+         spin2.removeClass('hide');
+
+        ProfileService.sendAvatar(file); 
 
       });
-    }
-  };
+  
+    } //link
+  }; //return
+
   
 };
 

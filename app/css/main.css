@@ -2437,6 +2437,13 @@ li {
   .friendAddWrapper img {
     max-width: 400px; }
 
+.friendsImages img {
+  max-width: 300px;
+  margin: 2%;
+  float: left;
+  border-radius: 5px;
+  border: 5px solid black; }
+
 .footer {
   padding: 1.5%;
   color: white;

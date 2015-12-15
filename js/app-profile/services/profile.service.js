@@ -9,10 +9,47 @@ let ProfileService = function($http, SERVER, $cookies, $state) {
   this.getBioPublic    = getBioPublic;
   this.getImage        = getImage;
   this.deleteImage     = deleteImage;
+  this.addFriends      = addFriends;
+  this.getFriends      = getFriends;
+  this.getFriendsPics  = getFriendsPics;
 
 
   let tempBio;
   this.tempBio = [];
+
+  function getFriends () {
+    let auth = $cookies.get('authToken');
+    return $http({
+      url: SERVER.URL + 'user/friends',
+      method: 'GET',
+      headers:{
+        access_token: auth  
+      }
+    });
+  }
+
+  function getFriendsPics (user) {
+    let auth = $cookies.get('authToken');
+    return $http({
+      url: SERVER.URL + 'friend/gallery/' + user,
+      method: 'GET',
+      headers:{
+        access_token: auth  
+      }
+    });
+  }
+
+  function addFriends (user) {
+    let auth = $cookies.get('authToken');
+    
+    return $http({
+      url: SERVER.URL + 'user/add_friend/' + user,
+      method: 'POST',
+      headers:{
+        access_token: auth  
+      }
+    });
+  }
 
 
 
@@ -135,7 +172,7 @@ let ProfileService = function($http, SERVER, $cookies, $state) {
       data: formData  
     }) 
   } //add Avatar
-  //TEST
+
 
 
   //Get current user's profile

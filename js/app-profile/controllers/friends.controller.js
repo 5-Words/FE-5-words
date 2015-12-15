@@ -1,7 +1,17 @@
-let FriendsController = function($state, $cookies) {
+let FriendsController = function($state, $cookies, ProfileService) {
+  let vm = this;
   
   checkAuth();
   changeStyle();
+  getFriends();
+
+  //Get a list of all of your friends
+  function getFriends () {
+    ProfileService.getFriends().then( (res) => {
+      console.log(res);
+      vm.friends = res.data;
+    })
+  }
   
   //Change Style
   function changeStyle () {
@@ -23,6 +33,6 @@ let FriendsController = function($state, $cookies) {
 
 };
 
-FriendsController.$inject = ['$state', '$cookies'];
+FriendsController.$inject = ['$state', '$cookies', 'ProfileService'];
 
 export default FriendsController;

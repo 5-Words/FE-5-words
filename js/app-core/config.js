@@ -272,6 +272,36 @@ let config = function($urlRouterProvider, $stateProvider) {
         
       } 
     })
+    //View friends Pictures
+    .state('root.friendsPic', {
+      url: '/friends/pic/:id',
+      views: {
+        sidebar: {
+          controller: 'ProfileSideController as vm',
+          templateUrl: 'templates/app-profile/profile.side.tpl.html'
+        },
+        content: {
+          controller: 'FriendsPicController as vm',
+          templateUrl: 'templates/app-profile/friends.pictures.tpl.html'
+        },
+        
+      } 
+    })
+    //View a Friends single image
+    .state('root.friendsSinglePic', {
+      url: '/friends/pic/single/:id',
+      views: {
+        sidebar: {
+          controller: 'ProfileSideController as vm',
+          templateUrl: 'templates/app-profile/profile.side.tpl.html'
+        },
+        content: {
+          controller: 'SingleFriendImgController as vm',
+          templateUrl: 'templates/app-profile/single.friend.img.tpl.html'
+        },
+        
+      } 
+    })
     //Edit your profile
     .state('root.profileEdit', {
       url: '/profile.edit',

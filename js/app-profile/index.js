@@ -24,6 +24,9 @@ import FriendsController from './controllers/friends.controller';
 
 import FriendsAddController from './controllers/friends.add.controller';
 
+import FriendsPicController from './controllers/friends.pictures.controller'
+import SingleFriendImgController from './controllers/single.friend.img.controller'
+
 
 //Services
 import ProfileService from './services/profile.service';
@@ -49,6 +52,8 @@ angular
   //Friends
   .controller('FriendsController', FriendsController)
   .controller('FriendsAddController', FriendsAddController)
+  .controller('FriendsPicController', FriendsPicController)
+  .controller('SingleFriendImgController', SingleFriendImgController)
   
   //Services
   .service('ProfileService', ProfileService)

@@ -42,12 +42,12 @@ let fileUpload = function(ProfileService) {
         ProfileService.sendPhoto(file); 
 
       });
-    }
+    } //link
+  
 
 
 
-
-  };
+  }; //return
   
 };
 
