@@ -45,6 +45,9 @@ button {
   font-weight: 300;
   padding: 10px;    
 }
+li {
+  list-style: none;
+}
 //---------------------------------------------------
 //Site
 .siteNav {
@@ -112,7 +115,35 @@ button {
     }
   }
 } //.homeWrapper
+//---------------------------------------------------
+//Enter your first 5 words page
+.goldenFormWrapper {
+    background-image: url("../img/five.png");
+    background-repeat: no-repeat;
+    width: 90%;
+    margin: 2% auto;
+    h3, {
+      margin: 2%;
+      color: #4C4D4F;
+    }
+    input {
+      margin: .5%;
+      width: 25%;
 
+
+    }
+    button {
+      margin: .5%;
+      background-color: #E7E7E7;
+      color: #4C4D4F;
+    }
+
+  .goldenFormIntro {
+    h3 {
+      margin: 2%;
+    }
+  }
+}
 //---------------------------------------------------
 //Forms
 .ng-invalid.ng-dirty {
@@ -145,7 +176,7 @@ button {
       margin: 0 auto;
       width: 50%;
       color: white;
-      font-size: 2.5em;
+      font-size: 2.7em;
       text-shadow: 1px 1px 1px black;
     }
     button {
@@ -160,9 +191,9 @@ button {
     }
     .wordList {
       h3 {
-      font-size: 2em;
+      font-size: 1.8em;
       margin-left: 10%;
-      margin-top: .5%;
+      margin-top: .7%;
       }
     }
 }
@@ -201,12 +232,19 @@ button {
     h3 {
       color: black;
       text-shadow: 2px 2px #893E1B;
+      font-size: 2.3em;
+      
+
     }
   
     .wordList {
       h3 {
         color: black;
+        line-height: 30px;
         text-shadow: 1px 1px #893E1B;
+        font-size: 1.5em;
+        
+
       }
     }    
 }
@@ -360,15 +398,14 @@ button {
 }
 .profileMainWrap {
   .profileLeft{
-    margin: 2%;
-    margin-right: 2%;
-    width: 45%;
+    margin: 2%;;
+    width: 40%;
     float: left;
     height: 700px;
     img {
-      width: 70%;
+      width: 50%;
       margin: 5%;
-      max-height: 500px;
+      max-height: 400px;
       border-radius: 5px;
     }
     h3 {
@@ -386,21 +423,24 @@ button {
   }
    } 
   .profileRight {
-    margin: 5% 2%;
+    margin: 4% 2%;
     
     float: right;
     background-image: url(../img/paper.jpg);
     background-size: cover;
-    width: 40%;
+    width: 45%;
     height: 800px;
     padding: 2%;
     background-repeat: no-repeat;
     h3 {
-      margin-left: 3%;
-      display: inline-block;
+      position: relative;
+      top: 9%;
+      left: 11%;
+      max-width: 80%;
+      line-height: 30px;
+      
     }
-  }
-  
+  } 
 
 }
 .profileSide {
@@ -436,12 +476,16 @@ button {
   margin: 0 auto;
     button {
     margin: 1% 0 3% 0;
+    width: 15%
   }
   .photoWrapper{
+
     img {
-      max-width: 400px;
+      max-width: 300px;
       margin: 2%;
       float: left;
+      border-radius: 5px;
+      border: 5px solid black;
     }
   }
 }
@@ -488,6 +532,24 @@ button {
     font-size: 14pt;
     margin: 0 1% 0 2%;
   
+}
+//---------------------------------------------------
+//Single Image Page
+.singleImageWrapper {
+  .singleImageBtn {
+     margin: 2% 0 0 4%;
+    button {
+     
+      width: 15%;
+    }
+  }
+}
+.singleImage {
+  max-width: 80%;
+  margin: 4%;
+  border-radius: 5px;
+  border: 5px solid black;
+
 }
 //---------------------------------------------------
 //Friends Add Page

@@ -1,6 +1,6 @@
 <div class="photosWrapper">
-  <h3>Click on any image</h3>
   <button ng-click="vm.goTo()">Add</button>
+  <h3>Click on any image to view it or delete it</h3>
   <div class="photoWrapper" ng-repeat="photo in vm.photos">
     <a href="#/photos/single/{{photo.id}}"><img ng-src="{{photo.image_url}}"></a>
   </div>

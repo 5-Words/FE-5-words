@@ -1,3 +1,7 @@
-<img src="{{vm.image}}">
-
-<button ng-click="vm.deleteImage()">Delete</button>
+<div class="singleImageWrapper">
+  <div class="singleImageBtn">
+    <button ng-click="vm.deleteImage()">Delete</button>
+    <button ng-click="vm.goBack()">Back</button>
+  </div>
+  <img class="singleImage" src="{{vm.image}}">
+</div>

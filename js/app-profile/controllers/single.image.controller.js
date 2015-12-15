@@ -1,8 +1,9 @@
-let SingleImageController = function($stateParams, ProfileService) {
+let SingleImageController = function($stateParams, ProfileService, $state) {
   
   let vm = this;
 
-  this.deleteImage = deleteImage;
+  this.deleteImage  = deleteImage;
+  this.goBack       = goBack;
 
   let id = $stateParams.id;
   
@@ -14,8 +15,6 @@ let SingleImageController = function($stateParams, ProfileService) {
     
     ProfileService.getImage(id).then( (res) => {
       vm.image = res.data[0].image_url;
-      console.log(res);
-     
          
     })
   }
@@ -23,15 +22,18 @@ let SingleImageController = function($stateParams, ProfileService) {
   function deleteImage () {
     let id2 = $stateParams.id;
 
-    console.log(id2);
      ProfileService.deleteImage(id2).then( (res) => {
-        
+        $state.go('root.photos');
     })
-  }  
+  } 
+  function goBack () {
+    console.log("goBack");
+     $state.go('root.photos');
+  } 
   
 
 };
 
-SingleImageController.$inject = ['$stateParams', 'ProfileService'];
+SingleImageController.$inject = ['$stateParams', 'ProfileService', '$state'];
 
 export default SingleImageController;

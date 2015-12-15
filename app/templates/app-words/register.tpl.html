@@ -1,31 +1,30 @@
-<div>
-  <h1>5 Words</h1>
-  <h3>Welcome to Five Words. Lets get started by filling in five words that are unique to you. </h3>
+<div class="goldenFormWrapper">
+  <div class="goldenFormIntro">
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <h3>Welcome to Five Words. Lets get started by filling in five words that are unique to you. </h3>
 
-  <h3>Example: Joe is an avid traveler who enjoys bizarre foods, reggae music, classic cars and a good chess match!</h3>
+    <h3>Example: Joe is an avid traveler who enjoys bizarre foods, reggae music, classic cars and a good chess match!</h3>
+      
+    <h3>His words could be:</h3>
     
-  <h3>His words could be:</h3>
-  <ul>
-    <li>Backpacking</li>
-    <li>Sushi</li>
-    <li>Dancehall</li>
-    <li>1965 Mustang</li>
-    <li>Bobby Fischer</li>
-  </ul>
-  <h3>You pick your Five!</h3>
+    <h3>Backpacking, Sushi, Dancehall, 1965 Mustang, and Bobby Fischer</h3>
+
+    <h3>You pick your Five!</h3>
+  </div> 
 
 
-  <form ng-submit="vm.addWords(words)">
-    <input type="text" placeholder="Word 1" ng-model="words.one">
-    <input type="text" placeholder="Word 2" ng-model="words.two">
-    <input type="text" placeholder="Word 3" ng-model="words.three">
-    <input type="text" placeholder="Word 4" ng-model="words.four">
-    <input type="text" placeholder="Word 5" ng-model="words.five">
+  <form name="goldenForm" ng-submit="goldenForm.$valid && vm.addWords(words)" novalidate>
+    <input type="text" placeholder="Word 1" ng-model="words.one" required>
+    <input type="text" placeholder="Word 2" ng-model="words.two" required>
+    <input type="text" placeholder="Word 3" ng-model="words.three" required>
+    <input type="text" placeholder="Word 4" ng-model="words.four" required>
+    <input type="text" placeholder="Word 5" ng-model="words.five" required>
     <button>Submit</button>
   </form>
+  <h3>After submitting  your words, click the match button to start your own adventure!</h3>
 </div>
 
-<h3>After you submitting words, click the match button to start your adventure</h3>
+
 
 
 

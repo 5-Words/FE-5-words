@@ -85,7 +85,7 @@ let MatchController = function(WordService, $state, $stateParams, $cookies) {
                
                
                 });
-                console.log(byUser); 
+                // console.log(byUser); 
 //----------
               
             }) //WordService.searchWords
@@ -119,7 +119,7 @@ let MatchController = function(WordService, $state, $stateParams, $cookies) {
           
 
           }); 
-           console.log(byUser);
+           // console.log(byUser);
           
         })// WordService
 

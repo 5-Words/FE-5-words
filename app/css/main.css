@@ -2056,6 +2056,9 @@ button {
   font-weight: 300;
   padding: 10px; }
 
+li {
+  list-style: none; }
+
 .siteNav {
   padding: 3%;
   background: #3362D4;
@@ -2108,6 +2111,24 @@ button {
       font-size: 1.5em;
       letter-spacing: 3px; }
 
+.goldenFormWrapper {
+  background-image: url("../img/five.png");
+  background-repeat: no-repeat;
+  width: 90%;
+  margin: 2% auto; }
+  .goldenFormWrapper h3 {
+    margin: 2%;
+    color: #4C4D4F; }
+  .goldenFormWrapper input {
+    margin: .5%;
+    width: 25%; }
+  .goldenFormWrapper button {
+    margin: .5%;
+    background-color: #E7E7E7;
+    color: #4C4D4F; }
+  .goldenFormWrapper .goldenFormIntro h3 {
+    margin: 2%; }
+
 .ng-invalid.ng-dirty {
   border-color: red; }
 
@@ -2132,7 +2153,7 @@ button {
     margin: 0 auto;
     width: 50%;
     color: white;
-    font-size: 2.5em;
+    font-size: 2.7em;
     text-shadow: 1px 1px 1px black; }
   .wordListWrapper button {
     position: relative;
@@ -2143,9 +2164,9 @@ button {
     width: 15%;
     padding: 5px; }
   .wordListWrapper .wordList h3 {
-    font-size: 2em;
+    font-size: 1.8em;
     margin-left: 10%;
-    margin-top: .5%; }
+    margin-top: .7%; }
 
 .chalkBoard {
   background-image: url("../img/chalkboard.jpg");
@@ -2176,10 +2197,13 @@ button {
   height: 500px; }
   .goldPlate h3 {
     color: black;
-    text-shadow: 2px 2px #893E1B; }
+    text-shadow: 2px 2px #893E1B;
+    font-size: 2.3em; }
   .goldPlate .wordList h3 {
     color: black;
-    text-shadow: 1px 1px #893E1B; }
+    line-height: 30px;
+    text-shadow: 1px 1px #893E1B;
+    font-size: 1.5em; }
 
 .travelWrapper {
   background-image: url("../img/travel.jpg");
@@ -2289,14 +2313,13 @@ button {
 
 .profileMainWrap .profileLeft {
   margin: 2%;
-  margin-right: 2%;
-  width: 45%;
+  width: 40%;
   float: left;
   height: 700px; }
   .profileMainWrap .profileLeft img {
-    width: 70%;
+    width: 50%;
     margin: 5%;
-    max-height: 500px;
+    max-height: 400px;
     border-radius: 5px; }
   .profileMainWrap .profileLeft h3 {
     margin: 2% 3%;
@@ -2310,17 +2333,20 @@ button {
     width: 33%; }
 
 .profileMainWrap .profileRight {
-  margin: 5% 2%;
+  margin: 4% 2%;
   float: right;
   background-image: url(../img/paper.jpg);
   background-size: cover;
-  width: 40%;
+  width: 45%;
   height: 800px;
   padding: 2%;
   background-repeat: no-repeat; }
   .profileMainWrap .profileRight h3 {
-    margin-left: 3%;
-    display: inline-block; }
+    position: relative;
+    top: 9%;
+    left: 11%;
+    max-width: 80%;
+    line-height: 30px; }
 
 .profileSide {
   padding: 1%;
@@ -2347,11 +2373,14 @@ button {
   width: 96%;
   margin: 0 auto; }
   .photosWrapper button {
-    margin: 1% 0 3% 0; }
+    margin: 1% 0 3% 0;
+    width: 15%; }
   .photosWrapper .photoWrapper img {
-    max-width: 400px;
+    max-width: 300px;
     margin: 2%;
-    float: left; }
+    float: left;
+    border-radius: 5px;
+    border: 5px solid black; }
 
 .addPhotosForm h3 {
   margin: 2%; }
@@ -2391,6 +2420,17 @@ button {
   font-weight: 700;
   font-size: 14pt;
   margin: 0 1% 0 2%; }
+
+.singleImageWrapper .singleImageBtn {
+  margin: 2% 0 0 4%; }
+  .singleImageWrapper .singleImageBtn button {
+    width: 15%; }
+
+.singleImage {
+  max-width: 80%;
+  margin: 4%;
+  border-radius: 5px;
+  border: 5px solid black; }
 
 .friendAddWrapper {
   background-color: white; }

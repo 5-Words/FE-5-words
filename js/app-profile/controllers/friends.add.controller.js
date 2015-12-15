@@ -4,7 +4,7 @@ let FriendsAdd = function($state, ProfileService, $stateParams, $cookies) {
 
   let user = $stateParams;
   user = user.name;
-  console.log(user);
+  
 
   checkAuth();
   changeStyle();

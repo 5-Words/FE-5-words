@@ -35,6 +35,17 @@ let GoldenController = function(WordService, $state, $cookies) {
       WordService.tempWords = res;
 
       vm.words = res.data;
+
+      //Check to see if the user has words in the category
+      let data = res.data.length;
+
+      if(data) {
+      //If the user has added words before they can view a list of the words
+    
+      } else {
+      //The user is routed to the add form where they can add words only once.
+        $state.go('register')
+      }    
     })  
   }
 

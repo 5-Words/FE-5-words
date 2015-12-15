@@ -491,7 +491,6 @@ var FriendsAdd = function FriendsAdd($state, ProfileService, $stateParams, $cook
 
   var user = $stateParams;
   user = user.name;
-  console.log(user);
 
   checkAuth();
   changeStyle();
@@ -778,11 +777,12 @@ module.exports = exports["default"];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var SingleImageController = function SingleImageController($stateParams, ProfileService) {
+var SingleImageController = function SingleImageController($stateParams, ProfileService, $state) {
 
   var vm = this;
 
   this.deleteImage = deleteImage;
+  this.goBack = goBack;
 
   var id = $stateParams.id;
 
@@ -793,19 +793,23 @@ var SingleImageController = function SingleImageController($stateParams, Profile
 
     ProfileService.getImage(id).then(function (res) {
       vm.image = res.data[0].image_url;
-      console.log(res);
     });
   }
 
   function deleteImage() {
     var id2 = $stateParams.id;
 
-    console.log(id2);
-    ProfileService.deleteImage(id2).then(function (res) {});
+    ProfileService.deleteImage(id2).then(function (res) {
+      $state.go('root.photos');
+    });
+  }
+  function goBack() {
+    console.log("goBack");
+    $state.go('root.photos');
   }
 };
 
-SingleImageController.$inject = ['$stateParams', 'ProfileService'];
+SingleImageController.$inject = ['$stateParams', 'ProfileService', '$state'];
 
 exports['default'] = SingleImageController;
 module.exports = exports['default'];
@@ -860,7 +864,7 @@ var fileUpload = function fileUpload(ProfileService) {
     scope: {
       file: '=image'
     },
-    template: '\n    <div class="addPhotosForm">\n      <h3>Upload Images</h3>\n      <br><br><br>\n      <form>\n        <input class="customFileInput" type="file" name="pic" accept="image/*" ng-model="image.one" title="Choose an image please" >\n        <button id="addPhotosbtn"  class="customFileBtn hide">Submit</button>\n      </form>\n      <hr>\n      </form>\n    </div>\n\n      ',
+    template: '\n    <div class="addPhotosForm">\n      <h3>Upload Images</h3>\n      <br><br><br>\n      <form>\n        <input class="customFileInput" type="file" name="pic" accept="image/*" ng-model="image.one" title="Choose an image please" >\n        <button id="addPhotosbtn"  class="customFileBtn hide">Submit</button>\n        <i id="spin1" class="fa fa-spinner fa-2x fa-spin hide"></i>\n      </form>\n      <hr>\n      </form>\n    </div>\n\n      ',
 
     link: function link(scope, element, attrs) {
       element.on('click', function () {
@@ -871,6 +875,9 @@ var fileUpload = function fileUpload(ProfileService) {
       });
       element.on('submit', function () {
         var file = element.find('input')[0].files[0];
+
+        var spin1 = angular.element(document.querySelector('#spin1'));
+        spin1.removeClass('hide');
 
         ProfileService.sendPhoto(file);
       });
@@ -1676,6 +1683,17 @@ var GoldenController = function GoldenController(WordService, $state, $cookies) 
       WordService.tempWords = res;
 
       vm.words = res.data;
+
+      //Check to see if the user has words in the category
+      var data = res.data.length;
+
+      if (data) {
+        //If the user has added words before they can view a list of the words
+
+      } else {
+          //The user is routed to the add form where they can add words only once.
+          $state.go('register');
+        }
     });
   }
 
@@ -1791,7 +1809,7 @@ var MatchController = function MatchController(WordService, $state, $stateParams
 
               vm.matches = byUser;
             });
-            console.log(byUser);
+            // console.log(byUser);
             //----------
           }); //WordService.searchWords
         } //matchWords
@@ -1820,7 +1838,7 @@ var MatchController = function MatchController(WordService, $state, $stateParams
 
             vm.matches = byUser;
           });
-          console.log(byUser);
+          // console.log(byUser);
         }); // WordService
       } //else
   } //getWords
