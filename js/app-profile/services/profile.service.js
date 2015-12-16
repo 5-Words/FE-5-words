@@ -12,10 +12,40 @@ let ProfileService = function($http, SERVER, $cookies, $state) {
   this.addFriends      = addFriends;
   this.getFriends      = getFriends;
   this.getFriendsPics  = getFriendsPics;
+  this.deleteFriend    = deleteFriend;
+  this.getSingleImage  = getSingleImage;
 
 
   let tempBio;
   this.tempBio = [];
+
+  let tempUser;
+  this.tempUser;
+
+ 
+
+
+  function getSingleImage (id) {
+    let auth = $cookies.get('authToken');
+    return $http({
+      url: SERVER.URL + 'friend/image/' + id,
+      method: 'GET',
+      headers:{
+        access_token: auth  
+      }
+    });
+  } 
+
+  function deleteFriend (user) {
+     let auth = $cookies.get('authToken');
+    return $http({
+      url: SERVER.URL + 'friend/destroy/' + user,
+      method: 'DELETE',
+      headers:{
+        access_token: auth  
+      }
+    });
+  }
 
   function getFriends () {
     let auth = $cookies.get('authToken');

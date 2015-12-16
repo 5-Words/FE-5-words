@@ -385,7 +385,7 @@ li {
     margin-right: 5%;
      
     .wordMatch {
-      display: inline-block;
+      display: inline-block; 
     }
   }
 }
@@ -475,10 +475,15 @@ li {
   width: 96%;
   margin: 0 auto;
     button {
-    margin: 1% 0 3% 0;
-    width: 15%
+    margin: 3% 0 1% 2%;
+    width: 100px;
+
   }
+    h3 {
+      margin: 1% 2% 2%;
+    }
   .photoWrapper{
+    // height: 300px;
 
     img {
       max-width: 300px;
@@ -540,7 +545,7 @@ li {
      margin: 2% 0 0 4%;
     button {
      
-      width: 15%;
+      width: 100px;
     }
   }
 }
@@ -551,12 +556,60 @@ li {
   border: 5px solid black;
 
 }
+//View List of all friends
+.friendsList {
+  background-color: #FD72FF;
+
+  .friendName {
+    float: left;
+    background-color: #FD72FF;
+    width: 75%;
+    border-bottom: 1px solid #E12C50;
+    .username {
+      float: left;
+      vertical-align: middle;
+      margin-right: 4%;
+      color: white;
+    }
+    h3 { 
+      float: left;
+      color: white;
+      margin-right: 1%;
+      
+    }
+  }
+  .friendDelete {
+  background-color: #FD72FF;
+  border-bottom: 1px solid #E12C50;
+
+
+    float: right;
+    width: 25%;
+      h3 {
+        float: right;
+        margin-right: 5%;
+      }
+  }
+
+}
 //---------------------------------------------------
-//Friends Add Page
+//Friends About / after Match Page Add Page
+
 .friendAddWrapper {
-  background-color: white;
+  background-color: #B12D93;
+
   img {
+    margin: 4% 4% 2%;
     max-width: 400px;
+  }
+  h3 {
+    margin: 2% 4%;
+    color: #F9E3E6;
+  }
+  button {
+    margin: 2% 4%;
+    width: 100px;
+
   }
 }
 
@@ -570,6 +623,19 @@ li {
       border: 5px solid black;
     }
 
+}
+//View Friends Single Image
+.friendSingleImage {
+  img {
+    max-width: 80%;
+    margin: 2%;
+    border-radius: 5px;
+    border: 5px solid black;
+  }
+  button {
+    width: 15%;
+    margin: 1% 2%;
+  }
 }
 //---------------------------------------------------
 //Footer
@@ -1006,7 +1072,31 @@ li {
   display: none;
 }
 //---------------------------------------------------
+//All of a friend images
+.friendsImages {
+    background-color: #B12D93;
 
+  .siteNav{
+    background-color: #B12D93;
+      a {
+          color: white;
+          font-weight: bold;
+          font-family: 'Roboto Mono', Mono;
+          font-size: 1.5em;
+          
+        }
+  }
+  .profileSide{
+    background-color: #F9E3E6;
+      a {
+      color: #E12C50;
+    }
+  }
+  
+}
+.hide {
+  display: none;
+}
 
 //@media responsive design
 @media (max-width: 800px) {
@@ -1069,13 +1159,113 @@ li {
   }
 
 }
+
+@media (max-width: 750px) {
+  //First five words page
+ .goldenFormWrapper {
+    background-image: url('../img/fivesmall.png');
+
+    width: 86%;
+    margin-top: 2% auto;
+    .goldenFormIntro {
+      h3 {
+        font-size: 1em;  
+      }
+    }
+    form {
+      width: 100%;
+      input {
+        width: 80%;
+        margin: 2% auto;
+      }
+      button {
+        width: 40%;
+        margin: 2% auto;
+      }
+    }
+    h3 {
+        font-size: 1em;
+        margin-bottom: 2%;   
+      }
+  }
+  
+} 
+
+@media (max-width: 900px) {
+  .profileMainWrap {
+    .profileLeft {
+      height: 850px;
+      
+      button {
+        width: 50%;
+      }
+    }
+
+  }
+
+   //Add Photo and Avatar
+  .photosAdd {
+    input {
+      min-width: 60%;
+    }
+  }
+  //Edit Profile
+  .editProfile {
+    form {
+      input {
+        min-width: 60%;
+      }
+    }
+  }
+}
+@media (max-width: 700px) {
+  //User Profile Page
+  .profileMainWrap {
+    .profileLeft {
+      display: block;
+      width: 90%;
+      margin: 0 auto;
+      margin-bottom: 0;
+      height: 750px;
+       button {
+        width: 30%;
+      }
+
+    }
+    .profileRight {
+      margin-top: 0;
+      display: block;
+      width: 100%;
+     
+
+
+    }
+  }
+}
+  @media (max-width: 450px) {
+  //User Profile Page
+  .profileMainWrap {
+    .profileLeft {
+      
+      height: 600px;
+      button {
+        width: 35%;
+      }
+    }
+   
+  }
+
+
+
+
   //DASHBOARD PAGE
+}
 @media (max-width: 550px) {
 
    .goldenWrapper, .travelWrapper, .techWrapper, .sportsWrapper, .foodieWrapper, .booksWrapper, .musicWrapper, .filmWrapper, .petsWrapper, .carsWrapper  {
     
   }
-
+  
   //GOLDEN WORDS
   .goldPlate.wordListWrapper {
   background-image: url("../img/scroll.gif");

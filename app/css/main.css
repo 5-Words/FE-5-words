@@ -2373,8 +2373,10 @@ li {
   width: 96%;
   margin: 0 auto; }
   .photosWrapper button {
-    margin: 1% 0 3% 0;
-    width: 15%; }
+    margin: 3% 0 1% 2%;
+    width: 100px; }
+  .photosWrapper h3 {
+    margin: 1% 2% 2%; }
   .photosWrapper .photoWrapper img {
     max-width: 300px;
     margin: 2%;
@@ -2424,7 +2426,7 @@ li {
 .singleImageWrapper .singleImageBtn {
   margin: 2% 0 0 4%; }
   .singleImageWrapper .singleImageBtn button {
-    width: 15%; }
+    width: 100px; }
 
 .singleImage {
   max-width: 80%;
@@ -2432,10 +2434,42 @@ li {
   border-radius: 5px;
   border: 5px solid black; }
 
+.friendsList {
+  background-color: #FD72FF; }
+  .friendsList .friendName {
+    float: left;
+    background-color: #FD72FF;
+    width: 75%;
+    border-bottom: 1px solid #E12C50; }
+    .friendsList .friendName .username {
+      float: left;
+      vertical-align: middle;
+      margin-right: 4%;
+      color: white; }
+    .friendsList .friendName h3 {
+      float: left;
+      color: white;
+      margin-right: 1%; }
+  .friendsList .friendDelete {
+    background-color: #FD72FF;
+    border-bottom: 1px solid #E12C50;
+    float: right;
+    width: 25%; }
+    .friendsList .friendDelete h3 {
+      float: right;
+      margin-right: 5%; }
+
 .friendAddWrapper {
-  background-color: white; }
+  background-color: #B12D93; }
   .friendAddWrapper img {
+    margin: 4% 4% 2%;
     max-width: 400px; }
+  .friendAddWrapper h3 {
+    margin: 2% 4%;
+    color: #F9E3E6; }
+  .friendAddWrapper button {
+    margin: 2% 4%;
+    width: 100px; }
 
 .friendsImages img {
   max-width: 300px;
@@ -2443,6 +2477,16 @@ li {
   float: left;
   border-radius: 5px;
   border: 5px solid black; }
+
+.friendSingleImage img {
+  max-width: 80%;
+  margin: 2%;
+  border-radius: 5px;
+  border: 5px solid black; }
+
+.friendSingleImage button {
+  width: 15%;
+  margin: 1% 2%; }
 
 .footer {
   padding: 1.5%;
@@ -2780,6 +2824,23 @@ li {
 .hide {
   display: none; }
 
+.friendsImages {
+  background-color: #B12D93; }
+  .friendsImages .siteNav {
+    background-color: #B12D93; }
+    .friendsImages .siteNav a {
+      color: white;
+      font-weight: bold;
+      font-family: 'Roboto Mono', Mono;
+      font-size: 1.5em; }
+  .friendsImages .profileSide {
+    background-color: #F9E3E6; }
+    .friendsImages .profileSide a {
+      color: #E12C50; }
+
+.hide {
+  display: none; }
+
 @media (max-width: 800px) {
   .chalkBoard {
     width: 90%; }
@@ -2813,6 +2874,55 @@ li {
     .homeWrapper .homeBanner h3 {
       color: #4EABF8;
       text-shadow: 1px 1px black; } }
+
+@media (max-width: 750px) {
+  .goldenFormWrapper {
+    background-image: url("../img/fivesmall.png");
+    width: 86%;
+    margin-top: 2% auto; }
+    .goldenFormWrapper .goldenFormIntro h3 {
+      font-size: 1em; }
+    .goldenFormWrapper form {
+      width: 100%; }
+      .goldenFormWrapper form input {
+        width: 80%;
+        margin: 2% auto; }
+      .goldenFormWrapper form button {
+        width: 40%;
+        margin: 2% auto; }
+    .goldenFormWrapper h3 {
+      font-size: 1em;
+      margin-bottom: 2%; } }
+
+@media (max-width: 900px) {
+  .profileMainWrap .profileLeft {
+    height: 850px; }
+    .profileMainWrap .profileLeft button {
+      width: 50%; }
+  .photosAdd input {
+    min-width: 60%; }
+  .editProfile form input {
+    min-width: 60%; } }
+
+@media (max-width: 700px) {
+  .profileMainWrap .profileLeft {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 0;
+    height: 750px; }
+    .profileMainWrap .profileLeft button {
+      width: 30%; }
+  .profileMainWrap .profileRight {
+    margin-top: 0;
+    display: block;
+    width: 100%; } }
+
+@media (max-width: 450px) {
+  .profileMainWrap .profileLeft {
+    height: 600px; }
+    .profileMainWrap .profileLeft button {
+      width: 35%; } }
 
 @media (max-width: 550px) {
   .goldPlate.wordListWrapper {

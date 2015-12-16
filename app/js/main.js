@@ -565,17 +565,26 @@ exports['default'] = FriendsAdd;
 module.exports = exports['default'];
 
 },{}],8:[function(require,module,exports){
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
 var FriendsController = function FriendsController($state, $cookies, ProfileService) {
   var vm = this;
 
+  this.deleteFriend = deleteFriend;
+
   checkAuth();
   changeStyle();
   getFriends();
+
+  function deleteFriend(user) {
+    ProfileService.deleteFriend(user).then(function (res) {
+      $state.go('root.friends');
+      location.reload();
+    });
+  }
 
   //Get a list of all of your friends
   function getFriends() {
@@ -604,8 +613,8 @@ var FriendsController = function FriendsController($state, $cookies, ProfileServ
 
 FriendsController.$inject = ['$state', '$cookies', 'ProfileService'];
 
-exports["default"] = FriendsController;
-module.exports = exports["default"];
+exports['default'] = FriendsController;
+module.exports = exports['default'];
 
 },{}],9:[function(require,module,exports){
 'use strict';
@@ -613,12 +622,32 @@ module.exports = exports["default"];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var FriendsPicController = function FriendsPicController(ProfileService, $stateParams) {
+var FriendsPicController = function FriendsPicController(ProfileService, $stateParams, $cookies) {
   var vm = this;
 
   var user = $stateParams.id;
 
+  ProfileService.tempUser = user;
+
+  checkAuth();
+  changeStyle();
   getFriendsPics(user);
+
+  //Check Auth
+  //Checks to see if the user is logged in or not based on cookies that are saved when they login or register. If they do not have the authToken in the cookies they are sent back to the login page
+  function checkAuth() {
+    var auth = $cookies.get('authToken');
+    if (auth) {} else {
+      $state.go('home');
+    }
+  }
+
+  //Change Style
+  function changeStyle() {
+    var anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", "friends");
+  }
 
   function getFriendsPics(user) {
 
@@ -629,7 +658,7 @@ var FriendsPicController = function FriendsPicController(ProfileService, $stateP
   }
 };
 
-FriendsPicController.$inject = ['ProfileService', '$stateParams'];
+FriendsPicController.$inject = ['ProfileService', '$stateParams', '$cookies'];
 
 exports['default'] = FriendsPicController;
 module.exports = exports['default'];
@@ -789,6 +818,7 @@ var ProfileEditController = function ProfileEditController(ProfileService, $cook
   this.editBio = editBio;
 
   checkAuth();
+  changeStyle();
   getBio();
 
   //Check Auth
@@ -798,6 +828,13 @@ var ProfileEditController = function ProfileEditController(ProfileService, $cook
     if (auth) {} else {
       $state.go('home');
     }
+  }
+
+  //Change Style
+  function changeStyle() {
+    var anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", "profile");
   }
 
   //Get the Words
@@ -847,20 +884,58 @@ exports["default"] = ProfileSideController;
 module.exports = exports["default"];
 
 },{}],15:[function(require,module,exports){
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var SingleFriendImgController = function SingleFriendImgController() {
+var SingleFriendImgController = function SingleFriendImgController(ProfileService, $stateParams, $state, $cookies) {
 
   var vm = this;
+
+  this.goBack = goBack;
+
+  var id = $stateParams.id;
+
+  var user = ProfileService.tempUser;
+  vm.username = user;
+
+  checkAuth();
+  changeStyle();
+  getSingleImage(id);
+
+  //Check Auth
+  //Checks to see if the user is logged in or not based on cookies that are saved when they login or register. If they do not have the authToken in the cookies they are sent back to the login page
+  function checkAuth() {
+    var auth = $cookies.get('authToken');
+    if (auth) {} else {
+      $state.go('home');
+    }
+  }
+
+  //Change Style
+  function changeStyle() {
+    var anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", "friends");
+  }
+
+  function getSingleImage(id) {
+    console.log(id);
+    ProfileService.getSingleImage(id).then(function (res) {
+      console.log(res);
+      vm.single = res.data[0];
+    });
+  }
+  function goBack(id) {
+    $state.go('root.friendsPic', { id: id });
+  }
 };
 
-SingleFriendImgController.$inject = [];
+SingleFriendImgController.$inject = ['ProfileService', '$stateParams', '$state', '$cookies'];
 
-exports["default"] = SingleFriendImgController;
-module.exports = exports["default"];
+exports['default'] = SingleFriendImgController;
+module.exports = exports['default'];
 
 },{}],16:[function(require,module,exports){
 'use strict';
@@ -868,7 +943,7 @@ module.exports = exports["default"];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var SingleImageController = function SingleImageController($stateParams, ProfileService, $state) {
+var SingleImageController = function SingleImageController($stateParams, ProfileService, $state, $cookies) {
 
   var vm = this;
 
@@ -877,7 +952,25 @@ var SingleImageController = function SingleImageController($stateParams, Profile
 
   var id = $stateParams.id;
 
+  checkAuth();
+  changeStyle();
   getImage(id);
+
+  //Check Auth
+  //Checks to see if the user is logged in or not based on cookies that are saved when they login or register. If they do not have the authToken in the cookies they are sent back to the login page
+  function checkAuth() {
+    var auth = $cookies.get('authToken');
+    if (auth) {} else {
+      $state.go('home');
+    }
+  }
+
+  //Change Style
+  function changeStyle() {
+    var anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", "photos");
+  }
 
   //Get Image
   function getImage(id) {
@@ -900,7 +993,7 @@ var SingleImageController = function SingleImageController($stateParams, Profile
   }
 };
 
-SingleImageController.$inject = ['$stateParams', 'ProfileService', '$state'];
+SingleImageController.$inject = ['$stateParams', 'ProfileService', '$state', '$cookies'];
 
 exports['default'] = SingleImageController;
 module.exports = exports['default'];
@@ -1101,9 +1194,36 @@ var ProfileService = function ProfileService($http, SERVER, $cookies, $state) {
   this.addFriends = addFriends;
   this.getFriends = getFriends;
   this.getFriendsPics = getFriendsPics;
+  this.deleteFriend = deleteFriend;
+  this.getSingleImage = getSingleImage;
 
   var tempBio = undefined;
   this.tempBio = [];
+
+  var tempUser = undefined;
+  this.tempUser;
+
+  function getSingleImage(id) {
+    var auth = $cookies.get('authToken');
+    return $http({
+      url: SERVER.URL + 'friend/image/' + id,
+      method: 'GET',
+      headers: {
+        access_token: auth
+      }
+    });
+  }
+
+  function deleteFriend(user) {
+    var auth = $cookies.get('authToken');
+    return $http({
+      url: SERVER.URL + 'friend/destroy/' + user,
+      method: 'DELETE',
+      headers: {
+        access_token: auth
+      }
+    });
+  }
 
   function getFriends() {
     var auth = $cookies.get('authToken');

@@ -5,6 +5,7 @@ let ProfileEditController = function(ProfileService, $cookies, $state) {
   this.editBio = editBio;
 
   checkAuth();
+  changeStyle();
   getBio();
 
 
@@ -16,6 +17,14 @@ let ProfileEditController = function(ProfileService, $cookies, $state) {
      } else {
       $state.go('home');
      }
+  }
+
+
+  //Change Style
+  function changeStyle () {
+    let anchor = document.querySelector('#anchor');
+    anchor.className = "";
+    anchor.setAttribute("class", "profile");
   }
 
   //Get the Words

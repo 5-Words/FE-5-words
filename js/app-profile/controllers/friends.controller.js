@@ -1,9 +1,18 @@
 let FriendsController = function($state, $cookies, ProfileService) {
   let vm = this;
+
+  this.deleteFriend = deleteFriend;
   
   checkAuth();
   changeStyle();
   getFriends();
+
+  function deleteFriend (user) {
+    ProfileService.deleteFriend(user).then( (res) => {
+      $state.go('root.friends');
+      location.reload();
+    })
+  }
 
   //Get a list of all of your friends
   function getFriends () {
